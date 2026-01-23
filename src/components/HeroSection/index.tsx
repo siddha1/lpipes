@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { PipesBackground } from "./PipesBackground";
 import { TriptychText } from "./TriptychText";
 
@@ -15,19 +14,17 @@ export function HeroSection() {
     <section className="relative w-full h-screen overflow-hidden bg-obsidian">
       <PipesBackground />
 
-      {/* Gradient Overlay - lightened top to 0.3 */}
-      <motion.div
+      {/* Minimal gradient - just enough for text readability */}
+      <div
         className="absolute inset-0 z-10"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.2 }}
         style={{
           background: `linear-gradient(
             180deg,
-            rgba(5, 7, 10, 0.15) 0%,
-            rgba(5, 7, 10, 0.05) 30%,
-            rgba(5, 7, 10, 0.2) 70%,
-            rgba(5, 7, 10, 0.7) 100%
+            rgba(5, 7, 10, 0.4) 0%,
+            rgba(5, 7, 10, 0.1) 25%,
+            rgba(5, 7, 10, 0.0) 50%,
+            rgba(5, 7, 10, 0.3) 85%,
+            rgba(5, 7, 10, 0.8) 100%
           )`,
         }}
       />
