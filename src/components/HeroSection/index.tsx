@@ -24,10 +24,10 @@ export function HeroSection() {
         style={{
           background: `linear-gradient(
             180deg,
-            rgba(5, 7, 10, 0.3) 0%,
-            rgba(5, 7, 10, 0.1) 40%,
-            rgba(5, 7, 10, 0.6) 80%,
-            rgba(5, 7, 10, 0.95) 100%
+            rgba(5, 7, 10, 0.15) 0%,
+            rgba(5, 7, 10, 0.05) 30%,
+            rgba(5, 7, 10, 0.2) 70%,
+            rgba(5, 7, 10, 0.7) 100%
           )`,
         }}
       />

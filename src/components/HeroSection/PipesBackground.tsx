@@ -15,7 +15,7 @@ export function PipesBackground() {
       style={{ y }}
     >
       <div
-        className="hero-background w-full h-full bg-cover bg-center"
+        className="hero-background w-full h-full bg-cover bg-bottom"
         style={{
           backgroundImage: "url('/pipes.png')",
           filter: "saturate(0.85) brightness(0.9)",
