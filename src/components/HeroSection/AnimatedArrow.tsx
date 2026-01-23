@@ -20,7 +20,7 @@ export function AnimatedArrow({ delay }: AnimatedArrowProps) {
     >
       <motion.path
         d="M7 7 L7 17 L17 17"
-        stroke="#00E6CC"
+        stroke="#FFFFFF"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -34,7 +34,7 @@ export function AnimatedArrow({ delay }: AnimatedArrowProps) {
       />
       <motion.path
         d="M12 17 L17 17 L17 12"
-        stroke="#00E6CC"
+        stroke="#FFFFFF"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"

@@ -15,7 +15,7 @@ export function HeroSection() {
     <section className="relative w-full h-screen overflow-hidden bg-obsidian">
       <PipesBackground />
 
-      {/* Gradient Overlay */}
+      {/* Gradient Overlay - lightened top to 0.3 */}
       <motion.div
         className="absolute inset-0 z-10"
         initial={{ opacity: 0 }}
@@ -24,7 +24,7 @@ export function HeroSection() {
         style={{
           background: `linear-gradient(
             180deg,
-            rgba(5, 7, 10, 0.4) 0%,
+            rgba(5, 7, 10, 0.3) 0%,
             rgba(5, 7, 10, 0.1) 40%,
             rgba(5, 7, 10, 0.6) 80%,
             rgba(5, 7, 10, 0.95) 100%

@@ -18,7 +18,6 @@ export function PipesBackground() {
         className="hero-background w-full h-full bg-cover bg-center"
         style={{
           backgroundImage: "url('/pipes.png')",
-          animation: "kenburns 35s ease-in-out infinite alternate",
           filter: "saturate(0.85) brightness(0.9)",
         }}
       />

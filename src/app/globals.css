@@ -29,6 +29,7 @@ body {
 }
 
 .hero-background {
+  animation: kenburns 35s ease-in-out infinite alternate;
   will-change: transform;
   backface-visibility: hidden;
 }
