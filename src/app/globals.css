@@ -21,10 +21,10 @@ body {
 
 @keyframes kenburns {
   0% {
-    transform: scale(1) translate3d(0, 0, 0);
+    transform: scale(1);
   }
   100% {
-    transform: scale(1.08) translate3d(-1.5%, -1%, 0);
+    transform: scale(1.08);
   }
 }
 
