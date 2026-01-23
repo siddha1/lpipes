@@ -19,7 +19,7 @@ export function PipesBackground() {
         style={{
           backgroundImage: "url('/pipes.png')",
           backgroundSize: "cover",
-          backgroundPosition: "center 70%",
+          backgroundPosition: "center 50%",
         }}
       />
     </motion.div>
