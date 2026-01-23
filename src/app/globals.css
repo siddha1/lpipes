@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --obsidian-void: #05070A;
+  --charcoal-steel: #1C1F26;
+  --platinum-serif: #E2E2E2;
+  --cloud-white: #FFFFFF;
+  --muted-gray: #6B7280;
+  --signal-mint: #00E6CC;
+  --mint-blue: #429E9D;
+  --deep-azure: #0047FF;
+}
+
+body {
+  color: var(--platinum-serif);
+  background: var(--obsidian-void);
+  font-family: var(--font-spectral), Georgia, serif;
+}
+
+@keyframes kenburns {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: scale(1.08) translate3d(-1.5%, -1%, 0);
+  }
+}
+
+.hero-background {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-background {
+    animation: none !important;
+  }
+}
