@@ -69,34 +69,19 @@ body {
   100% { transform: scale(1.12); }
 }
 
-/* Gradient overlays for text readability - kept light to show pipes */
-.hero-overlay-bottom {
+/* Gradient overlay: dark left for text, fades right to show pipes */
+.hero-overlay {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 50%;
+  inset: 0;
+  z-index: 2;
   background: linear-gradient(
-    0deg,
-    rgba(5, 5, 10, 0.6) 0%,
-    rgba(5, 5, 10, 0.3) 40%,
+    90deg,
+    rgba(5, 5, 10, 0.85) 0%,
+    rgba(5, 5, 10, 0.7) 25%,
+    rgba(5, 5, 10, 0.4) 50%,
+    rgba(5, 5, 10, 0.15) 75%,
     rgba(5, 5, 10, 0.0) 100%
   );
-  z-index: 2;
-}
-
-.hero-overlay-top {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 15%;
-  background: linear-gradient(
-    180deg,
-    rgba(5, 5, 10, 0.25) 0%,
-    rgba(5, 5, 10, 0.0) 100%
-  );
-  z-index: 2;
 }
 
 /* Nav */
@@ -113,8 +98,8 @@ body {
 }
 
 .nav-logo {
-  font-weight: 700;
-  font-size: 18px;
+  font-weight: 600;
+  font-size: 14px;
   letter-spacing: 0.2em;
   color: var(--white);
   text-transform: uppercase;
@@ -143,24 +128,23 @@ body {
 
 .nav-links a:hover { color: var(--white); }
 
-/* Hero text: clean, minimal */
+/* Hero text: left-aligned, Silversmith-style sizing */
 .hero-text {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  top: 50%;
+  left: 8%;
+  transform: translateY(-50%);
   z-index: 10;
-  padding: 0 8% 100px;
+  max-width: 60%;
 }
 
 .hero-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(52px, 8vw, 120px);
+  font-size: clamp(48px, 7vw, 100px);
   font-weight: 400;
   color: var(--white);
   letter-spacing: -0.02em;
-  line-height: 1.0;
-  max-width: 900px;
+  line-height: 1.05;
 }
 
 .hero-title .line {
@@ -176,21 +160,7 @@ body {
 .hero-title .arrow {
   font-family: 'Inter', sans-serif;
   font-weight: 300;
-  margin-right: 0.15em;
-}
-
-.hero-sub {
-  margin-top: 32px;
-  opacity: 0;
-  animation: fadeUp 0.8s 1.0s forwards;
-}
-
-.hero-sub span {
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(14px, 1.3vw, 20px);
-  font-weight: 400;
-  letter-spacing: 0.02em;
-  color: rgba(255,255,255,0.7);
+  margin-right: 0.12em;
 }
 
 @keyframes wordReveal {
@@ -703,8 +673,7 @@ body {
   <div class="hero-image">
     <img src="pipes.png" alt="Liquidity Pipes" />
   </div>
-  <div class="hero-overlay-top"></div>
-  <div class="hero-overlay-bottom"></div>
+  <div class="hero-overlay"></div>
 
   <nav class="nav">
     <div class="nav-logo">MINT<em>.</em></div>
@@ -722,9 +691,6 @@ body {
       <span class="line">Deploy Capital</span>
       <span class="line"><span class="arrow">↳</span>Machine Speed</span>
     </h1>
-    <div class="hero-sub">
-      <span>Transform stuck debt into fast moving money</span>
-    </div>
   </div>
 </section>
 
