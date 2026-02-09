@@ -7,39 +7,28 @@
 <meta name="description" content="Deploy Capital at Machine Speed. Liquidity Pipes for Global Finance. Autonomous Infrastructure.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
   --mint: #0D7377;
-  --mint-light: #0F8B8F;
   --navy: #1A1A2E;
-  --obsidian: #08080A;
+  --warm-gray: #F5F5F3;
   --white: #FFFFFF;
-  --g50: #F8F9FA;
-  --g100: #F0F1F3;
-  --g200: #E2E4E8;
-  --g300: #C8CCD2;
-  --g400: #9CA3AF;
-  --g500: #6B7280;
-  --g600: #4B5563;
-  --g700: #374151;
-  --g800: #1F2937;
-  --g900: #111827;
+  --black: #000000;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
   font-family: 'Inter', system-ui, sans-serif;
-  color: var(--g900);
+  color: var(--black);
   background: var(--white);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  -moz-osx-font-smoothing: grayscale;
 }
-::selection { background: var(--mint); color: var(--white); }
 
 /* ════════════════════════════════════
-   HERO: FULL BLEED PIPES
+   HERO
    ════════════════════════════════════ */
 .hero {
   position: relative;
@@ -65,7 +54,6 @@ body {
   filter: saturate(0.72) contrast(0.92) brightness(1.02);
 }
 
-/* Film grain overlay */
 .hero-image::after {
   content: '';
   position: absolute;
@@ -81,7 +69,6 @@ body {
   100% { transform: scale(1.08); }
 }
 
-/* Gradient overlay: subtle band behind text */
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -107,7 +94,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 32px 8%;
+  padding: 32px 48px;
 }
 
 .nav-logo {
@@ -118,25 +105,24 @@ body {
   text-transform: uppercase;
 }
 
-.nav-links {
-  display: flex;
-  gap: 36px;
-  list-style: none;
-}
-
-.nav-links a {
-  font-size: 11px;
+.nav-cta {
+  font-size: 10px;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.6);
+  color: var(--white);
   text-decoration: none;
-  transition: color 0.3s;
+  padding: 12px 32px;
+  border: 1px solid rgba(255,255,255,0.4);
+  transition: all 0.3s;
 }
 
-.nav-links a:hover { color: var(--white); }
+.nav-cta:hover {
+  background: var(--mint);
+  border-color: var(--mint);
+}
 
-/* Hero text: precision grid layout */
+/* Hero text */
 .hero-text {
   position: absolute;
   top: 28%;
@@ -186,512 +172,324 @@ body {
   text-align: center;
 }
 
+.hero-sub {
+  position: absolute;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 10;
+}
+
+.hero-sub span {
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  color: rgba(255,255,255,0.5);
+}
+
 @keyframes wordReveal {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 /* ════════════════════════════════════
-   METRICS STRIP
+   SECTIONS - SWISS PRECISION
    ════════════════════════════════════ */
-.metrics {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  background: var(--obsidian);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+.section {
+  padding: 120px 48px;
 }
 
-.m-card {
-  padding: 52px 32px;
-  text-align: center;
-  border-right: 1px solid rgba(255,255,255,0.06);
+.section-white { background: var(--white); }
+.section-warm { background: var(--warm-gray); }
+.section-dark { background: var(--navy); color: var(--white); }
+
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.m-card:last-child { border-right: none; }
-
-.m-val {
-  font-size: 42px;
-  font-weight: 700;
-  color: var(--white);
-  letter-spacing: -0.03em;
-  line-height: 1;
-}
-
-.m-val em { font-style: normal; color: var(--mint); }
-
-.m-desc {
-  font-size: 11px;
+.section-label {
+  font-size: 10px;
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--g500);
-  margin-top: 10px;
+  color: #999999;
+  margin-bottom: 32px;
 }
 
-/* ════════════════════════════════════
-   SECTIONS
-   ════════════════════════════════════ */
-.sec { padding: 120px 8%; }
-.sec-dark { background: var(--obsidian); color: var(--white); }
-.sec-light { background: var(--white); }
-.sec-gray { background: var(--g50); }
+.section-dark .section-label {
+  color: rgba(255,255,255,0.3);
+}
 
-.sec-label {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--mint);
+.big-num {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(80px, 14vw, 160px);
+  font-weight: 300;
+  line-height: 0.9;
+  letter-spacing: -3px;
   margin-bottom: 24px;
 }
 
-.sec-title {
+.big-num-black { color: var(--black); }
+.big-num-mint { color: var(--mint); }
+
+.section-context {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(32px, 4vw, 56px);
+  font-size: clamp(20px, 2.5vw, 32px);
   font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  margin-bottom: 20px;
+  line-height: 1.4;
+  max-width: 700px;
+  margin-bottom: 80px;
 }
 
-.sec-sub {
-  font-size: clamp(14px, 1.1vw, 17px);
-  color: var(--g500);
-  line-height: 1.7;
-  max-width: 600px;
+.section-dark .section-context {
+  color: rgba(255,255,255,0.7);
 }
 
-/* ════════════════════════════════════
-   THESIS
-   ════════════════════════════════════ */
-.thesis-grid {
+/* Data Cards - 1px grid */
+.data-cards {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: #E5E5E5;
+  margin-bottom: 32px;
 }
 
-.thesis-stats { display: flex; flex-direction: column; gap: 0; padding-top: 16px; }
-
-.t-stat {
-  padding: 28px 0;
-  border-bottom: 1px solid var(--g200);
-}
-
-.t-stat:first-child { border-top: 1px solid var(--g200); }
-
-.t-num {
-  font-size: 44px;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1;
-  margin-bottom: 6px;
-}
-
-.t-num em { font-style: normal; color: var(--mint); }
-
-.t-label {
-  font-size: 13px;
-  color: var(--g500);
-  letter-spacing: 0.01em;
-}
-
-/* ════════════════════════════════════
-   FLOW
-   ════════════════════════════════════ */
-.flow {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 2px;
-  margin-top: 64px;
-  background: var(--g200);
-}
-
-.f-step {
+.data-card {
   background: var(--white);
-  padding: 36px 24px;
-  position: relative;
+  padding: 48px;
 }
 
-.f-num {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--mint);
-  margin-bottom: 14px;
-}
-
-.f-step h4 {
-  font-size: 17px;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.f-step p {
-  font-size: 12.5px;
-  color: var(--g500);
-  line-height: 1.6;
-}
-
-/* ════════════════════════════════════
-   PRODUCTS
-   ════════════════════════════════════ */
-.prod-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  margin-top: 64px;
-}
-
-.prod-card {
-  border: 1px solid rgba(255,255,255,0.07);
-  padding: 48px 32px;
-  transition: border-color 0.4s;
-}
-
-.prod-card:hover { border-color: var(--mint); }
-
-.prod-label {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--mint);
-  margin-bottom: 18px;
-}
-
-.prod-card h3 {
+.data-card-value {
   font-family: 'Playfair Display', serif;
-  font-size: 26px;
+  font-size: clamp(36px, 4vw, 56px);
   font-weight: 400;
-  color: var(--white);
-  margin-bottom: 14px;
+  color: var(--black);
+  line-height: 1;
+  margin-bottom: 16px;
 }
 
-.prod-card p {
-  font-size: 13.5px;
-  color: var(--g400);
-  line-height: 1.7;
+.data-card-text {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #666666;
+}
+
+/* Dark variant */
+.data-cards-dark {
+  background: rgba(255,255,255,0.08);
+}
+
+.data-card-dark {
+  background: var(--navy);
+}
+
+.data-card-dark .data-card-value {
+  color: var(--mint);
+}
+
+.data-card-dark .data-card-text {
+  color: rgba(255,255,255,0.5);
+}
+
+.source {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  color: #BBBBBB;
+}
+
+.section-dark .source {
+  color: rgba(255,255,255,0.2);
+}
+
+/* Bridge Visual */
+.bridge {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.bridge-col {
+  padding: 32px 0;
+}
+
+.bridge-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #999999;
   margin-bottom: 24px;
 }
 
-.prod-stats {
+.bridge-items {
   display: flex;
-  gap: 24px;
-  padding-top: 18px;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  flex-direction: column;
+  gap: 12px;
 }
 
-.ps-val {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--white);
-}
-
-.ps-lbl {
-  font-size: 10px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--g500);
-  margin-top: 4px;
-}
-
-/* ════════════════════════════════════
-   AGENTS
-   ════════════════════════════════════ */
-.tech-split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  margin-top: 64px;
-}
-
-.agent-stack { display: flex; flex-direction: column; gap: 2px; }
-
-.a-row {
-  display: grid;
-  grid-template-columns: 110px 1fr;
-  background: var(--g50);
-  border: 1px solid var(--g200);
-  transition: border-color 0.3s;
-}
-
-.a-row:hover { border-color: var(--mint); }
-
-.a-name {
-  padding: 18px 14px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--mint);
-  border-right: 1px solid var(--g200);
-  display: flex;
-  align-items: center;
-}
-
-.a-desc {
-  padding: 18px 18px;
-  font-size: 12.5px;
-  color: var(--g600);
-  line-height: 1.5;
-}
-
-.tech-right h3 {
+.bridge-item {
   font-family: 'Playfair Display', serif;
-  font-size: 26px;
+  font-size: clamp(16px, 1.8vw, 22px);
   font-weight: 400;
-  margin-bottom: 18px;
+  color: var(--black);
 }
 
-.tech-right p {
-  font-size: 13.5px;
-  color: var(--g500);
-  line-height: 1.8;
-  margin-bottom: 28px;
-}
-
-.cmp-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.cmp-table th {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--g400);
-  text-align: left;
-  padding: 10px 14px;
-  border-bottom: 2px solid var(--g200);
-}
-
-.cmp-table td {
-  font-size: 13px;
-  padding: 12px 14px;
-  border-bottom: 1px solid var(--g100);
-  color: var(--g700);
-}
-
-.cmp-table tr:nth-child(even) td { background: var(--g50); }
-
-.cmp-table .hl { color: var(--mint); font-weight: 600; }
-
-/* ════════════════════════════════════
-   WHY NOW
-   ════════════════════════════════════ */
-.why-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 64px;
-}
-
-.why-card {
-  background: var(--g50);
-  border: 1px solid var(--g200);
-  padding: 36px 28px;
-}
-
-.why-icon {
-  width: 36px;
-  height: 36px;
-  background: var(--obsidian);
+.bridge-center {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--mint);
+  padding: 0 64px;
 }
 
-.why-card h4 {
-  font-size: 17px;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.why-card p {
-  font-size: 12.5px;
-  color: var(--g500);
-  line-height: 1.7;
-}
-
-/* ════════════════════════════════════
-   ALLOCATORS
-   ════════════════════════════════════ */
-.alloc-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2px;
-  margin-top: 64px;
-}
-
-.alloc-card {
-  padding: 36px 24px;
-  border: 1px solid rgba(255,255,255,0.06);
-  transition: border-color 0.3s;
-}
-
-.alloc-card:hover { border-color: var(--mint); }
-
-.alloc-card h4 {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--white);
-  margin-bottom: 8px;
-}
-
-.alloc-card p {
-  font-size: 12px;
-  color: var(--g400);
-  line-height: 1.6;
-}
-
-.alloc-yield {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--mint);
-  margin-top: 14px;
-}
-
-/* ════════════════════════════════════
-   CTA
-   ════════════════════════════════════ */
-.cta {
-  text-align: center;
-  padding: 140px 8%;
+.bridge-arrow {
+  width: 100px;
+  height: 1px;
+  background: #E5E5E5;
   position: relative;
-  overflow: hidden;
 }
 
-.cta-bg {
+.bridge-arrow::after {
+  content: '';
   position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(13, 115, 119, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(13, 115, 119, 0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
+  right: 0;
+  top: -4px;
+  width: 8px;
+  height: 8px;
+  border-right: 1px solid var(--mint);
+  border-top: 1px solid var(--mint);
+  transform: rotate(45deg);
 }
 
-.cta h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(32px, 4.5vw, 60px);
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  margin-bottom: 20px;
-  position: relative;
+.bridge-mint {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: var(--mint);
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
 }
 
-.cta p {
-  font-size: 15px;
-  color: var(--g500);
-  margin-bottom: 44px;
-  position: relative;
+/* Position Line */
+.position-line {
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 48px;
+  max-width: 600px;
+}
+
+/* CTA */
+.cta-row {
+  text-align: center;
+  padding-top: 80px;
 }
 
 .cta-btn {
   display: inline-block;
-  padding: 16px 52px;
-  background: var(--obsidian);
-  color: var(--white);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 3px;
   text-transform: uppercase;
   text-decoration: none;
-  transition: background 0.3s;
-  position: relative;
+  padding: 16px 48px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: var(--white);
+  transition: all 0.3s;
 }
 
-.cta-btn:hover { background: var(--mint); }
+.cta-btn:hover {
+  background: var(--mint);
+  border-color: var(--mint);
+}
 
-/* ════════════════════════════════════
-   FOOTER
-   ════════════════════════════════════ */
-.footer {
-  background: var(--obsidian);
-  padding: 44px 8%;
+/* Footer */
+footer {
+  background: #111111;
+  padding: 32px 48px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  justify-content: space-between;
 }
 
-.footer-l {
-  font-size: 12px;
-  color: var(--g500);
-}
-
-.footer-l strong {
-  color: var(--white);
+.f-logo {
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: rgba(255,255,255,0.4);
 }
 
-.footer-r { display: flex; gap: 28px; }
-
-.footer-r a {
+.f-copy {
   font-size: 11px;
-  color: var(--g500);
-  text-decoration: none;
-  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.25);
+}
+
+.f-links {
+  display: flex;
+  gap: 32px;
+}
+
+.f-links a {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
   text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  text-decoration: none;
   transition: color 0.3s;
 }
 
-.footer-r a:hover { color: var(--white); }
+.f-links a:hover { color: var(--mint); }
 
-/* ════════════════════════════════════
-   SCROLL ANIMATIONS
-   ════════════════════════════════════ */
-.aos {
+/* Animations */
+.ao {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
-.aos.vis { opacity: 1; transform: translateY(0); }
+.ao.vis { opacity: 1; transform: translateY(0); }
 
-/* ════════════════════════════════════
-   RESPONSIVE
-   ════════════════════════════════════ */
-@media (max-width: 1024px) {
-  .thesis-grid { grid-template-columns: 1fr; gap: 48px; }
-  .metrics { grid-template-columns: repeat(2, 1fr); }
-  .m-card:nth-child(2) { border-right: none; }
-  .flow { grid-template-columns: repeat(3, 1fr); }
-  .prod-grid { grid-template-columns: 1fr; }
-  .tech-split { grid-template-columns: 1fr; }
-  .alloc-grid { grid-template-columns: repeat(2, 1fr); }
+.ao-d1 { transition-delay: 0.1s; }
+.ao-d2 { transition-delay: 0.2s; }
+.ao-d3 { transition-delay: 0.3s; }
+.ao-d4 { transition-delay: 0.4s; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .nav { padding: 24px; }
+  .section { padding: 80px 24px; }
+  .hero-text { padding: 0 24px; }
+  .data-cards { grid-template-columns: 1fr; }
+  .bridge { grid-template-columns: 1fr; gap: 32px; }
+  .bridge-center { padding: 24px 0; justify-content: flex-start; }
+  .bridge-arrow { width: 1px; height: 40px; }
+  .bridge-arrow::after { right: -4px; top: auto; bottom: 0; transform: rotate(135deg); }
+  .bridge-mint { top: auto; left: 24px; transform: none; }
+  footer { flex-direction: column; gap: 16px; text-align: center; }
+  .big-num { font-size: clamp(64px, 18vw, 120px) !important; letter-spacing: -2px; }
 }
 
-@media (max-width: 768px) {
-  .sec { padding: 80px 6%; }
-  .nav { padding: 20px 6%; }
-  .nav-links { display: none; }
-  .hero-text { padding: 0 6% 60px; }
-  .metrics { grid-template-columns: 1fr 1fr; }
-  .flow { grid-template-columns: 1fr; }
-  .why-cards { grid-template-columns: 1fr; }
-  .alloc-grid { grid-template-columns: 1fr; }
-  .footer { flex-direction: column; gap: 20px; text-align: center; }
+@media (max-width: 600px) {
+  .hero-title, .hero-at { font-size: clamp(32px, 9vw, 52px); }
+  .data-card { padding: 32px 24px; }
 }
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════
-     HERO: PIPES + DEPLOY CAPITAL
-     ═══════════════════════════════════ -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-image">
     <img src="pipes.png" alt="Liquidity Pipes" />
@@ -700,13 +498,7 @@ body {
 
   <nav class="nav">
     <div class="nav-logo">MINT</div>
-    <ul class="nav-links">
-      <li><a href="#thesis">Thesis</a></li>
-      <li><a href="#product">Product</a></li>
-      <li><a href="#technology">Technology</a></li>
-      <li><a href="#market">Market</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <a href="#contact" class="nav-cta">Request Access</a>
   </nav>
 
   <div class="hero-text">
@@ -714,235 +506,146 @@ body {
     <span class="hero-at">@</span>
     <h1 class="hero-title">Machine Speed</h1>
   </div>
+
+  <div class="hero-sub">
+    <span>Programmable yield rails: Connect, Price, Tokenize, Fund.</span>
+  </div>
 </section>
 
-<!-- ═══ METRICS ═══ -->
-<div class="metrics">
-  <div class="m-card aos">
-    <div class="m-val">100,000<em>x</em></div>
-    <div class="m-desc">Faster Than Traditional</div>
-  </div>
-  <div class="m-card aos">
-    <div class="m-val"><em>$</em>10B</div>
-    <div class="m-desc">Validated Pipeline</div>
-  </div>
-  <div class="m-card aos">
-    <div class="m-val">36<em>s</em></div>
-    <div class="m-desc">Invoice Processing</div>
-  </div>
-  <div class="m-card aos">
-    <div class="m-val">98.7<em>%</em></div>
-    <div class="m-desc">Collection Rate</div>
-  </div>
-</div>
-
-<!-- ═══ THESIS ═══ -->
-<section class="sec sec-light" id="thesis">
-  <div class="thesis-grid">
-    <div class="aos">
-      <div class="sec-label">Thesis</div>
-      <h2 class="sec-title">Private Credit's Blind Spot</h2>
-      <p class="sec-sub">$3T+ in SMB receivables remain inaccessible to institutional capital. Fortune 500 companies pay their suppliers on 60 to 90 day terms. That float is investment grade debt hiding in plain sight, trapped in ERP systems that institutional buyers cannot reach.</p>
-      <p class="sec-sub" style="margin-top: 18px;">MINT transforms those receivables into programmable financial assets. AI agents extract invoices from any accounting system. Smart contracts tokenize them. Institutional capital flows in under 60 minutes.</p>
+<!-- SECTION 1: 33M SMBs - WHITE -->
+<section class="section section-white" id="supply">
+  <div class="section-inner">
+    <div class="ao">
+      <div class="section-label">U.S. Small Business Landscape</div>
     </div>
-    <div class="thesis-stats">
-      <div class="t-stat aos">
-        <div class="t-num">$3<em>T+</em></div>
-        <div class="t-label">Total addressable market in SMB receivables</div>
+    <div class="ao ao-d1">
+      <div class="big-num big-num-black">33.2M</div>
+    </div>
+    <div class="ao ao-d2">
+      <div class="section-context">Small businesses in America. 99.9% of all U.S. firms. 43.5% of GDP. Nearly half the workforce.</div>
+    </div>
+    <div class="data-cards ao ao-d3">
+      <div class="data-card">
+        <div class="data-card-value">68M</div>
+        <div class="data-card-text">Americans living in counties with zero community bank headquarters.</div>
       </div>
-      <div class="t-stat aos">
-        <div class="t-num">33<em>M</em></div>
-        <div class="t-label">Small businesses with trapped working capital</div>
+      <div class="data-card">
+        <div class="data-card-value">86</div>
+        <div class="data-card-text">Total new banks formed in the U.S. since 2010. Pre-2008 average: 100+ per year.</div>
       </div>
-      <div class="t-stat aos">
-        <div class="t-num">8,000<em>+</em></div>
-        <div class="t-label">Suppliers in validated pipeline</div>
-      </div>
-      <div class="t-stat aos">
-        <div class="t-num">93<em>%</em></div>
-        <div class="t-label">Gross margin at scale</div>
+      <div class="data-card">
+        <div class="data-card-value">1,646</div>
+        <div class="data-card-text">Bank branches closing annually since 2018. 12.3M Americans now in banking deserts.</div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ═══ FLOW ═══ -->
-<section class="sec sec-gray">
-  <div class="aos">
-    <div class="sec-label">How It Works</div>
-    <h2 class="sec-title">Connect, Price, Tokenize, Fund</h2>
-    <p class="sec-sub">Every invoice becomes a programmable asset in under 60 minutes.</p>
-  </div>
-  <div class="flow">
-    <div class="f-step aos">
-      <div class="f-num">01</div>
-      <h4>Connect</h4>
-      <p>OAuth integration with QuickBooks, SAP, NetSuite, and 50+ ERP systems. One click supplier onboarding.</p>
-    </div>
-    <div class="f-step aos">
-      <div class="f-num">02</div>
-      <h4>Extract</h4>
-      <p>AI agents scan ledgers 24/7. Eligible receivables identified, verified against buyer payment history.</p>
-    </div>
-    <div class="f-step aos">
-      <div class="f-num">03</div>
-      <h4>Validate</h4>
-      <p>Autonomous underwriting: credit scoring, fraud detection, concentration analysis. 99.7% accuracy.</p>
-    </div>
-    <div class="f-step aos">
-      <div class="f-num">04</div>
-      <h4>Tokenize</h4>
-      <p>ERC 4626 smart contracts create machine readable assets. Programmable yield rails with full audit trail.</p>
-    </div>
-    <div class="f-step aos">
-      <div class="f-num">05</div>
-      <h4>Fund</h4>
-      <p>Institutional capital matches to tokenized receivables. Settlement in minutes, not months.</p>
+    <div class="ao ao-d4">
+      <div class="source">U.S. Chamber of Commerce Small Business Data Center, FDIC, Federal Reserve Bank of Philadelphia</div>
     </div>
   </div>
 </section>
 
-<!-- ═══ PRODUCTS ═══ -->
-<section class="sec sec-dark" id="product">
-  <div class="aos">
-    <div class="sec-label">Product Architecture</div>
-    <h2 class="sec-title" style="color: var(--white);">Three Products. One Infrastructure.</h2>
-    <p class="sec-sub" style="color: var(--g400);">Every platform. Every invoice. Every SMB.</p>
-  </div>
-  <div class="prod-grid">
-    <div class="prod-card aos">
-      <div class="prod-label">For Wall Street</div>
-      <h3>The Tape</h3>
-      <p>Institutional buyers access a real time feed of tokenized receivables. AI agents match capital to assets based on yield targets, risk parameters, and portfolio composition.</p>
-      <div class="prod-stats">
-        <div><div class="ps-val">8–15%</div><div class="ps-lbl">Net Yield</div></div>
-        <div><div class="ps-val">30–60d</div><div class="ps-lbl">Duration</div></div>
+<!-- SECTION 2: $22T Invoices - WARM GRAY -->
+<section class="section section-warm" id="asset">
+  <div class="section-inner">
+    <div class="ao">
+      <div class="section-label">U.S. B2B Invoice Volume, Annual</div>
+    </div>
+    <div class="ao ao-d1">
+      <div class="big-num big-num-black">$22T</div>
+    </div>
+    <div class="ao ao-d2">
+      <div class="section-context">Receivables confirmed by Fortune 500 buyers. 60 to 90 day payment terms. Investment-grade credit quality sitting in ERP systems.</div>
+    </div>
+
+    <div class="bridge ao ao-d3">
+      <div class="bridge-col">
+        <div class="bridge-label">Always Visible</div>
+        <div class="bridge-items">
+          <div class="bridge-item">QuickBooks</div>
+          <div class="bridge-item">SAP</div>
+          <div class="bridge-item">NetSuite</div>
+          <div class="bridge-item">50+ ERP Platforms</div>
+        </div>
+      </div>
+      <div class="bridge-center">
+        <div class="bridge-arrow" style="position:relative">
+          <span class="bridge-mint">MINT</span>
+        </div>
+      </div>
+      <div class="bridge-col">
+        <div class="bridge-label">Now Visible</div>
+        <div class="bridge-items">
+          <div class="bridge-item">Private Credit</div>
+          <div class="bridge-item">Family Offices</div>
+          <div class="bridge-item">Hedge Funds</div>
+          <div class="bridge-item">Institutional Capital</div>
+        </div>
       </div>
     </div>
-    <div class="prod-card aos">
-      <div class="prod-label">For Retailers</div>
-      <h3>Origin</h3>
-      <p>Fortune 500 anchor buyers mandate supplier participation, creating guaranteed deal flow. Buyer confirmation validates every invoice before capital is deployed.</p>
-      <div class="prod-stats">
-        <div><div class="ps-val">&lt;0.5%</div><div class="ps-lbl">Default Rate</div></div>
-        <div><div class="ps-val">F500</div><div class="ps-lbl">Anchor Buyers</div></div>
+
+    <div class="data-cards ao ao-d3">
+      <div class="data-card">
+        <div class="data-card-value">36s</div>
+        <div class="data-card-text">Invoice processing. Traditional factoring: 36 days.</div>
+      </div>
+      <div class="data-card">
+        <div class="data-card-value">99.7%</div>
+        <div class="data-card-text">Extraction accuracy across all connected ERP formats.</div>
+      </div>
+      <div class="data-card">
+        <div class="data-card-value">50+</div>
+        <div class="data-card-text">Accounting platforms. OAuth integration. One-click supplier onboarding.</div>
       </div>
     </div>
-    <div class="prod-card aos">
-      <div class="prod-label">For Suppliers</div>
-      <h3>Confirm</h3>
-      <p>SMB suppliers connect their accounting system and receive capital against confirmed receivables. No applications, no waiting, no paperwork. Agents run the rails.</p>
-      <div class="prod-stats">
-        <div><div class="ps-val">&lt;60min</div><div class="ps-lbl">Time to Fund</div></div>
-        <div><div class="ps-val">1 Click</div><div class="ps-lbl">Onboarding</div></div>
+    <div class="ao ao-d4">
+      <div class="source">MINT internal data. Processing benchmarks verified across $10B validated pipeline.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: $1.6T Capital - DARK NAVY -->
+<section class="section section-dark" id="capital">
+  <div class="section-inner">
+    <div class="ao">
+      <div class="section-label">Private Equity &amp; Credit Dry Powder</div>
+    </div>
+    <div class="ao ao-d1">
+      <div class="big-num big-num-mint">$1.6T</div>
+    </div>
+    <div class="ao ao-d2">
+      <div class="section-context">Undeployed capital across PE and private credit. Record accumulation. Aging reserves. LPs demanding deployment into shorter duration, lower risk assets.</div>
+    </div>
+    <div class="data-cards data-cards-dark ao ao-d3">
+      <div class="data-card data-card-dark">
+        <div class="data-card-value">24%</div>
+        <div class="data-card-text">Of buyout dry powder held 4+ years. Up from 20% in 2022.</div>
+      </div>
+      <div class="data-card data-card-dark">
+        <div class="data-card-value">5.7%</div>
+        <div class="data-card-text">Private credit default rate, early 2025. Climbing from near zero in 2022.</div>
+      </div>
+      <div class="data-card data-card-dark">
+        <div class="data-card-value">8–15%</div>
+        <div class="data-card-text">Net yield on tokenized receivables. Fortune 500 credit. 30 to 60 day duration.</div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ═══ TECHNOLOGY ═══ -->
-<section class="sec sec-light" id="technology">
-  <div class="aos">
-    <div class="sec-label">Technology Edge</div>
-    <h2 class="sec-title">Five Agent Autonomous Underwriting</h2>
-    <p class="sec-sub">AI agents process 1M invoices in 36 seconds. Traditional factoring takes 36 days.</p>
-  </div>
-  <div class="tech-split">
-    <div class="agent-stack">
-      <div class="a-row aos"><div class="a-name">Discovery</div><div class="a-desc">Scans connected ERP systems for eligible receivables across all supplier accounts.</div></div>
-      <div class="a-row aos"><div class="a-name">Extraction</div><div class="a-desc">Pulls invoice data, payment terms, buyer credit signals, and historical patterns.</div></div>
-      <div class="a-row aos"><div class="a-name">Validation</div><div class="a-desc">Cross references buyer confirmation, detects fraud signals, verifies authenticity.</div></div>
-      <div class="a-row aos"><div class="a-name">Underwrite</div><div class="a-desc">Real time credit scoring using repayment graph data across the entire network.</div></div>
-      <div class="a-row aos"><div class="a-name">Tokenize</div><div class="a-desc">Converts validated receivables into ERC 4626 compliant programmable assets.</div></div>
+    <div class="ao ao-d4">
+      <div class="position-line">Short duration. Fortune 500 credit quality. Autonomous underwriting. No correlation to public markets.</div>
     </div>
-    <div class="tech-right aos">
-      <h3>Speed and Coverage</h3>
-      <p>MINT's agent swarm connects to every major accounting platform. OAuth integration means suppliers onboard in one click. No manual document upload, no waiting for approvals, no human bottlenecks.</p>
-      <table class="cmp-table">
-        <thead><tr><th>Metric</th><th>Traditional</th><th>MINT</th></tr></thead>
-        <tbody>
-          <tr><td>Processing Time</td><td>36 days</td><td class="hl">36 seconds</td></tr>
-          <tr><td>Invoice Capacity</td><td>~100/day</td><td class="hl">1M in 36s</td></tr>
-          <tr><td>ERP Coverage</td><td>Manual upload</td><td class="hl">50+ platforms</td></tr>
-          <tr><td>Onboarding</td><td>2 to 4 weeks</td><td class="hl">1 click</td></tr>
-          <tr><td>Accuracy</td><td>~85%</td><td class="hl">99.7%</td></tr>
-        </tbody>
-      </table>
+    <div class="ao ao-d4">
+      <div class="source">Bain Global Private Equity Report 2025, Preqin, ABF Journal, Fitch Ratings, Federal Reserve</div>
+    </div>
+    <div class="cta-row ao ao-d4" id="contact">
+      <a href="mailto:access@mintvault.com" class="cta-btn">Request Access</a>
     </div>
   </div>
 </section>
 
-<!-- ═══ WHY NOW ═══ -->
-<section class="sec sec-light" id="market">
-  <div class="aos">
-    <div class="sec-label">Why Now</div>
-    <h2 class="sec-title">Three Converging Forces</h2>
-    <p class="sec-sub">The infrastructure layer for receivables finance is being built in real time.</p>
-  </div>
-  <div class="why-cards">
-    <div class="why-card aos">
-      <div class="why-icon">01</div>
-      <h4>Credit Contraction</h4>
-      <p>Regional banks are pulling back from SMB lending. 33M small businesses face a widening funding gap. Private credit is searching for yield in shorter duration, lower risk assets.</p>
-    </div>
-    <div class="why-card aos">
-      <div class="why-icon">02</div>
-      <h4>AI Infrastructure</h4>
-      <p>Large language models and autonomous agent architectures now enable real time underwriting at scale. What required 50 analysts can be done by five agents in seconds.</p>
-    </div>
-    <div class="why-card aos">
-      <div class="why-icon">03</div>
-      <h4>Regulatory Tailwinds</h4>
-      <p>The GENIUS Act and evolving stablecoin frameworks create a clear path for tokenized assets. Programmable money needs programmable receivables.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ ALLOCATORS ═══ -->
-<section class="sec sec-dark">
-  <div class="aos">
-    <div class="sec-label">Capital Markets</div>
-    <h2 class="sec-title" style="color: var(--white);">Who Allocates to MINT</h2>
-    <p class="sec-sub" style="color: var(--g400);">Institutional capital sources seeking yield, speed, and programmable access to receivables.</p>
-  </div>
-  <div class="alloc-grid">
-    <div class="alloc-card aos">
-      <h4>Private Credit Funds</h4>
-      <p>Specialty finance allocators seeking short duration, high yield assets with Fortune 500 credit quality.</p>
-      <div class="alloc-yield">8–12%</div>
-    </div>
-    <div class="alloc-card aos">
-      <h4>Family Offices</h4>
-      <p>Direct access to a new asset class. Transparent, programmable, with full blockchain audit trails.</p>
-      <div class="alloc-yield">10–15%</div>
-    </div>
-    <div class="alloc-card aos">
-      <h4>Hedge Funds</h4>
-      <p>Quantitative strategies built on real time receivables data. Machine readable assets for algorithmic allocation.</p>
-      <div class="alloc-yield">12–18%</div>
-    </div>
-    <div class="alloc-card aos">
-      <h4>Banks and BDCs</h4>
-      <p>Balance sheet deployment through structured facilities. Warehouse lines and forward flow agreements.</p>
-      <div class="alloc-yield">6–10%</div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ CTA ═══ -->
-<section class="sec sec-light cta" id="contact">
-  <div class="cta-bg"></div>
-  <div class="aos">
-    <h2 class="sec-title">Fortune 500 Debt<br>Hiding in Plain Sight</h2>
-    <p>Programmable yield rails: Connect, Price, Tokenize, Fund.</p>
-    <a href="mailto:m@mint.us" class="cta-btn">Request Access</a>
-  </div>
-</section>
-
-<!-- ═══ FOOTER ═══ -->
-<footer class="footer">
-  <div class="footer-l"><strong>MINT</strong> &nbsp;&nbsp;© 2026 Mint Vault Inc. All rights reserved.</div>
-  <div class="footer-r">
+<!-- FOOTER -->
+<footer>
+  <span class="f-logo">MINT</span>
+  <span class="f-copy">© 2026 Mint Vault Inc. All rights reserved.</span>
+  <div class="f-links">
     <a href="#">Security</a>
     <a href="#">Legal</a>
     <a href="#">Contact</a>
@@ -950,24 +653,16 @@ body {
 </footer>
 
 <script>
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('vis'), i * 60);
-      obs.unobserve(e.target);
+const obs = new IntersectionObserver(e => {
+  e.forEach((el, i) => {
+    if (el.isIntersecting) {
+      setTimeout(() => el.target.classList.add('vis'), i * 60);
+      obs.unobserve(el.target);
     }
   });
 }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 
-document.querySelectorAll('.aos').forEach(el => obs.observe(el));
-
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', function(e) {
-    e.preventDefault();
-    const t = document.querySelector(this.getAttribute('href'));
-    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-});
+document.querySelectorAll('.ao').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
