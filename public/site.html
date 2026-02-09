@@ -69,19 +69,17 @@ body {
   100% { transform: scale(1.12); }
 }
 
-/* Gradient overlay: tight dark zone around text only, fades fast */
+/* Gradient overlay: localized dark zone only behind text, rest is clear */
 .hero-overlay {
   position: absolute;
   inset: 0;
   z-index: 2;
-  background: linear-gradient(
-    90deg,
-    rgba(5, 5, 10, 0.8) 0%,
-    rgba(5, 5, 10, 0.75) 20%,
-    rgba(5, 5, 10, 0.5) 32%,
-    rgba(5, 5, 10, 0.2) 42%,
-    rgba(5, 5, 10, 0.05) 55%,
-    rgba(5, 5, 10, 0.0) 70%
+  background: radial-gradient(
+    ellipse 45% 35% at 22% 50%,
+    rgba(5, 5, 10, 0.75) 0%,
+    rgba(5, 5, 10, 0.5) 40%,
+    rgba(5, 5, 10, 0.15) 70%,
+    rgba(5, 5, 10, 0.0) 100%
   );
 }
 
@@ -99,11 +97,19 @@ body {
 }
 
 .nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-weight: 600;
-  font-size: 22px;
-  letter-spacing: 0.18em;
+  font-size: 20px;
+  letter-spacing: 0.12em;
   color: var(--white);
   text-transform: uppercase;
+}
+
+.nav-logo .logo-arrow {
+  font-size: 18px;
+  color: var(--white);
 }
 
 .nav-logo em {
@@ -677,7 +683,7 @@ body {
   <div class="hero-overlay"></div>
 
   <nav class="nav">
-    <div class="nav-logo">MINT<em>.</em></div>
+    <div class="nav-logo"><span class="logo-arrow">↗</span>MINT</div>
     <ul class="nav-links">
       <li><a href="#thesis">Thesis</a></li>
       <li><a href="#product">Product</a></li>
