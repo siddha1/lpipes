@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MINT | Deploy Capital at Machine Speed</title>
-<meta name="description" content="Deploy Capital at Machine Speed. Liquidity Pipes for Global Finance. Autonomous Infrastructure.">
+<meta name="description" content="Deploy Capital at Machine Speed. Liquidity infrastructure for receivables finance.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --mint: #0D7377;
@@ -28,6 +28,65 @@ body {
 }
 
 /* ════════════════════════════════════
+   NAV
+   ════════════════════════════════════ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 48px;
+  background: transparent;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.nav.scrolled {
+  background: var(--white);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+}
+
+.nav-logo {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 6px;
+  color: var(--white);
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.nav.scrolled .nav-logo {
+  color: var(--black);
+}
+
+.nav-cta {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--white);
+  text-decoration: none;
+  padding: 10px 28px;
+  border: 1px solid rgba(255,255,255,0.4);
+  transition: all 0.3s;
+}
+
+.nav.scrolled .nav-cta {
+  color: var(--black);
+  border-color: var(--black);
+}
+
+.nav-cta:hover {
+  background: var(--mint);
+  border-color: var(--mint);
+  color: var(--white);
+}
+
+/* ════════════════════════════════════
    HERO
    ════════════════════════════════════ */
 .hero {
@@ -35,6 +94,9 @@ body {
   width: 100%;
   height: 100vh;
   min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
 
@@ -73,115 +135,31 @@ body {
   position: absolute;
   inset: 0;
   z-index: 2;
-  background: linear-gradient(
-    180deg,
-    rgba(5, 5, 10, 0.0) 0%,
-    rgba(5, 5, 10, 0.0) 12%,
-    rgba(5, 5, 10, 0.35) 20%,
-    rgba(5, 5, 10, 0.35) 36%,
-    rgba(5, 5, 10, 0.0) 48%,
-    rgba(5, 5, 10, 0.0) 100%
-  );
+  background: rgba(0,0,0,0.4);
 }
 
-/* Nav */
-.nav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 20;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 32px 48px;
-}
-
-.nav-logo {
-  font-weight: 600;
-  font-size: 32px;
-  letter-spacing: 0.14em;
-  color: var(--white);
-  text-transform: uppercase;
-}
-
-.nav-cta {
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--white);
-  text-decoration: none;
-  padding: 12px 32px;
-  border: 1px solid rgba(255,255,255,0.4);
-  transition: all 0.3s;
-}
-
-.nav-cta:hover {
-  background: var(--mint);
-  border-color: var(--mint);
-}
-
-/* Hero text */
-.hero-text {
-  position: absolute;
-  top: 28%;
-  left: 0;
-  right: 0;
-  transform: translateY(-50%);
+.hero-content {
+  position: relative;
   z-index: 10;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: baseline;
-  padding: 0 5%;
-  gap: 3vw;
+  text-align: center;
+  padding: 0 24px;
 }
 
 .hero-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(44px, 7vw, 105px);
-  font-weight: 400;
-  color: #FFFFFF;
+  font-size: clamp(48px, 8vw, 88px);
+  font-weight: 700;
+  color: var(--white);
   letter-spacing: -0.02em;
-  line-height: 1;
-  text-shadow: 0 2px 30px rgba(0,0,0,0.4);
-  opacity: 0;
-  animation: wordReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  white-space: nowrap;
-}
-
-.hero-title:first-child {
-  text-align: right;
-  animation-delay: 0.2s;
-}
-
-.hero-title:last-child {
-  text-align: left;
-  animation-delay: 0.6s;
-}
-
-.hero-at {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(44px, 7vw, 105px);
-  font-weight: 400;
-  color: #FFFFFF;
-  opacity: 0;
-  animation: wordReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: 0.4s;
-  text-shadow: 0 2px 30px rgba(0,0,0,0.4);
-  text-align: center;
-}
-
-@keyframes wordReveal {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+  line-height: 1.05;
+  text-shadow: 0 2px 40px rgba(0,0,0,0.3);
 }
 
 /* ════════════════════════════════════
-   SECTIONS - SWISS PRECISION
+   SECTIONS
    ════════════════════════════════════ */
 .section {
-  padding: 140px 48px;
+  padding: 120px 48px;
 }
 
 .section-white { background: var(--white); }
@@ -191,6 +169,7 @@ body {
 .section-inner {
   max-width: 1200px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .section-label {
@@ -199,90 +178,106 @@ body {
   letter-spacing: 3px;
   text-transform: uppercase;
   color: #999999;
-  margin-bottom: 32px;
+  margin-bottom: 48px;
 }
 
 .section-dark .section-label {
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.35);
 }
 
 .big-num {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(80px, 14vw, 160px);
-  font-weight: 300;
-  line-height: 0.9;
-  letter-spacing: -3px;
-  margin-bottom: 24px;
+  font-size: clamp(64px, 10vw, 96px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -2px;
+  margin-bottom: 16px;
 }
 
 .big-num-black { color: var(--black); }
 .big-num-mint { color: var(--mint); }
 
-.section-context {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(20px, 2.5vw, 32px);
+.sub-stat {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(18px, 2vw, 22px);
   font-weight: 400;
-  line-height: 1.4;
-  max-width: 700px;
-  margin-bottom: 100px;
+  color: #444444;
+  margin-bottom: 32px;
+}
+
+.section-dark .sub-stat {
+  color: rgba(255,255,255,0.6);
+}
+
+.section-context {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #666666;
+  max-width: 640px;
+  margin: 0 auto 80px;
 }
 
 .section-dark .section-context {
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.5);
 }
 
-/* Data Cards - 1px grid */
+/* Data Cards */
 .data-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
   background: #E5E5E5;
-  margin-bottom: 32px;
+  margin-bottom: 48px;
+}
+
+.section-dark .data-cards {
+  background: rgba(255,255,255,0.08);
 }
 
 .data-card {
   background: var(--white);
   padding: 48px;
+  text-align: center;
+}
+
+.section-warm .data-card {
+  background: var(--warm-gray);
+}
+
+.section-dark .data-card {
+  background: var(--navy);
 }
 
 .data-card-value {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(36px, 4vw, 56px);
+  font-size: clamp(32px, 4vw, 48px);
   font-weight: 400;
   color: var(--black);
   line-height: 1;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
+}
+
+.section-dark .data-card-value {
+  color: var(--mint);
 }
 
 .data-card-text {
   font-size: 13px;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.5;
   color: #666666;
 }
 
-/* Dark variant */
-.data-cards-dark {
-  background: rgba(255,255,255,0.08);
-}
-
-.data-card-dark {
-  background: var(--navy);
-}
-
-.data-card-dark .data-card-value {
-  color: var(--mint);
-}
-
-.data-card-dark .data-card-text {
+.section-dark .data-card-text {
   color: rgba(255,255,255,0.5);
 }
 
 .source {
   font-size: 10px;
   font-weight: 400;
-  letter-spacing: 0.5px;
   color: #BBBBBB;
+  text-align: center;
 }
 
 .section-dark .source {
@@ -295,12 +290,18 @@ body {
   grid-template-columns: 1fr auto 1fr;
   gap: 0;
   align-items: center;
-  margin-bottom: 100px;
+  margin-bottom: 80px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .bridge-col {
-  padding: 32px 0;
+  padding: 24px 0;
 }
+
+.bridge-col:first-child { text-align: right; padding-right: 48px; }
+.bridge-col:last-child { text-align: left; padding-left: 48px; }
 
 .bridge-label {
   font-size: 10px;
@@ -308,18 +309,18 @@ body {
   letter-spacing: 3px;
   text-transform: uppercase;
   color: #999999;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .bridge-items {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 
 .bridge-item {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(16px, 1.8vw, 22px);
+  font-size: 18px;
   font-weight: 400;
   color: var(--black);
 }
@@ -328,11 +329,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 64px;
+  padding: 0 24px;
 }
 
 .bridge-arrow {
-  width: 100px;
+  width: 80px;
   height: 1px;
   background: #E5E5E5;
   position: relative;
@@ -342,9 +343,9 @@ body {
   content: '';
   position: absolute;
   right: 0;
-  top: -4px;
-  width: 8px;
-  height: 8px;
+  top: -3px;
+  width: 6px;
+  height: 6px;
   border-right: 1px solid var(--mint);
   border-top: 1px solid var(--mint);
   transform: rotate(45deg);
@@ -357,194 +358,234 @@ body {
   letter-spacing: 4px;
   color: var(--mint);
   position: absolute;
-  top: -20px;
+  top: -18px;
   left: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
 }
 
-/* Position Line */
-.position-line {
-  font-size: 13px;
-  font-weight: 300;
-  letter-spacing: 0.3px;
-  color: rgba(255,255,255,0.4);
-  margin-bottom: 48px;
-  max-width: 600px;
+/* ════════════════════════════════════
+   INFRASTRUCTURE SECTION
+   ════════════════════════════════════ */
+.infra-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-bottom: 60px;
 }
 
-/* CTA */
-.cta-row {
+.infra-card {
+  padding: 48px;
+  border: 1px solid #E5E5E5;
   text-align: center;
-  padding-top: 80px;
+  margin-left: -1px;
 }
 
-.cta-btn {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 16px 48px;
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.3);
-  color: var(--white);
-  transition: all 0.3s;
-}
+.infra-card:first-child { margin-left: 0; }
 
-.cta-btn:hover {
-  background: var(--mint);
-  border-color: var(--mint);
-}
-
-/* Footer */
-footer {
-  background: #111111;
-  padding: 32px 48px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.f-logo {
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 5px;
-  color: rgba(255,255,255,0.4);
-}
-
-.f-copy {
-  font-size: 11px;
-  color: rgba(255,255,255,0.25);
-}
-
-.f-links {
-  display: flex;
-  gap: 32px;
-}
-
-.f-links a {
+.infra-card-label {
   font-size: 10px;
   font-weight: 500;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
+  color: #999999;
+  margin-bottom: 16px;
+}
+
+.infra-card-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 24px;
+}
+
+.infra-card-stat {
+  font-family: 'Inter', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--mint);
+  margin-bottom: 8px;
+}
+
+.infra-card-stat-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #999999;
+}
+
+.cta-btn {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 16px 48px;
+  background: var(--mint);
+  color: var(--white);
+  border: none;
+  transition: opacity 0.3s;
+}
+
+.cta-btn:hover {
+  opacity: 0.85;
+}
+
+/* ════════════════════════════════════
+   FOOTER
+   ════════════════════════════════════ */
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 48px;
+  border-top: 1px solid #E5E5E5;
+}
+
+.f-logo {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: #999999;
+  text-transform: uppercase;
+}
+
+.f-copy {
+  font-size: 12px;
+  color: #999999;
+}
+
+.f-links {
+  font-size: 12px;
+  color: #999999;
+}
+
+.f-links a {
+  color: #999999;
   text-decoration: none;
   transition: color 0.3s;
 }
 
 .f-links a:hover { color: var(--mint); }
 
-/* Animations */
+/* ════════════════════════════════════
+   ANIMATIONS
+   ════════════════════════════════════ */
 .ao {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.ao.vis { opacity: 1; transform: translateY(0); }
+.ao.vis {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-.ao-d1 { transition-delay: 0.1s; }
-.ao-d2 { transition-delay: 0.2s; }
-.ao-d3 { transition-delay: 0.3s; }
-.ao-d4 { transition-delay: 0.4s; }
-
-/* Responsive */
+/* ════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════ */
 @media (max-width: 900px) {
-  .nav { padding: 24px; }
-  .section { padding: 100px 24px; }
-  .hero-text { padding: 0 24px; }
+  .nav { padding: 20px 24px; }
+  .section { padding: 80px 24px; }
   .data-cards { grid-template-columns: 1fr; }
-  .bridge { grid-template-columns: 1fr; gap: 32px; }
-  .bridge-center { padding: 24px 0; justify-content: flex-start; }
+  .infra-cards { grid-template-columns: 1fr; }
+  .infra-card { margin-left: 0; border-top: none; }
+  .infra-card:first-child { border-top: 1px solid #E5E5E5; }
+  .bridge { grid-template-columns: 1fr; text-align: center; }
+  .bridge-col { padding: 16px 0 !important; text-align: center !important; }
+  .bridge-center { padding: 24px 0; }
   .bridge-arrow { width: 1px; height: 40px; }
-  .bridge-arrow::after { right: -4px; top: auto; bottom: 0; transform: rotate(135deg); }
-  .bridge-mint { top: auto; left: 24px; transform: none; }
+  .bridge-arrow::after { right: -3px; top: auto; bottom: 0; transform: rotate(135deg); }
+  .bridge-mint { top: 50%; left: 24px; transform: translateY(-50%); }
   footer { flex-direction: column; gap: 16px; text-align: center; }
-  .big-num { font-size: clamp(64px, 18vw, 120px) !important; letter-spacing: -2px; }
 }
 
 @media (max-width: 600px) {
-  .hero-title, .hero-at { font-size: clamp(32px, 9vw, 52px); }
+  .hero-title { font-size: clamp(36px, 10vw, 52px); }
   .data-card { padding: 32px 24px; }
+  .infra-card { padding: 32px 24px; }
 }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-logo">MINT</div>
+  <a href="#contact" class="nav-cta">Request Access</a>
+</nav>
+
 <!-- HERO -->
 <section class="hero">
   <div class="hero-image">
-    <img src="pipes.png" alt="Liquidity Pipes" />
+    <img src="pipes.png" alt="" />
   </div>
   <div class="hero-overlay"></div>
-
-  <nav class="nav">
-    <div class="nav-logo">MINT</div>
-    <a href="#contact" class="nav-cta">Request Access</a>
-  </nav>
-
-  <div class="hero-text">
-    <h1 class="hero-title">Deploy Capital</h1>
-    <span class="hero-at">@</span>
-    <h1 class="hero-title">Machine Speed</h1>
+  <div class="hero-content">
+    <h1 class="hero-title">Deploy Capital @ Machine Speed</h1>
   </div>
 </section>
 
-<!-- SECTION 1: 33M SMBs - WHITE -->
-<section class="section section-white" id="supply">
+<!-- SECTION 1: 33.2M SMBs - WHITE -->
+<section class="section section-white">
   <div class="section-inner">
     <div class="ao">
       <div class="section-label">U.S. Small Business Landscape</div>
     </div>
-    <div class="ao ao-d1">
+    <div class="ao">
       <div class="big-num big-num-black">33.2M</div>
+      <div class="sub-stat">Nearly half the U.S. workforce. 43.5% of GDP.</div>
     </div>
-    <div class="ao ao-d2">
-      <div class="section-context">Small businesses in America. 99.9% of all U.S. firms. 43.5% of GDP. Nearly half the workforce.</div>
+    <div class="ao">
+      <p class="section-context">Small businesses in America. 99.9% of all U.S. firms. The backbone of the economy, underserved by traditional finance.</p>
     </div>
-    <div class="data-cards ao ao-d3">
+    <div class="data-cards ao">
       <div class="data-card">
         <div class="data-card-value">68M</div>
-        <div class="data-card-text">Americans living in counties with zero community bank headquarters.</div>
+        <div class="data-card-text">Americans in counties with zero community bank headquarters.</div>
       </div>
       <div class="data-card">
         <div class="data-card-value">86</div>
-        <div class="data-card-text">Total new banks formed in the U.S. since 2010. Pre-2008 average: 100+ per year.</div>
+        <div class="data-card-text">New banks formed since 2010. Pre-2008: 100+ per year.</div>
       </div>
       <div class="data-card">
         <div class="data-card-value">1,646</div>
-        <div class="data-card-text">Bank branches closing annually since 2018. 12.3M Americans now in banking deserts.</div>
+        <div class="data-card-text">Bank branches closing annually. 12.3M in banking deserts.</div>
       </div>
     </div>
-    <div class="ao ao-d4">
-      <div class="source">U.S. Chamber of Commerce Small Business Data Center, FDIC, Federal Reserve Bank of Philadelphia</div>
+    <div class="ao">
+      <div class="source">U.S. Chamber of Commerce, FDIC, Federal Reserve Bank of Philadelphia</div>
     </div>
   </div>
 </section>
 
 <!-- SECTION 2: $22T Invoices - WARM GRAY -->
-<section class="section section-warm" id="asset">
+<section class="section section-warm">
   <div class="section-inner">
     <div class="ao">
       <div class="section-label">U.S. B2B Invoice Volume, Annual</div>
     </div>
-    <div class="ao ao-d1">
+    <div class="ao">
       <div class="big-num big-num-black">$22T</div>
+      <div class="sub-stat">Confirmed by Fortune 500 buyers. Locked in ERP systems.</div>
     </div>
-    <div class="ao ao-d2">
-      <div class="section-context">Receivables confirmed by Fortune 500 buyers. 60 to 90 day payment terms. Investment-grade credit quality sitting in ERP systems.</div>
+    <div class="ao">
+      <p class="section-context">Receivables with 60 to 90 day payment terms. Investment-grade credit quality, invisible to institutional capital.</p>
     </div>
 
-    <div class="bridge ao ao-d3">
+    <div class="bridge ao">
       <div class="bridge-col">
         <div class="bridge-label">Always Visible</div>
         <div class="bridge-items">
           <div class="bridge-item">QuickBooks</div>
           <div class="bridge-item">SAP</div>
           <div class="bridge-item">NetSuite</div>
-          <div class="bridge-item">50+ ERP Platforms</div>
+          <div class="bridge-item">50+ ERPs</div>
         </div>
       </div>
       <div class="bridge-center">
@@ -558,64 +599,91 @@ footer {
           <div class="bridge-item">Private Credit</div>
           <div class="bridge-item">Family Offices</div>
           <div class="bridge-item">Hedge Funds</div>
-          <div class="bridge-item">Institutional Capital</div>
+          <div class="bridge-item">Institutions</div>
         </div>
       </div>
     </div>
 
-    <div class="data-cards ao ao-d3">
+    <div class="data-cards ao">
       <div class="data-card">
         <div class="data-card-value">36s</div>
-        <div class="data-card-text">Invoice processing. Traditional factoring: 36 days.</div>
+        <div class="data-card-text">Invoice processing. Traditional: 36 days.</div>
       </div>
       <div class="data-card">
         <div class="data-card-value">99.7%</div>
-        <div class="data-card-text">Extraction accuracy across all connected ERP formats.</div>
+        <div class="data-card-text">Extraction accuracy across all ERP formats.</div>
       </div>
       <div class="data-card">
         <div class="data-card-value">50+</div>
-        <div class="data-card-text">Accounting platforms. OAuth integration. One-click supplier onboarding.</div>
+        <div class="data-card-text">Platforms. OAuth. One-click onboarding.</div>
       </div>
     </div>
-    <div class="ao ao-d4">
-      <div class="source">MINT internal data. Processing benchmarks verified across $10B validated pipeline.</div>
+    <div class="ao">
+      <div class="source">MINT internal data. Verified across $10B pipeline.</div>
     </div>
   </div>
 </section>
 
-<!-- SECTION 3: $1.6T Capital - DARK NAVY -->
-<section class="section section-dark" id="capital">
+<!-- SECTION 3: $1.6T Capital - NAVY -->
+<section class="section section-dark">
   <div class="section-inner">
     <div class="ao">
-      <div class="section-label">Private Equity &amp; Credit Dry Powder</div>
+      <div class="section-label">Private Equity & Credit Dry Powder</div>
     </div>
-    <div class="ao ao-d1">
+    <div class="ao">
       <div class="big-num big-num-mint">$1.6T</div>
+      <div class="sub-stat">Undeployed. Aging. LPs demanding shorter duration assets.</div>
     </div>
-    <div class="ao ao-d2">
-      <div class="section-context">Undeployed capital across PE and private credit. Record accumulation. Aging reserves. LPs demanding deployment into shorter duration, lower risk assets.</div>
+    <div class="ao">
+      <p class="section-context">Record accumulation across PE and private credit. Capital searching for yield in lower risk, shorter duration instruments.</p>
     </div>
-    <div class="data-cards data-cards-dark ao ao-d3">
-      <div class="data-card data-card-dark">
+    <div class="data-cards ao">
+      <div class="data-card">
         <div class="data-card-value">24%</div>
-        <div class="data-card-text">Of buyout dry powder held 4+ years. Up from 20% in 2022.</div>
+        <div class="data-card-text">Buyout dry powder held 4+ years. Up from 20% in 2022.</div>
       </div>
-      <div class="data-card data-card-dark">
+      <div class="data-card">
         <div class="data-card-value">5.7%</div>
-        <div class="data-card-text">Private credit default rate, early 2025. Climbing from near zero in 2022.</div>
+        <div class="data-card-text">Private credit default rate, early 2025.</div>
       </div>
-      <div class="data-card data-card-dark">
+      <div class="data-card">
         <div class="data-card-value">8–15%</div>
-        <div class="data-card-text">Net yield on tokenized receivables. Fortune 500 credit. 30 to 60 day duration.</div>
+        <div class="data-card-text">Net yield. Fortune 500 credit. 30–60 day duration.</div>
       </div>
     </div>
-    <div class="ao ao-d4">
-      <div class="position-line">Short duration. Fortune 500 credit quality. Autonomous underwriting. No correlation to public markets.</div>
+    <div class="ao">
+      <div class="source">Bain Global PE Report 2025, Preqin, Fitch Ratings, Federal Reserve</div>
     </div>
-    <div class="ao ao-d4">
-      <div class="source">Bain Global Private Equity Report 2025, Preqin, ABF Journal, Fitch Ratings, Federal Reserve</div>
+  </div>
+</section>
+
+<!-- SECTION 4: THE INFRASTRUCTURE -->
+<section class="section section-white" id="contact">
+  <div class="section-inner">
+    <div class="ao">
+      <div class="section-label">The Infrastructure</div>
     </div>
-    <div class="cta-row ao ao-d4" id="contact">
+    <div class="infra-cards ao">
+      <div class="infra-card">
+        <div class="infra-card-label">For Institutional Capital</div>
+        <div class="infra-card-name">The Tape</div>
+        <div class="infra-card-stat">8–15%</div>
+        <div class="infra-card-stat-label">Net Yield</div>
+      </div>
+      <div class="infra-card">
+        <div class="infra-card-label">For Retailers</div>
+        <div class="infra-card-name">Origin</div>
+        <div class="infra-card-stat">Fortune 500</div>
+        <div class="infra-card-stat-label">Anchor Buyers</div>
+      </div>
+      <div class="infra-card">
+        <div class="infra-card-label">For Suppliers</div>
+        <div class="infra-card-name">Confirm</div>
+        <div class="infra-card-stat">&lt;60 min</div>
+        <div class="infra-card-stat-label">Time to Fund</div>
+      </div>
+    </div>
+    <div class="ao">
       <a href="mailto:access@mintvault.com" class="cta-btn">Request Access</a>
     </div>
   </div>
@@ -624,25 +692,29 @@ footer {
 <!-- FOOTER -->
 <footer>
   <span class="f-logo">MINT</span>
-  <span class="f-copy">© 2026 Mint Vault Inc. All rights reserved.</span>
+  <span class="f-copy">© 2025 Mint Vault Inc.</span>
   <div class="f-links">
-    <a href="#">Security</a>
-    <a href="#">Legal</a>
-    <a href="#">Contact</a>
+    <a href="#">Security</a> · <a href="#">Legal</a> · <a href="#">Contact</a>
   </div>
 </footer>
 
 <script>
-const obs = new IntersectionObserver(e => {
-  e.forEach((el, i) => {
-    if (el.isIntersecting) {
-      setTimeout(() => el.target.classList.add('vis'), i * 60);
-      obs.unobserve(el.target);
+// Scroll animations
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('vis');
+      obs.unobserve(entry.target);
     }
   });
-}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
 document.querySelectorAll('.ao').forEach(el => obs.observe(el));
+
+// Nav scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 80);
+}, { passive: true });
 </script>
 </body>
 </html>
