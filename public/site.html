@@ -35,7 +35,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -51,16 +51,11 @@ body {
 
 .nav-logo {
   font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 700;
+  font-size: 24px;
   letter-spacing: 6px;
-  color: var(--white);
-  text-transform: uppercase;
-  transition: color 0.3s;
-}
-
-.nav.scrolled .nav-logo {
   color: var(--black);
+  text-transform: uppercase;
 }
 
 .nav-cta {
@@ -68,16 +63,11 @@ body {
   font-weight: 500;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: var(--white);
+  color: var(--black);
   text-decoration: none;
   padding: 10px 28px;
-  border: 1px solid rgba(255,255,255,0.4);
+  border: 1px solid var(--black);
   transition: all 0.3s;
-}
-
-.nav.scrolled .nav-cta {
-  color: var(--black);
-  border-color: var(--black);
 }
 
 .nav-cta:hover {
@@ -113,7 +103,8 @@ body {
   object-position: center 45%;
   animation: kenBurns 45s cubic-bezier(0.25, 0.1, 0.25, 1) infinite alternate;
   transform-origin: 55% 45%;
-  filter: saturate(0.72) contrast(0.92) brightness(1.02);
+  filter: saturate(0.72) contrast(0.88) brightness(1.15);
+  opacity: 0.7;
 }
 
 .hero-image::after {
@@ -121,7 +112,7 @@ body {
   position: absolute;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  opacity: 0.07;
+  opacity: 0.05;
   pointer-events: none;
   mix-blend-mode: overlay;
 }
@@ -135,7 +126,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: 2;
-  background: rgba(0,0,0,0.4);
+  background: rgba(255,255,255,0.3);
 }
 
 .hero-content {
@@ -147,19 +138,98 @@ body {
 
 .hero-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(48px, 8vw, 88px);
+  font-size: clamp(48px, 8vw, 80px);
   font-weight: 700;
-  color: var(--white);
+  color: var(--black);
   letter-spacing: -0.02em;
   line-height: 1.05;
-  text-shadow: 0 2px 40px rgba(0,0,0,0.3);
 }
 
 /* ════════════════════════════════════
-   SECTIONS
+   LIQUIDITY PIPES SECTION
+   ════════════════════════════════════ */
+.liquidity-pipes {
+  background: var(--white);
+  padding: 100px 48px;
+}
+
+.liquidity-pipes-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.liquidity-pipes-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 16px;
+}
+
+.liquidity-pipes-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #666666;
+  margin-bottom: 56px;
+}
+
+.product-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+
+.product-card {
+  padding: 48px;
+  border: 1px solid #E5E5E5;
+  text-align: center;
+  margin-left: -1px;
+}
+
+.product-card:first-child { margin-left: 0; }
+
+.product-card-audience {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #999999;
+  margin-bottom: 16px;
+}
+
+.product-card-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 24px;
+}
+
+.product-card-stat {
+  font-family: 'Inter', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--mint);
+  margin-bottom: 8px;
+}
+
+.product-card-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #999999;
+}
+
+/* ════════════════════════════════════
+   DATA SECTIONS
    ════════════════════════════════════ */
 .section {
-  padding: 120px 48px;
+  padding: 100px 48px;
 }
 
 .section-white { background: var(--white); }
@@ -173,6 +243,7 @@ body {
 }
 
 .section-label {
+  font-family: 'Inter', sans-serif;
   font-size: 10px;
   font-weight: 500;
   letter-spacing: 3px;
@@ -187,10 +258,10 @@ body {
 
 .big-num {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(64px, 10vw, 96px);
-  font-weight: 400;
+  font-size: clamp(80px, 12vw, 120px);
+  font-weight: 700;
   line-height: 1;
-  letter-spacing: -2px;
+  letter-spacing: -3px;
   margin-bottom: 16px;
 }
 
@@ -199,7 +270,7 @@ body {
 
 .sub-stat {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(18px, 2vw, 22px);
+  font-size: clamp(18px, 2.5vw, 24px);
   font-weight: 400;
   color: #444444;
   margin-bottom: 32px;
@@ -210,6 +281,7 @@ body {
 }
 
 .section-context {
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.7;
@@ -263,6 +335,7 @@ body {
 }
 
 .data-card-text {
+  font-family: 'Inter', sans-serif;
   font-size: 13px;
   font-weight: 400;
   line-height: 1.5;
@@ -274,6 +347,7 @@ body {
 }
 
 .source {
+  font-family: 'Inter', sans-serif;
   font-size: 10px;
   font-weight: 400;
   color: #BBBBBB;
@@ -284,140 +358,18 @@ body {
   color: rgba(255,255,255,0.2);
 }
 
-/* Bridge Visual */
-.bridge {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 0;
-  align-items: center;
-  margin-bottom: 80px;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.bridge-col {
-  padding: 24px 0;
-}
-
-.bridge-col:first-child { text-align: right; padding-right: 48px; }
-.bridge-col:last-child { text-align: left; padding-left: 48px; }
-
-.bridge-label {
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #999999;
-  margin-bottom: 20px;
-}
-
-.bridge-items {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.bridge-item {
-  font-family: 'Playfair Display', serif;
-  font-size: 18px;
-  font-weight: 400;
-  color: var(--black);
-}
-
-.bridge-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 24px;
-}
-
-.bridge-arrow {
-  width: 80px;
-  height: 1px;
-  background: #E5E5E5;
-  position: relative;
-}
-
-.bridge-arrow::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: -3px;
-  width: 6px;
-  height: 6px;
-  border-right: 1px solid var(--mint);
-  border-top: 1px solid var(--mint);
-  transform: rotate(45deg);
-}
-
-.bridge-mint {
-  font-family: 'Inter', sans-serif;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 4px;
-  color: var(--mint);
-  position: absolute;
-  top: -18px;
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-}
-
 /* ════════════════════════════════════
-   INFRASTRUCTURE SECTION
+   REQUEST ACCESS + FOOTER
    ════════════════════════════════════ */
-.infra-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  margin-bottom: 60px;
-}
-
-.infra-card {
-  padding: 48px;
-  border: 1px solid #E5E5E5;
+.cta-section {
+  background: var(--white);
+  padding: 80px 48px;
   text-align: center;
-  margin-left: -1px;
-}
-
-.infra-card:first-child { margin-left: 0; }
-
-.infra-card-label {
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #999999;
-  margin-bottom: 16px;
-}
-
-.infra-card-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 32px;
-  font-weight: 600;
-  color: var(--black);
-  margin-bottom: 24px;
-}
-
-.infra-card-stat {
-  font-family: 'Inter', sans-serif;
-  font-size: 28px;
-  font-weight: 600;
-  color: var(--mint);
-  margin-bottom: 8px;
-}
-
-.infra-card-stat-label {
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #999999;
 }
 
 .cta-btn {
   display: inline-block;
+  font-family: 'Inter', sans-serif;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 2px;
@@ -434,9 +386,6 @@ body {
   opacity: 0.85;
 }
 
-/* ════════════════════════════════════
-   FOOTER
-   ════════════════════════════════════ */
 footer {
   display: flex;
   align-items: center;
@@ -455,11 +404,13 @@ footer {
 }
 
 .f-copy {
+  font-family: 'Inter', sans-serif;
   font-size: 12px;
   color: #999999;
 }
 
 .f-links {
+  font-family: 'Inter', sans-serif;
   font-size: 12px;
   color: #999999;
 }
@@ -491,24 +442,21 @@ footer {
    ════════════════════════════════════ */
 @media (max-width: 900px) {
   .nav { padding: 20px 24px; }
+  .nav-logo { font-size: 20px; }
   .section { padding: 80px 24px; }
+  .liquidity-pipes { padding: 80px 24px; }
+  .liquidity-pipes-title { font-size: 36px; }
   .data-cards { grid-template-columns: 1fr; }
-  .infra-cards { grid-template-columns: 1fr; }
-  .infra-card { margin-left: 0; border-top: none; }
-  .infra-card:first-child { border-top: 1px solid #E5E5E5; }
-  .bridge { grid-template-columns: 1fr; text-align: center; }
-  .bridge-col { padding: 16px 0 !important; text-align: center !important; }
-  .bridge-center { padding: 24px 0; }
-  .bridge-arrow { width: 1px; height: 40px; }
-  .bridge-arrow::after { right: -3px; top: auto; bottom: 0; transform: rotate(135deg); }
-  .bridge-mint { top: 50%; left: 24px; transform: translateY(-50%); }
+  .product-cards { grid-template-columns: 1fr; }
+  .product-card { margin-left: 0; border-top: none; }
+  .product-card:first-child { border-top: 1px solid #E5E5E5; }
   footer { flex-direction: column; gap: 16px; text-align: center; }
 }
 
 @media (max-width: 600px) {
   .hero-title { font-size: clamp(36px, 10vw, 52px); }
   .data-card { padding: 32px 24px; }
-  .infra-card { padding: 32px 24px; }
+  .product-card { padding: 32px 24px; }
 }
 </style>
 </head>
@@ -517,7 +465,7 @@ footer {
 <!-- NAV -->
 <nav class="nav" id="nav">
   <div class="nav-logo">MINT</div>
-  <a href="#contact" class="nav-cta">Request Access</a>
+  <a href="#cta" class="nav-cta">Request Access</a>
 </nav>
 
 <!-- HERO -->
@@ -531,7 +479,37 @@ footer {
   </div>
 </section>
 
-<!-- SECTION 1: 33.2M SMBs - WHITE -->
+<!-- LIQUIDITY PIPES -->
+<section class="liquidity-pipes">
+  <div class="liquidity-pipes-inner">
+    <div class="ao">
+      <h2 class="liquidity-pipes-title">Liquidity Pipes</h2>
+      <p class="liquidity-pipes-subtitle">Transform debt into cash.</p>
+    </div>
+    <div class="product-cards ao">
+      <div class="product-card">
+        <div class="product-card-audience">For Institutional Capital</div>
+        <div class="product-card-name">The Tape</div>
+        <div class="product-card-stat">8 to 15%</div>
+        <div class="product-card-label">Net Yield</div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-audience">For Retailers</div>
+        <div class="product-card-name">Origin</div>
+        <div class="product-card-stat">Fortune 500</div>
+        <div class="product-card-label">Anchor Buyers</div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-audience">For Suppliers</div>
+        <div class="product-card-name">Confirm</div>
+        <div class="product-card-stat">&lt;60 min</div>
+        <div class="product-card-label">Time to Fund</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 1: 33.2M SMBs -->
 <section class="section section-white">
   <div class="section-inner">
     <div class="ao">
@@ -564,46 +542,19 @@ footer {
   </div>
 </section>
 
-<!-- SECTION 2: $22T Invoices - WARM GRAY -->
+<!-- SECTION 2: $22T Invoices -->
 <section class="section section-warm">
   <div class="section-inner">
     <div class="ao">
-      <div class="section-label">U.S. B2B Invoice Volume, Annual</div>
+      <div class="section-label">Global Receivables Volume</div>
     </div>
     <div class="ao">
       <div class="big-num big-num-black">$22T</div>
       <div class="sub-stat">Confirmed by Fortune 500 buyers. Locked in ERP systems.</div>
     </div>
     <div class="ao">
-      <p class="section-context">Receivables with 60 to 90 day payment terms. Investment-grade credit quality, invisible to institutional capital.</p>
+      <p class="section-context">Receivables with 60 to 90 day payment terms. Investment grade credit quality, invisible to institutional capital.</p>
     </div>
-
-    <div class="bridge ao">
-      <div class="bridge-col">
-        <div class="bridge-label">Always Visible</div>
-        <div class="bridge-items">
-          <div class="bridge-item">QuickBooks</div>
-          <div class="bridge-item">SAP</div>
-          <div class="bridge-item">NetSuite</div>
-          <div class="bridge-item">50+ ERPs</div>
-        </div>
-      </div>
-      <div class="bridge-center">
-        <div class="bridge-arrow" style="position:relative">
-          <span class="bridge-mint">MINT</span>
-        </div>
-      </div>
-      <div class="bridge-col">
-        <div class="bridge-label">Now Visible</div>
-        <div class="bridge-items">
-          <div class="bridge-item">Private Credit</div>
-          <div class="bridge-item">Family Offices</div>
-          <div class="bridge-item">Hedge Funds</div>
-          <div class="bridge-item">Institutions</div>
-        </div>
-      </div>
-    </div>
-
     <div class="data-cards ao">
       <div class="data-card">
         <div class="data-card-value">36s</div>
@@ -615,7 +566,7 @@ footer {
       </div>
       <div class="data-card">
         <div class="data-card-value">50+</div>
-        <div class="data-card-text">Platforms. OAuth. One-click onboarding.</div>
+        <div class="data-card-text">Platforms. OAuth. One click onboarding.</div>
       </div>
     </div>
     <div class="ao">
@@ -624,11 +575,11 @@ footer {
   </div>
 </section>
 
-<!-- SECTION 3: $1.6T Capital - NAVY -->
+<!-- SECTION 3: $1.6T Capital -->
 <section class="section section-dark">
   <div class="section-inner">
     <div class="ao">
-      <div class="section-label">Private Equity & Credit Dry Powder</div>
+      <div class="section-label">Private Equity and Credit Dry Powder</div>
     </div>
     <div class="ao">
       <div class="big-num big-num-mint">$1.6T</div>
@@ -647,8 +598,8 @@ footer {
         <div class="data-card-text">Private credit default rate, early 2025.</div>
       </div>
       <div class="data-card">
-        <div class="data-card-value">8–15%</div>
-        <div class="data-card-text">Net yield. Fortune 500 credit. 30–60 day duration.</div>
+        <div class="data-card-value">8 to 15%</div>
+        <div class="data-card-text">Net yield. Fortune 500 credit. 30 to 60 day duration.</div>
       </div>
     </div>
     <div class="ao">
@@ -657,36 +608,9 @@ footer {
   </div>
 </section>
 
-<!-- SECTION 4: THE INFRASTRUCTURE -->
-<section class="section section-white" id="contact">
-  <div class="section-inner">
-    <div class="ao">
-      <div class="section-label">The Infrastructure</div>
-    </div>
-    <div class="infra-cards ao">
-      <div class="infra-card">
-        <div class="infra-card-label">For Institutional Capital</div>
-        <div class="infra-card-name">The Tape</div>
-        <div class="infra-card-stat">8–15%</div>
-        <div class="infra-card-stat-label">Net Yield</div>
-      </div>
-      <div class="infra-card">
-        <div class="infra-card-label">For Retailers</div>
-        <div class="infra-card-name">Origin</div>
-        <div class="infra-card-stat">Fortune 500</div>
-        <div class="infra-card-stat-label">Anchor Buyers</div>
-      </div>
-      <div class="infra-card">
-        <div class="infra-card-label">For Suppliers</div>
-        <div class="infra-card-name">Confirm</div>
-        <div class="infra-card-stat">&lt;60 min</div>
-        <div class="infra-card-stat-label">Time to Fund</div>
-      </div>
-    </div>
-    <div class="ao">
-      <a href="mailto:access@mintvault.com" class="cta-btn">Request Access</a>
-    </div>
-  </div>
+<!-- REQUEST ACCESS -->
+<section class="cta-section" id="cta">
+  <a href="mailto:access@mintvault.com" class="cta-btn">Request Access</a>
 </section>
 
 <!-- FOOTER -->
