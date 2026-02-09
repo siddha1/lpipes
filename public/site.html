@@ -69,18 +69,19 @@ body {
   100% { transform: scale(1.12); }
 }
 
-/* Gradient overlay: dark left for text, fades right to show pipes */
+/* Gradient overlay: tight dark zone around text only, fades fast */
 .hero-overlay {
   position: absolute;
   inset: 0;
   z-index: 2;
   background: linear-gradient(
     90deg,
-    rgba(5, 5, 10, 0.85) 0%,
-    rgba(5, 5, 10, 0.7) 25%,
-    rgba(5, 5, 10, 0.4) 50%,
-    rgba(5, 5, 10, 0.15) 75%,
-    rgba(5, 5, 10, 0.0) 100%
+    rgba(5, 5, 10, 0.8) 0%,
+    rgba(5, 5, 10, 0.75) 20%,
+    rgba(5, 5, 10, 0.5) 32%,
+    rgba(5, 5, 10, 0.2) 42%,
+    rgba(5, 5, 10, 0.05) 55%,
+    rgba(5, 5, 10, 0.0) 70%
   );
 }
 
@@ -99,8 +100,8 @@ body {
 
 .nav-logo {
   font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.2em;
+  font-size: 22px;
+  letter-spacing: 0.18em;
   color: var(--white);
   text-transform: uppercase;
 }
