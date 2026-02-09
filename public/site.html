@@ -54,8 +54,13 @@ body {
   font-weight: 700;
   font-size: 24px;
   letter-spacing: 6px;
-  color: var(--black);
+  color: #FFFFFF;
   text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.nav.scrolled .nav-logo {
+  color: var(--black);
 }
 
 .nav-cta {
@@ -63,11 +68,16 @@ body {
   font-weight: 500;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: var(--black);
+  color: #FFFFFF;
   text-decoration: none;
   padding: 10px 28px;
-  border: 1px solid var(--black);
+  border: 1px solid rgba(255,255,255,0.5);
   transition: all 0.3s;
+}
+
+.nav.scrolled .nav-cta {
+  color: var(--black);
+  border-color: var(--black);
 }
 
 .nav-cta:hover {
@@ -85,8 +95,9 @@ body {
   height: 100vh;
   min-height: 600px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  padding-top: 18vh;
   overflow: hidden;
 }
 
@@ -103,8 +114,8 @@ body {
   object-position: center 45%;
   animation: kenBurns 45s cubic-bezier(0.25, 0.1, 0.25, 1) infinite alternate;
   transform-origin: 55% 45%;
-  filter: saturate(0.72) contrast(0.88) brightness(1.15);
-  opacity: 0.7;
+  filter: saturate(0.72) contrast(0.92) brightness(1.02);
+  opacity: 0.85;
 }
 
 .hero-image::after {
@@ -126,7 +137,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: 2;
-  background: rgba(255,255,255,0.3);
+  background: rgba(0,0,0,0.35);
 }
 
 .hero-content {
@@ -140,9 +151,10 @@ body {
   font-family: 'Playfair Display', serif;
   font-size: clamp(48px, 8vw, 80px);
   font-weight: 700;
-  color: var(--black);
+  color: #FFFFFF;
   letter-spacing: -0.02em;
   line-height: 1.05;
+  text-shadow: 0 2px 40px rgba(0,0,0,0.3);
 }
 
 /* ════════════════════════════════════
@@ -150,7 +162,20 @@ body {
    ════════════════════════════════════ */
 .liquidity-pipes {
   background: var(--white);
-  padding: 100px 48px;
+  padding: 100px 48px 100px;
+}
+
+.section-divider {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 48px;
+  background: var(--white);
+}
+
+.section-divider-line {
+  width: 100%;
+  height: 1px;
+  background: #E5E5E5;
 }
 
 .liquidity-pipes-inner {
@@ -508,6 +533,11 @@ footer {
     </div>
   </div>
 </section>
+
+<!-- DIVIDER -->
+<div class="section-divider">
+  <div class="section-divider-line"></div>
+</div>
 
 <!-- SECTION 1: 33.2M SMBs -->
 <section class="section section-white">
