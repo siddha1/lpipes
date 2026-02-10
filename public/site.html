@@ -193,6 +193,32 @@ body {
 
 .liquidity-pipes-rows {
   overflow: hidden;
+  position: relative;
+}
+
+.liquidity-pipes-rows::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(50% + 600px - 32px);
+  width: 1px;
+  background: #d0d0d0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@media (max-width: 1296px) {
+  .liquidity-pipes-rows::before {
+    right: 80px;
+    left: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .liquidity-pipes-rows::before {
+    display: none;
+  }
 }
 
 /* Steps + Stats Rows */
