@@ -168,104 +168,89 @@ body {
   padding: 100px 48px 100px;
 }
 
-.section-divider {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 80px 48px;
-  background: var(--white);
-}
-
-.section-divider-line {
-  width: 100%;
-  height: 1px;
-  background: #E5E5E5;
-}
-
 .liquidity-pipes-inner {
   max-width: 1200px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .liquidity-pipes-title {
   font-family: 'Playfair Display', serif;
-  font-size: 52px;
-  font-weight: 600;
+  font-size: clamp(48px, 7vw, 76px);
+  font-weight: 700;
   color: var(--black);
-  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin-bottom: 20px;
 }
 
 .liquidity-pipes-subtitle {
   font-family: 'Inter', sans-serif;
-  font-size: 20px;
+  font-size: clamp(22px, 3vw, 32px);
   font-weight: 400;
   color: #666666;
-  margin-bottom: 56px;
+  margin-bottom: 80px;
 }
 
-/* Steps + Stats Grid */
-.steps-stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
+/* Steps + Stats Rows */
+.steps-rows {
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.steps-col {
-  padding-right: 64px;
-}
-
-.stats-col {
-  padding-left: 64px;
-  border-left: 1px solid #E5E5E5;
-}
-
-.step-row {
-  padding: 48px 0;
+.pipe-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
   border-top: 1px solid #E5E5E5;
+  padding: 56px 0;
 }
 
-.step-row:last-child {
+.pipe-row:last-child {
   border-bottom: 1px solid #E5E5E5;
 }
 
-.step-number {
+.pipe-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.pipe-number {
   font-family: 'Inter', sans-serif;
   font-size: clamp(64px, 8vw, 96px);
   font-weight: 700;
   color: var(--black);
   line-height: 1;
-  margin-bottom: 24px;
   letter-spacing: -2px;
+  flex-shrink: 0;
 }
 
-.step-title {
+.pipe-text {
+  padding-top: 8px;
+}
+
+.pipe-title {
   font-family: 'Inter', sans-serif;
   font-size: clamp(36px, 5vw, 52px);
   font-weight: 800;
   color: var(--black);
   line-height: 1.1;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
-.step-subtitle {
+.pipe-subtitle {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 400;
   color: #999999;
 }
 
-.stat-row {
-  padding: 48px 0;
-  border-top: 1px solid #E5E5E5;
+.pipe-right {
   text-align: right;
 }
 
-.stat-row:last-child {
-  border-bottom: 1px solid #E5E5E5;
-}
-
-.stat-value {
+.pipe-stat {
   font-family: 'Inter', sans-serif;
   font-size: clamp(64px, 10vw, 110px);
   font-weight: 900;
@@ -275,144 +260,11 @@ body {
   letter-spacing: -3px;
 }
 
-.stat-label {
+.pipe-label {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 400;
   color: #999999;
-}
-
-/* ════════════════════════════════════
-   DATA SECTIONS
-   ════════════════════════════════════ */
-.section {
-  padding: 100px 48px;
-}
-
-.section-white { background: var(--white); }
-.section-warm { background: var(--warm-gray); }
-.section-dark { background: var(--navy); color: var(--white); }
-
-.section-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.section-label {
-  font-family: 'Inter', sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #999999;
-  margin-bottom: 48px;
-}
-
-.section-dark .section-label {
-  color: rgba(255,255,255,0.35);
-}
-
-.big-num {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(80px, 12vw, 120px);
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -3px;
-  margin-bottom: 16px;
-}
-
-.big-num-black { color: var(--black); }
-.big-num-mint { color: var(--mint); }
-
-.sub-stat {
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(18px, 2.5vw, 24px);
-  font-weight: 400;
-  color: #444444;
-  margin-bottom: 32px;
-}
-
-.section-dark .sub-stat {
-  color: rgba(255,255,255,0.6);
-}
-
-.section-context {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.7;
-  color: #666666;
-  max-width: 640px;
-  margin: 0 auto 80px;
-}
-
-.section-dark .section-context {
-  color: rgba(255,255,255,0.5);
-}
-
-/* Data Cards */
-.data-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: #E5E5E5;
-  margin-bottom: 48px;
-}
-
-.section-dark .data-cards {
-  background: rgba(255,255,255,0.08);
-}
-
-.data-card {
-  background: var(--white);
-  padding: 48px;
-  text-align: center;
-}
-
-.section-warm .data-card {
-  background: var(--warm-gray);
-}
-
-.section-dark .data-card {
-  background: var(--navy);
-}
-
-.data-card-value {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(32px, 4vw, 48px);
-  font-weight: 400;
-  color: var(--black);
-  line-height: 1;
-  margin-bottom: 12px;
-}
-
-.section-dark .data-card-value {
-  color: var(--mint);
-}
-
-.data-card-text {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #666666;
-}
-
-.section-dark .data-card-text {
-  color: rgba(255,255,255,0.5);
-}
-
-.source {
-  font-family: 'Inter', sans-serif;
-  font-size: 10px;
-  font-weight: 400;
-  color: #BBBBBB;
-  text-align: center;
-}
-
-.section-dark .source {
-  color: rgba(255,255,255,0.2);
 }
 
 /* ════════════════════════════════════
@@ -477,23 +329,19 @@ footer {
   .nav-logo { font-size: 20px; }
   .nav-links { gap: 24px; }
   .nav-link { font-size: 10px; }
-  .section { padding: 80px 24px; }
   .liquidity-pipes { padding: 80px 24px; }
   .liquidity-pipes-title { font-size: 36px; }
-  .data-cards { grid-template-columns: 1fr; }
-  .steps-stats { grid-template-columns: 1fr; }
-  .steps-col { padding-right: 0; }
-  .stats-col { padding-left: 0; border-left: none; margin-top: 0; }
-  .step-number { font-size: clamp(48px, 10vw, 72px); }
-  .step-title { font-size: clamp(28px, 6vw, 40px); }
-  .stat-value { font-size: clamp(48px, 12vw, 80px); }
+  .pipe-row { grid-template-columns: 1fr; gap: 32px; }
+  .pipe-right { text-align: left; }
+  .pipe-number { font-size: clamp(48px, 10vw, 72px); }
+  .pipe-title { font-size: clamp(28px, 6vw, 40px); }
+  .pipe-stat { font-size: clamp(48px, 12vw, 80px); }
   footer { flex-direction: column; gap: 16px; text-align: center; }
 }
 
 @media (max-width: 600px) {
   .hero-title { font-size: clamp(36px, 10vw, 52px); }
-  .data-card { padding: 32px 24px; }
-  .step-row, .stat-row { padding: 32px 0; }
+  .pipe-row { padding: 32px 0; }
 }
 </style>
 </head>
@@ -525,144 +373,48 @@ footer {
   <div class="liquidity-pipes-inner">
     <div class="ao">
       <h2 class="liquidity-pipes-title">Liquidity Pipes</h2>
-      <p class="liquidity-pipes-subtitle">Transform debt into programmable value.</p>
+      <p class="liquidity-pipes-subtitle">Transform debt into programmable value</p>
     </div>
-    <div class="steps-stats ao">
-      <div class="steps-col">
-        <div class="step-row">
-          <div class="step-number">01</div>
-          <div class="step-title">Capture</div>
-          <div class="step-subtitle">Capture fragmented value</div>
+    <div class="steps-rows ao">
+      <div class="pipe-row">
+        <div class="pipe-left">
+          <div class="pipe-number">01</div>
+          <div class="pipe-text">
+            <div class="pipe-title">Capture</div>
+            <div class="pipe-subtitle">Capture fragmented value</div>
+          </div>
         </div>
-        <div class="step-row">
-          <div class="step-number">02</div>
-          <div class="step-title">Rationalize</div>
-          <div class="step-subtitle">Rationalize into financial signals</div>
-        </div>
-        <div class="step-row">
-          <div class="step-number">03</div>
-          <div class="step-title">Standardize</div>
-          <div class="step-subtitle">Deploy money at machine speed</div>
+        <div class="pipe-right">
+          <div class="pipe-stat">33M</div>
+          <div class="pipe-label">Small Businesses</div>
         </div>
       </div>
-      <div class="stats-col">
-        <div class="stat-row">
-          <div class="stat-value">33M</div>
-          <div class="stat-label">Small Businesses</div>
+      <div class="pipe-row">
+        <div class="pipe-left">
+          <div class="pipe-number">02</div>
+          <div class="pipe-text">
+            <div class="pipe-title">Rationalize</div>
+            <div class="pipe-subtitle">Rationalize into financial signals</div>
+          </div>
         </div>
-        <div class="stat-row">
-          <div class="stat-value">$22T</div>
-          <div class="stat-label">Receivables</div>
-        </div>
-        <div class="stat-row">
-          <div class="stat-value">$1.6T</div>
-          <div class="stat-label">Private Credit</div>
+        <div class="pipe-right">
+          <div class="pipe-stat">$22T</div>
+          <div class="pipe-label">Receivables</div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- DIVIDER -->
-<div class="section-divider">
-  <div class="section-divider-line"></div>
-</div>
-
-<!-- SECTION 1: 33.2M SMBs -->
-<section class="section section-white">
-  <div class="section-inner">
-    <div class="ao">
-      <div class="section-label">U.S. Small Business Landscape</div>
-    </div>
-    <div class="ao">
-      <div class="big-num big-num-black">33.2M</div>
-      <div class="sub-stat">Nearly half the U.S. workforce. 43.5% of GDP.</div>
-    </div>
-    <div class="ao">
-      <p class="section-context">Small businesses in America. 99.9% of all U.S. firms. The backbone of the economy, underserved by traditional finance.</p>
-    </div>
-    <div class="data-cards ao">
-      <div class="data-card">
-        <div class="data-card-value">68M</div>
-        <div class="data-card-text">Americans in counties with zero community bank headquarters.</div>
+      <div class="pipe-row">
+        <div class="pipe-left">
+          <div class="pipe-number">03</div>
+          <div class="pipe-text">
+            <div class="pipe-title">Standardize</div>
+            <div class="pipe-subtitle">Deploy money at machine speed</div>
+          </div>
+        </div>
+        <div class="pipe-right">
+          <div class="pipe-stat">$1.6T</div>
+          <div class="pipe-label">Private Credit</div>
+        </div>
       </div>
-      <div class="data-card">
-        <div class="data-card-value">86</div>
-        <div class="data-card-text">New banks formed since 2010. Pre-2008: 100+ per year.</div>
-      </div>
-      <div class="data-card">
-        <div class="data-card-value">1,646</div>
-        <div class="data-card-text">Bank branches closing annually. 12.3M in banking deserts.</div>
-      </div>
-    </div>
-    <div class="ao">
-      <div class="source">U.S. Chamber of Commerce, FDIC, Federal Reserve Bank of Philadelphia</div>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 2: $22T Invoices -->
-<section class="section section-warm">
-  <div class="section-inner">
-    <div class="ao">
-      <div class="section-label">Global Receivables Volume</div>
-    </div>
-    <div class="ao">
-      <div class="big-num big-num-black">$22T</div>
-      <div class="sub-stat">Confirmed by Fortune 500 buyers. Locked in ERP systems.</div>
-    </div>
-    <div class="ao">
-      <p class="section-context">Receivables with 60 to 90 day payment terms. Investment grade credit quality, invisible to institutional capital.</p>
-    </div>
-    <div class="data-cards ao">
-      <div class="data-card">
-        <div class="data-card-value">36s</div>
-        <div class="data-card-text">Invoice processing. Traditional: 36 days.</div>
-      </div>
-      <div class="data-card">
-        <div class="data-card-value">99.7%</div>
-        <div class="data-card-text">Extraction accuracy across all ERP formats.</div>
-      </div>
-      <div class="data-card">
-        <div class="data-card-value">50+</div>
-        <div class="data-card-text">Platforms. OAuth. One click onboarding.</div>
-      </div>
-    </div>
-    <div class="ao">
-      <div class="source">MINT internal data. Verified across $10B pipeline.</div>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 3: $1.6T Capital -->
-<section class="section section-dark">
-  <div class="section-inner">
-    <div class="ao">
-      <div class="section-label">Private Equity and Credit Dry Powder</div>
-    </div>
-    <div class="ao">
-      <div class="big-num big-num-mint">$1.6T</div>
-      <div class="sub-stat">Undeployed. Aging. LPs demanding shorter duration assets.</div>
-    </div>
-    <div class="ao">
-      <p class="section-context">Record accumulation across PE and private credit. Capital searching for yield in lower risk, shorter duration instruments.</p>
-    </div>
-    <div class="data-cards ao">
-      <div class="data-card">
-        <div class="data-card-value">24%</div>
-        <div class="data-card-text">Buyout dry powder held 4+ years. Up from 20% in 2022.</div>
-      </div>
-      <div class="data-card">
-        <div class="data-card-value">5.7%</div>
-        <div class="data-card-text">Private credit default rate, early 2025.</div>
-      </div>
-      <div class="data-card">
-        <div class="data-card-value">8 to 15%</div>
-        <div class="data-card-text">Net yield. Fortune 500 credit. 30 to 60 day duration.</div>
-      </div>
-    </div>
-    <div class="ao">
-      <div class="source">Bain Global PE Report 2025, Preqin, Fitch Ratings, Federal Reserve</div>
     </div>
   </div>
 </section>
