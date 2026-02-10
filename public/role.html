@@ -163,6 +163,46 @@ nav {
   margin-top: 20px;
 }
 
+.section-text strong {
+  font-weight: 600;
+  color: var(--black);
+  display: block;
+  margin-top: 32px;
+  margin-bottom: 12px;
+}
+
+.section-text p:first-child strong {
+  margin-top: 0;
+}
+
+.section-text em {
+  font-style: normal;
+  font-weight: 500;
+  color: var(--gray-500);
+}
+
+.section-text ul {
+  list-style: none;
+  margin: 16px 0 24px 0;
+  padding: 0;
+}
+
+.section-text ul li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.section-text ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  background: var(--mint);
+}
+
 .role-section {
   margin-bottom: 48px;
 }
@@ -492,42 +532,100 @@ footer {
 
 <script>
 // Role data
+const aboutMint = `<p><strong>About MINT</strong></p>
+<p>MINT builds financial infrastructure that connects enterprise data directly to institutional capital. The platform ingests receivables from ERP systems, verifies document and counterparty truth, and produces machine‑generated underwriting decisions.</p>
+<p>MINT routes liquidity at machine speed across multi‑agent architectures, financial ML pipelines, and enterprise security surfaces built to Wall Street reliability standards.</p>`;
+
 const roles = {
   "senior-ai-engineer": {
     title: "Senior AI Engineer",
     tag: "Engineering",
     location: "New York City",
-    description: "Placeholder job description. We will fill this in later."
+    description: aboutMint + `<p><strong>Role</strong></p><p>Role description coming soon.</p>`
   },
   "securities-finance-pm": {
     title: "Securities Finance PM",
     tag: "Product",
     location: "New York City",
-    description: "Placeholder job description. We will fill this in later."
+    description: aboutMint + `<p><strong>Role</strong></p><p>Role description coming soon.</p>`
   },
   "product-manager-ux": {
-    title: "Product Manager — Enterprise ML Infrastructure",
+    title: "Product Manager, Enterprise ML Infrastructure",
     tag: "Product",
     location: "New York City",
-    description: "Placeholder job description. We will fill this in later."
+    description: aboutMint + `<p><strong>Role</strong></p>
+<p>Mint's platform spans multi‑agent architectures, financial ML pipelines, and enterprise‑grade security surfaces, all operating under machine‑speed constraints and Wall Street reliability requirements. You will own a product where every flow, guardrail, validation path, and model interaction must be explicitly defined, observable, and failure‑resistant.</p>
+<p>You define the product roadmap, balancing customer needs, business goals, and technical feasibility. You have proven cross‑functional experience connecting engineering, design, sales, marketing, and customer success. This role demands a PM who can decompose complex ML and infrastructure problems, specify guardrails and state machines, reason about ERP workflows and underwriting logic, and ship enterprise software at scale.</p>
+
+<p><strong>Responsibilities</strong></p>
+<ul>
+<li>Define and own the product roadmap for Mint's underwriting, ML, and capital infrastructure systems</li>
+<li>Write complete system‑level requirements including inputs, outputs, state transitions, conditions, guardrails, and acceptance criteria</li>
+<li>Specify multi‑agent workflows covering extraction, validation, verification, scoring, and decisioning</li>
+<li>Collaborate with engineering to design features that meet determinism, throughput, latency, and reliability requirements</li>
+<li>Define requirements for ML evaluation, monitoring, drift detection, rollback, and guardrail behavior</li>
+<li>Manage product surfaces that integrate directly with ERP and enterprise financial systems</li>
+<li>Write integration specifications including payload formats, mapping rules, lineage constraints, and reconciliation logic</li>
+<li>Work with capital markets and risk teams to align platform behavior with institutional underwriting needs</li>
+<li>Ensure product surfaces satisfy audit, compliance, and data handling requirements</li>
+<li>Partner with engineering and design to deliver clear operational tools for internal teams</li>
+</ul>
+
+<p><strong>Core Requirements</strong></p>
+
+<p><em>1) Agentic Architecture</em></p>
+<ul>
+<li>Has delivered requirements and use cases for complex agentic products for mid‑market or larger enterprises</li>
+<li>Practical design and shipping experience with agent orchestration frameworks such as CrewAI, LangGraph, or equivalent</li>
+<li>Strong understanding of LLM capabilities and limitations — not just what agents can do, but where they reliably break down</li>
+<li>Familiarity with agentic patterns: tool use, planning, reasoning loops, memory systems</li>
+<li>Ability to evaluate technical tradeoffs (latency vs accuracy, cost vs capability) and build for trust/explainability</li>
+<li>Knowledge of coordination patterns, validation funnels, and circuit breakers</li>
+</ul>
+
+<p><em>2) Financial ML</em></p>
+<ul>
+<li>Experience defining requirements for production ML systems in the financial sector; due diligence + onboarding experience a plus</li>
+<li>Defined requirements for MLOps pipelines that improve with scale</li>
+<li>Proven experience in financial analytics; defines metrics and KPIs to measure product + business performance</li>
+</ul>
+
+<p><em>3) Enterprise Software Mastery</em></p>
+<ul>
+<li>Delivered enterprise products with high adoption and strong workflow fit</li>
+<li>Understands data privacy implications when agents access sensitive information</li>
+<li>Direct experience defining requirements for ERP integrations or comparable enterprise systems</li>
+<li>Owned systems with high performance and scale at enterprise level</li>
+</ul>
+
+<p><strong>Expanded Requirements</strong></p>
+
+<p><em>Agentic Architecture</em></p>
+<p>You should have real experience specifying multi‑agent systems that run in production. This includes writing requirements for agent workflows that perform extraction, verification, scoring, routing, and decisioning. You should understand how to define state transitions, fallback paths, recovery rules, and error containment behavior. You should understand how agents pass information to one another, how outputs are validated, and how failure modes are isolated. You should be comfortable defining coordination patterns, message structures, and boundaries between deterministic and non‑deterministic behavior. You should be comfortable defining how multi‑agent flows consume enterprise data from systems such as SAP, NetSuite, Oracle, or other ERP sources.</p>
+
+<p><em>Financial ML</em></p>
+<p>You should be comfortable defining requirements for ML systems that operate inside financial workflows. This includes translating financial truth (document truth, counterparty behavior, payment patterns) into features and signals. You should have experience describing MLOps requirements such as versioning, drift detection, rollback, performance evaluation, and auditability. You should understand latency constraints, error windows, and throughput requirements. You should be able to define guardrails that prevent ML outputs from triggering undesirable financial actions. You should have experience integrating ML systems into underwriting logic, capital routing, risk evaluation, and human review workflows.</p>
+
+<p><em>Enterprise Software Mastery</em></p>
+<p>You should understand how enterprise users operate with mission‑critical systems. This includes writing requirements for integrations with ERP platforms, AP/AR systems, accounting systems, and other enterprise data surfaces. You should have experience with products that must meet reliability constraints, concurrency limits, and audit standards. You should know how to define user roles, permissions, data lineage, reconciliation rules, and workflow fit. You should be comfortable describing failure behavior, incident paths, and degradation modes that maintain integrity. You should have experience building products that fit directly into existing enterprise workflows without disruption.</p>`
   },
   "role-4": {
     title: "Founding Platform Engineer",
     tag: "Engineering",
     location: "New York City",
-    description: "Placeholder job description. We will fill this in later."
+    description: aboutMint + `<p><strong>Role</strong></p><p>Role description coming soon.</p>`
   },
   "role-5": {
     title: "Enterprise Integrations Engineer",
     tag: "Engineering",
     location: "New York City",
-    description: "Placeholder job description. We will fill this in later."
+    description: aboutMint + `<p><strong>Role</strong></p><p>Role description coming soon.</p>`
   },
   "general": {
     title: "General Inquiry",
     tag: "General",
     location: "New York City",
-    description: "Don't see a role that fits? Tell us about yourself and what you'd bring to MINT."
+    description: aboutMint + `<p><strong>Role</strong></p><p>Don't see a role that fits? Tell us about yourself and what you'd bring to MINT.</p>`
   }
 };
 
@@ -539,7 +637,7 @@ const role = roles[roleId] || roles['general'];
 // Populate page
 document.getElementById('role-title').textContent = role.title;
 document.getElementById('role-meta').textContent = role.tag + ' · Full time · ' + role.location;
-document.getElementById('role-description').innerHTML = '<p>' + role.description + '</p>';
+document.getElementById('role-description').innerHTML = role.description;
 document.title = role.title + ' · MINT';
 
 // Set role in hidden field
