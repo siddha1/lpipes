@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Careers · MINT</title>
+<meta name="description" content="Join MINT. Build the capital infrastructure for machines.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --white: #FFFFFF;
+  --black: #000000;
+  --navy: #1A1A2E;
+  --mint: #0D7377;
+  --gray-100: #F8F8F8;
+  --gray-300: #E5E5E5;
+  --gray-400: #999999;
+  --gray-500: #666666;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--black);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 48px;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-300);
+}
+
+.nav-logo {
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  color: var(--black);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--black);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.nav-links a:hover {
+  opacity: 0.6;
+}
+
+.nav-links a.active {
+  font-weight: 600;
+}
+
+/* HERO */
+.hero {
+  padding: 180px 48px 120px;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--black);
+  letter-spacing: -0.5px;
+  margin-bottom: 48px;
+}
+
+.hero-text {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.hero-text p {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--gray-500);
+}
+
+.hero-text p + p {
+  margin-top: 24px;
+}
+
+/* ROLES SECTION */
+.roles-section {
+  padding: 0 48px 120px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.roles-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--gray-300);
+}
+
+.roles-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--black);
+}
+
+.roles-count {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--gray-400);
+}
+
+/* JOB CARDS */
+.job-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--gray-300);
+  text-decoration: none;
+  color: inherit;
+  transition: padding-left 0.3s ease;
+}
+
+.job-card:hover {
+  padding-left: 12px;
+}
+
+.job-card:hover .job-title {
+  color: var(--mint);
+}
+
+.job-card:hover .job-arrow {
+  color: var(--mint);
+}
+
+.job-info {
+  flex: 1;
+}
+
+.job-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--mint);
+  background: rgba(13, 115, 119, 0.08);
+  padding: 6px 12px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.job-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--black);
+  transition: color 0.3s ease;
+  margin-bottom: 8px;
+}
+
+.job-meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--gray-400);
+}
+
+.job-arrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--black);
+  transition: color 0.3s ease;
+  margin-left: 32px;
+  white-space: nowrap;
+}
+
+/* CTA SECTION */
+.cta-section {
+  background: var(--gray-100);
+  padding: 100px 48px;
+  text-align: center;
+}
+
+.cta-section h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--black);
+  margin-bottom: 16px;
+}
+
+.cta-section p {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--gray-500);
+  margin-bottom: 32px;
+}
+
+.cta-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--black);
+  padding: 16px 48px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: var(--mint);
+}
+
+/* FOOTER */
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 48px;
+  border-top: 1px solid var(--gray-300);
+}
+
+.f-logo {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: var(--gray-400);
+  text-transform: uppercase;
+}
+
+.f-copy {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--gray-400);
+}
+
+.f-links {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--gray-400);
+}
+
+.f-links a {
+  color: var(--gray-400);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.f-links a:hover {
+  color: var(--mint);
+}
+
+/* ANIMATIONS */
+.ao {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.ao.vis {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 20px 24px; }
+  .nav-logo { font-size: 20px; }
+  .nav-links { gap: 24px; }
+  .nav-links a { font-size: 10px; }
+  .hero { padding: 140px 24px 80px; }
+  .hero h1 { font-size: 32px; }
+  .roles-section { padding: 0 24px 80px; }
+  .cta-section { padding: 80px 24px; }
+  footer { flex-direction: column; gap: 16px; text-align: center; }
+}
+
+@media (max-width: 600px) {
+  .hero h1 { font-size: 28px; }
+  .job-card { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .job-arrow { margin-left: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/site.html" class="nav-logo">MINT</a>
+  <ul class="nav-links">
+    <li><a href="/site.html">Product</a></li>
+    <li><a href="/careers.html" class="active">Careers</a></li>
+    <li><a href="#">Master Plan</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="ao">
+    <h1>MINT is building the capital infrastructure for machines. Five AI agents underwrite receivables in 36 seconds. We have much more to build.</h1>
+  </div>
+  <div class="hero-text ao">
+    <p>We are a small team of engineers, operators, and capital markets professionals connecting $22 trillion in receivables to institutional capital. Every hire at this stage shapes the company.</p>
+    <p>If you want to build financial infrastructure that replaces 36 day cycles with 36 second ones, we want to talk.</p>
+  </div>
+</section>
+
+<!-- ROLES -->
+<section class="roles-section">
+  <div class="roles-header ao">
+    <h2>Open roles</h2>
+    <span class="roles-count">5 positions</span>
+  </div>
+
+  <a class="job-card ao" href="/apply.html?role=Senior%20AI%20Engineer">
+    <div class="job-info">
+      <div class="job-tag">Engineering</div>
+      <div class="job-title">Senior AI Engineer</div>
+      <div class="job-meta">Full time · Remote / LA</div>
+    </div>
+    <span class="job-arrow">Apply →</span>
+  </a>
+
+  <a class="job-card ao" href="/apply.html?role=Securities%20Finance%20PM">
+    <div class="job-info">
+      <div class="job-tag">Product</div>
+      <div class="job-title">Securities Finance PM</div>
+      <div class="job-meta">Full time · NYC / Remote</div>
+    </div>
+    <span class="job-arrow">Apply →</span>
+  </a>
+
+  <a class="job-card ao" href="/apply.html?role=Product%20Manager%2C%20User%20Experience">
+    <div class="job-info">
+      <div class="job-tag">Product</div>
+      <div class="job-title">Product Manager, User Experience</div>
+      <div class="job-meta">Full time · Remote</div>
+    </div>
+    <span class="job-arrow">Apply →</span>
+  </a>
+
+  <a class="job-card ao" href="/apply.html?role=Role%20Title%204">
+    <div class="job-info">
+      <div class="job-tag">Engineering</div>
+      <div class="job-title">Role Title 4</div>
+      <div class="job-meta">Full time · Location TBD</div>
+    </div>
+    <span class="job-arrow">Apply →</span>
+  </a>
+
+  <a class="job-card ao" href="/apply.html?role=Role%20Title%205">
+    <div class="job-info">
+      <div class="job-tag">Engineering</div>
+      <div class="job-title">Role Title 5</div>
+      <div class="job-meta">Full time · Location TBD</div>
+    </div>
+    <span class="job-arrow">Apply →</span>
+  </a>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="ao">
+    <h3>Don't see your role?</h3>
+    <p>We're always looking for exceptional people.</p>
+    <a href="/apply.html" class="cta-btn">Get in touch</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="f-logo">MINT</span>
+  <span class="f-copy">© 2025 Mint Vault Inc.</span>
+  <div class="f-links">
+    <a href="#">Security</a> · <a href="#">Legal</a> · <a href="#">Contact</a>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('vis');
+      obs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.ao').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>

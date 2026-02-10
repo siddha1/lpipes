@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply · MINT</title>
+<meta name="description" content="Apply to join MINT.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --white: #FFFFFF;
+  --black: #000000;
+  --navy: #1A1A2E;
+  --mint: #0D7377;
+  --gray-300: #E5E5E5;
+  --gray-400: #999999;
+  --gray-500: #666666;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--black);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 48px;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-300);
+}
+
+.nav-logo {
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  color: var(--black);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--black);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.nav-links a:hover {
+  opacity: 0.6;
+}
+
+/* CONTENT */
+.content {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 200px 24px 120px;
+}
+
+.back-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--gray-400);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.back-link:hover {
+  color: var(--black);
+}
+
+.page-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--black);
+  margin-top: 24px;
+}
+
+.page-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--gray-500);
+  margin-top: 16px;
+}
+
+/* FORM */
+.form {
+  margin-top: 48px;
+}
+
+.form-group {
+  margin-bottom: 32px;
+}
+
+.form-label {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-bottom: 8px;
+}
+
+.form-label .optional {
+  font-weight: 400;
+  color: #BBBBBB;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--black);
+  padding: 16px;
+  border: 1px solid var(--gray-300);
+  background: var(--white);
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--mint);
+}
+
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23999' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* FILE UPLOAD */
+.file-upload {
+  position: relative;
+  width: 100%;
+  border: 1px solid var(--gray-300);
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.file-upload:hover {
+  border-color: var(--mint);
+}
+
+.file-upload input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.file-upload-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--gray-500);
+}
+
+.file-upload-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--mint);
+  display: none;
+}
+
+.file-upload.has-file .file-upload-text {
+  display: none;
+}
+
+.file-upload.has-file .file-upload-name {
+  display: block;
+}
+
+/* SUBMIT */
+.form-submit {
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--black);
+  padding: 18px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.form-submit:hover {
+  background: var(--mint);
+}
+
+/* SUCCESS */
+.success {
+  display: none;
+  text-align: center;
+  padding: 80px 0;
+}
+
+.success-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--black);
+  margin-bottom: 16px;
+}
+
+.success-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--gray-500);
+}
+
+/* FOOTER */
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 48px;
+  border-top: 1px solid var(--gray-300);
+}
+
+.f-logo {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: var(--gray-400);
+  text-transform: uppercase;
+}
+
+.f-copy {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--gray-400);
+}
+
+.f-links {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--gray-400);
+}
+
+.f-links a {
+  color: var(--gray-400);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.f-links a:hover {
+  color: var(--mint);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 20px 24px; }
+  .nav-logo { font-size: 20px; }
+  .nav-links { gap: 24px; }
+  .nav-links a { font-size: 10px; }
+  .content { padding: 140px 24px 80px; }
+  footer { flex-direction: column; gap: 16px; text-align: center; }
+}
+
+@media (max-width: 600px) {
+  .page-title { font-size: 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/site.html" class="nav-logo">MINT</a>
+  <ul class="nav-links">
+    <li><a href="/site.html">Product</a></li>
+    <li><a href="/careers.html">Careers</a></li>
+    <li><a href="#">Master Plan</a></li>
+  </ul>
+</nav>
+
+<!-- CONTENT -->
+<main class="content">
+  <a href="/careers.html" class="back-link">← Back to careers</a>
+  <h1 class="page-title">Apply to MINT</h1>
+  <p class="page-subtitle">Tell us about yourself.</p>
+
+  <form id="application-form" class="form" action="https://formspree.io/f/PLACEHOLDER" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <label class="form-label" for="role">Role</label>
+      <select class="form-select" id="role" name="role" required>
+        <option value="">Select a role</option>
+        <option value="Senior AI Engineer">Senior AI Engineer</option>
+        <option value="Securities Finance PM">Securities Finance PM</option>
+        <option value="Product Manager, User Experience">Product Manager, User Experience</option>
+        <option value="Role Title 4">Role Title 4</option>
+        <option value="Role Title 5">Role Title 5</option>
+        <option value="General Inquiry">General Inquiry</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="name">Full Name</label>
+      <input class="form-input" type="text" id="name" name="name" required>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="email">Email</label>
+      <input class="form-input" type="email" id="email" name="email" required>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="linkedin">LinkedIn URL <span class="optional">(optional)</span></label>
+      <input class="form-input" type="text" id="linkedin" name="linkedin">
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="resume">Resume</label>
+      <div class="file-upload" id="file-upload">
+        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
+        <span class="file-upload-text">Upload resume (PDF)</span>
+        <span class="file-upload-name" id="file-name"></span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="why">Why MINT?</label>
+      <textarea class="form-textarea" id="why" name="why" rows="4" placeholder="What draws you to this role and to MINT?"></textarea>
+    </div>
+
+    <button type="submit" class="form-submit">Submit Application</button>
+  </form>
+
+  <div class="success" id="success">
+    <h2 class="success-title">Application received.</h2>
+    <p class="success-text">We'll be in touch.</p>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <span class="f-logo">MINT</span>
+  <span class="f-copy">© 2025 Mint Vault Inc.</span>
+  <div class="f-links">
+    <a href="#">Security</a> · <a href="#">Legal</a> · <a href="#">Contact</a>
+  </div>
+</footer>
+
+<script>
+// Pre-populate role from URL parameter
+const urlParams = new URLSearchParams(window.location.search);
+const roleParam = urlParams.get('role');
+if (roleParam) {
+  const roleSelect = document.getElementById('role');
+  const options = roleSelect.options;
+  for (let i = 0; i < options.length; i++) {
+    if (options[i].value === roleParam) {
+      roleSelect.selectedIndex = i;
+      break;
+    }
+  }
+}
+
+// File upload display
+const fileInput = document.getElementById('resume');
+const fileUpload = document.getElementById('file-upload');
+const fileName = document.getElementById('file-name');
+
+fileInput.addEventListener('change', function() {
+  if (this.files && this.files[0]) {
+    fileName.textContent = this.files[0].name;
+    fileUpload.classList.add('has-file');
+  } else {
+    fileName.textContent = '';
+    fileUpload.classList.remove('has-file');
+  }
+});
+
+// Form submission
+const form = document.getElementById('application-form');
+const success = document.getElementById('success');
+
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  
+  const formData = new FormData(form);
+  
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+    
+    if (response.ok) {
+      form.style.display = 'none';
+      success.style.display = 'block';
+    } else {
+      alert('There was an error submitting your application. Please try again.');
+    }
+  } catch (error) {
+    alert('There was an error submitting your application. Please try again.');
+  }
+});
+</script>
+
+</body>
+</html>
