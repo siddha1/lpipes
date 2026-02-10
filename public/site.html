@@ -184,7 +184,6 @@ body {
 .liquidity-pipes-inner {
   max-width: 1200px;
   margin: 0 auto;
-  text-align: center;
 }
 
 .liquidity-pipes-title {
@@ -203,53 +202,83 @@ body {
   margin-bottom: 56px;
 }
 
-.product-cards {
+/* Steps + Stats Grid */
+.steps-stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap: 0;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.product-card {
-  padding: 48px;
-  border: 1px solid #E5E5E5;
-  text-align: center;
-  margin-left: -1px;
+.steps-col {
+  padding-right: 64px;
 }
 
-.product-card:first-child { margin-left: 0; }
+.stats-col {
+  padding-left: 64px;
+  border-left: 1px solid #E5E5E5;
+}
 
-.product-card-audience {
+.step-row {
+  padding: 48px 0;
+  border-top: 1px solid #E5E5E5;
+}
+
+.step-row:last-child {
+  border-bottom: 1px solid #E5E5E5;
+}
+
+.step-number {
   font-family: 'Inter', sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #999999;
-  margin-bottom: 16px;
-}
-
-.product-card-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 32px;
-  font-weight: 600;
+  font-size: clamp(64px, 8vw, 96px);
+  font-weight: 700;
   color: var(--black);
+  line-height: 1;
   margin-bottom: 24px;
+  letter-spacing: -2px;
 }
 
-.product-card-stat {
+.step-title {
   font-family: 'Inter', sans-serif;
-  font-size: 28px;
-  font-weight: 600;
-  color: var(--mint);
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 800;
+  color: var(--black);
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.step-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #999999;
+}
+
+.stat-row {
+  padding: 48px 0;
+  border-top: 1px solid #E5E5E5;
+  text-align: right;
+}
+
+.stat-row:last-child {
+  border-bottom: 1px solid #E5E5E5;
+}
+
+.stat-value {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(64px, 10vw, 110px);
+  font-weight: 900;
+  color: var(--black);
+  line-height: 1;
   margin-bottom: 8px;
+  letter-spacing: -3px;
 }
 
-.product-card-label {
+.stat-label {
   font-family: 'Inter', sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 400;
   color: #999999;
 }
 
@@ -452,16 +481,19 @@ footer {
   .liquidity-pipes { padding: 80px 24px; }
   .liquidity-pipes-title { font-size: 36px; }
   .data-cards { grid-template-columns: 1fr; }
-  .product-cards { grid-template-columns: 1fr; }
-  .product-card { margin-left: 0; border-top: none; }
-  .product-card:first-child { border-top: 1px solid #E5E5E5; }
+  .steps-stats { grid-template-columns: 1fr; }
+  .steps-col { padding-right: 0; }
+  .stats-col { padding-left: 0; border-left: none; margin-top: 0; }
+  .step-number { font-size: clamp(48px, 10vw, 72px); }
+  .step-title { font-size: clamp(28px, 6vw, 40px); }
+  .stat-value { font-size: clamp(48px, 12vw, 80px); }
   footer { flex-direction: column; gap: 16px; text-align: center; }
 }
 
 @media (max-width: 600px) {
   .hero-title { font-size: clamp(36px, 10vw, 52px); }
   .data-card { padding: 32px 24px; }
-  .product-card { padding: 32px 24px; }
+  .step-row, .stat-row { padding: 32px 0; }
 }
 </style>
 </head>
@@ -493,26 +525,39 @@ footer {
   <div class="liquidity-pipes-inner">
     <div class="ao">
       <h2 class="liquidity-pipes-title">Liquidity Pipes</h2>
-      <p class="liquidity-pipes-subtitle">Transform debt into cash.</p>
+      <p class="liquidity-pipes-subtitle">Transform debt into programmable value.</p>
     </div>
-    <div class="product-cards ao">
-      <div class="product-card">
-        <div class="product-card-audience">Capture</div>
-        <div class="product-card-name">Origin</div>
-        <div class="product-card-stat">36 sec</div>
-        <div class="product-card-label">Per Invoice</div>
+    <div class="steps-stats ao">
+      <div class="steps-col">
+        <div class="step-row">
+          <div class="step-number">01</div>
+          <div class="step-title">Capture</div>
+          <div class="step-subtitle">Capture fragmented value</div>
+        </div>
+        <div class="step-row">
+          <div class="step-number">02</div>
+          <div class="step-title">Rationalize</div>
+          <div class="step-subtitle">Rationalize into financial signals</div>
+        </div>
+        <div class="step-row">
+          <div class="step-number">03</div>
+          <div class="step-title">Standardize</div>
+          <div class="step-subtitle">Deploy money at machine speed</div>
+        </div>
       </div>
-      <div class="product-card">
-        <div class="product-card-audience">Transform</div>
-        <div class="product-card-name">Confirm</div>
-        <div class="product-card-stat">100%</div>
-        <div class="product-card-label">Line Item Coverage</div>
-      </div>
-      <div class="product-card">
-        <div class="product-card-audience">Deploy</div>
-        <div class="product-card-name">The Tape</div>
-        <div class="product-card-stat">8 to 15%</div>
-        <div class="product-card-label">Net Yield</div>
+      <div class="stats-col">
+        <div class="stat-row">
+          <div class="stat-value">33M</div>
+          <div class="stat-label">Small Businesses</div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-value">$22T</div>
+          <div class="stat-label">Receivables</div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-value">$1.6T</div>
+          <div class="stat-label">Private Credit</div>
+        </div>
       </div>
     </div>
   </div>
