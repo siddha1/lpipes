@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Apply · MINT</title>
-<meta name="description" content="Apply to join MINT.">
+<title>Role · MINT</title>
+<meta name="description" content="Join MINT. Build the capital infrastructure for machines.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -19,6 +19,7 @@
   --gray-300: #E5E5E5;
   --gray-400: #999999;
   --gray-500: #666666;
+  --gray-600: #444444;
 }
 
 html { scroll-behavior: smooth; }
@@ -79,9 +80,9 @@ nav {
 
 /* CONTENT */
 .content {
-  max-width: 640px;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 200px 24px 120px;
+  padding: 180px 24px 120px;
 }
 
 .back-link {
@@ -91,31 +92,104 @@ nav {
   color: var(--gray-400);
   text-decoration: none;
   transition: color 0.3s;
+  display: inline-block;
+  margin-bottom: 48px;
 }
 
 .back-link:hover {
   color: var(--black);
 }
 
-.page-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 36px;
-  font-weight: 400;
-  color: var(--black);
-  margin-top: 24px;
+/* ROLE HEADER */
+.role-header {
+  margin-bottom: 48px;
 }
 
-.page-subtitle {
+.role-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 500;
+  color: var(--black);
+  margin-bottom: 12px;
+}
+
+.role-meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--gray-400);
+  margin-bottom: 24px;
+}
+
+.apply-link {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--mint);
+  text-decoration: none;
+  padding: 10px 24px;
+  border: 1px solid var(--mint);
+  transition: background 0.3s, color 0.3s;
+}
+
+.apply-link:hover {
+  background: var(--mint);
+  color: var(--white);
+}
+
+/* SECTIONS */
+.section-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-bottom: 16px;
+}
+
+.section-text {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 400;
-  color: var(--gray-500);
-  margin-top: 16px;
+  line-height: 1.7;
+  color: var(--gray-600);
 }
 
-/* FORM */
-.form {
-  margin-top: 48px;
+.section-text p + p {
+  margin-top: 20px;
+}
+
+.role-section {
+  margin-bottom: 48px;
+}
+
+.about-section {
+  margin-bottom: 0;
+}
+
+/* DIVIDER */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--gray-300);
+  margin: 64px 0;
+}
+
+/* APPLY FORM */
+.apply-section {
+  scroll-margin-top: 120px;
+}
+
+.apply-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--black);
+  margin-bottom: 32px;
 }
 
 .form-group {
@@ -177,13 +251,13 @@ nav {
 
 /* FILE UPLOAD */
 .file-upload {
-  position: relative;
   width: 100%;
   border: 1px solid var(--gray-300);
-  padding: 20px;
+  padding: 32px;
   text-align: center;
   cursor: pointer;
   transition: border-color 0.3s;
+  position: relative;
 }
 
 .file-upload:hover {
@@ -202,14 +276,14 @@ nav {
 
 .file-upload-text {
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
-  color: var(--gray-500);
+  color: var(--gray-400);
 }
 
 .file-upload-name {
   font-family: 'Inter', sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--mint);
   display: none;
@@ -312,11 +386,12 @@ footer {
   .nav-links { gap: 24px; }
   .nav-links a { font-size: 10px; }
   .content { padding: 140px 24px 80px; }
+  .role-title { font-size: 32px; }
   footer { flex-direction: column; gap: 16px; text-align: center; }
 }
 
 @media (max-width: 600px) {
-  .page-title { font-size: 28px; }
+  .role-title { font-size: 28px; }
 }
 </style>
 </head>
@@ -326,68 +401,95 @@ footer {
 <nav>
   <a href="/site.html" class="nav-logo">MINT</a>
   <ul class="nav-links">
-    <li><a href="/site.html">Product</a></li>
+    <li><a href="/site.html#product">Product</a></li>
     <li><a href="/careers.html">Careers</a></li>
-    <li><a href="#">Master Plan</a></li>
+    <li><a href="/masterplan.html">Master Plan</a></li>
   </ul>
 </nav>
 
 <!-- CONTENT -->
 <main class="content">
-  <a href="/careers.html" class="back-link">← Back to careers</a>
-  <h1 class="page-title">Apply to MINT</h1>
-  <p class="page-subtitle">Tell us about yourself.</p>
+  <a href="/careers.html" class="back-link">← Careers</a>
 
-  <form id="application-form" class="form" action="https://formspree.io/f/PLACEHOLDER" method="POST" enctype="multipart/form-data">
-    <div class="form-group">
-      <label class="form-label" for="role">Role</label>
-      <select class="form-select" id="role" name="role" required>
-        <option value="">Select a role</option>
-        <option value="Senior AI Engineer">Senior AI Engineer</option>
-        <option value="Securities Finance PM">Securities Finance PM</option>
-        <option value="Product Manager, User Experience">Product Manager, User Experience</option>
-        <option value="Role Title 4">Role Title 4</option>
-        <option value="Role Title 5">Role Title 5</option>
-        <option value="General Inquiry">General Inquiry</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label class="form-label" for="name">Full Name</label>
-      <input class="form-input" type="text" id="name" name="name" required>
-    </div>
-
-    <div class="form-group">
-      <label class="form-label" for="email">Email</label>
-      <input class="form-input" type="email" id="email" name="email" required>
-    </div>
-
-    <div class="form-group">
-      <label class="form-label" for="linkedin">LinkedIn URL <span class="optional">(optional)</span></label>
-      <input class="form-input" type="text" id="linkedin" name="linkedin">
-    </div>
-
-    <div class="form-group">
-      <label class="form-label" for="resume">Resume</label>
-      <div class="file-upload" id="file-upload">
-        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
-        <span class="file-upload-text">Upload resume (PDF)</span>
-        <span class="file-upload-name" id="file-name"></span>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label class="form-label" for="why">Why MINT?</label>
-      <textarea class="form-textarea" id="why" name="why" rows="4" placeholder="What draws you to this role and to MINT?"></textarea>
-    </div>
-
-    <button type="submit" class="form-submit">Submit Application</button>
-  </form>
-
-  <div class="success" id="success">
-    <h2 class="success-title">Application received.</h2>
-    <p class="success-text">We'll be in touch.</p>
+  <!-- ROLE HEADER -->
+  <div class="role-header">
+    <h1 class="role-title" id="role-title">Loading...</h1>
+    <p class="role-meta" id="role-meta"></p>
+    <a href="#apply" class="apply-link">Apply ↓</a>
   </div>
+
+  <!-- ROLE DESCRIPTION -->
+  <div class="role-section">
+    <div class="section-label">Role</div>
+    <div class="section-text" id="role-description"></div>
+  </div>
+
+  <!-- ABOUT MINT -->
+  <div class="about-section">
+    <div class="section-label">About MINT</div>
+    <div class="section-text">
+      <p>MINT transforms Fortune 500 receivables into programmable financial assets. AI agents extract invoices from any accounting system in 36 seconds. Smart contracts tokenize them. Institutional capital flows in under 60 minutes.</p>
+      <p>We are backed by leading investors and advised by veterans of Oracle, NetSuite, and institutional capital markets. Our team is small, fast, and building at the intersection of AI, enterprise software, and structured finance.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- APPLY FORM -->
+  <section class="apply-section" id="apply">
+    <h2 class="apply-title">Apply for this role</h2>
+
+    <form id="application-form" action="https://formspree.io/f/PLACEHOLDER" method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+        <label class="form-label" for="role">Role</label>
+        <select class="form-select" id="role-select" name="role" required>
+          <option value="">Select a role</option>
+          <option value="Senior AI Engineer">Senior AI Engineer</option>
+          <option value="Securities Finance PM">Securities Finance PM</option>
+          <option value="Product Manager, User Experience">Product Manager, User Experience</option>
+          <option value="Role Title 4">Role Title 4</option>
+          <option value="Role Title 5">Role Title 5</option>
+          <option value="General Inquiry">General Inquiry</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="name">Full Name</label>
+        <input class="form-input" type="text" id="name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="email">Email</label>
+        <input class="form-input" type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="linkedin">LinkedIn URL <span class="optional">(optional)</span></label>
+        <input class="form-input" type="url" id="linkedin" name="linkedin">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="resume">Resume</label>
+        <div class="file-upload" id="file-upload">
+          <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
+          <span class="file-upload-text">Upload resume (PDF)</span>
+          <span class="file-upload-name" id="file-name"></span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="why">Why MINT?</label>
+        <textarea class="form-textarea" id="why" name="why" rows="4" placeholder="What draws you to this role and to MINT?"></textarea>
+      </div>
+
+      <button type="submit" class="form-submit">Submit Application</button>
+    </form>
+
+    <div class="success" id="success">
+      <h2 class="success-title">Application received.</h2>
+      <p class="success-text">We'll be in touch.</p>
+    </div>
+  </section>
 </main>
 
 <!-- FOOTER -->
@@ -400,17 +502,63 @@ footer {
 </footer>
 
 <script>
-// Pre-populate role from URL parameter
+// Role data
+const roles = {
+  "senior-ai-engineer": {
+    title: "Senior AI Engineer",
+    tag: "Engineering",
+    location: "Remote / LA",
+    description: "Placeholder job description. We will fill this in later."
+  },
+  "securities-finance-pm": {
+    title: "Securities Finance PM",
+    tag: "Product",
+    location: "NYC / Remote",
+    description: "Placeholder job description. We will fill this in later."
+  },
+  "product-manager-ux": {
+    title: "Product Manager, User Experience",
+    tag: "Product",
+    location: "Remote",
+    description: "Placeholder job description. We will fill this in later."
+  },
+  "role-4": {
+    title: "Role Title 4",
+    tag: "Engineering",
+    location: "Location TBD",
+    description: "Placeholder job description. We will fill this in later."
+  },
+  "role-5": {
+    title: "Role Title 5",
+    tag: "Engineering",
+    location: "Location TBD",
+    description: "Placeholder job description. We will fill this in later."
+  },
+  "general": {
+    title: "General Inquiry",
+    tag: "General",
+    location: "Remote",
+    description: "Don't see a role that fits? Tell us about yourself and what you'd bring to MINT."
+  }
+};
+
+// Get role from URL
 const urlParams = new URLSearchParams(window.location.search);
-const roleParam = urlParams.get('role');
-if (roleParam) {
-  const roleSelect = document.getElementById('role');
-  const options = roleSelect.options;
-  for (let i = 0; i < options.length; i++) {
-    if (options[i].value === roleParam) {
-      roleSelect.selectedIndex = i;
-      break;
-    }
+const roleId = urlParams.get('id') || 'general';
+const role = roles[roleId] || roles['general'];
+
+// Populate page
+document.getElementById('role-title').textContent = role.title;
+document.getElementById('role-meta').textContent = role.tag + ' · Full time · ' + role.location;
+document.getElementById('role-description').innerHTML = '<p>' + role.description + '</p>';
+document.title = role.title + ' · MINT';
+
+// Pre-select role in form
+const roleSelect = document.getElementById('role-select');
+for (let i = 0; i < roleSelect.options.length; i++) {
+  if (roleSelect.options[i].value === role.title) {
+    roleSelect.selectedIndex = i;
+    break;
   }
 }
 
