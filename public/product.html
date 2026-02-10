@@ -583,41 +583,14 @@
   /* ================================
      FOOTER (matches careers.html)
      ================================ */
-  footer {
-    padding: 60px 48px;
-    border-top: 1px solid var(--gray-300);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .footer-logo {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: 6px;
-    color: var(--black);
-    text-transform: uppercase;
-    text-decoration: none;
-  }
-
-  .footer-copy {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    color: var(--gray-400);
-  }
-
-  .footer-links { display: flex; gap: 24px; list-style: none; }
-
-  .footer-links a {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    color: var(--gray-400);
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-
-  .footer-links a:hover { color: var(--black); }
+  footer { padding: 64px 48px; border-top: 2px solid #000; }
+  .f-main { display: flex; align-items: center; justify-content: space-between; }
+  .f-logo { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 3px; color: var(--black); text-transform: uppercase; }
+  .f-nav { display: flex; gap: 32px; }
+  .f-nav a { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: #666; text-decoration: none; transition: color 0.3s; }
+  .f-nav a:hover { color: var(--black); }
+  .f-copy { font-family: 'Inter', sans-serif; font-size: 11px; color: #999; }
+  .f-sub { padding-top: 48px; text-align: center; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 400; color: #bbb; }
 
   /* ================================
      RESPONSIVE
@@ -647,7 +620,8 @@
     .tape-side-item { white-space: nowrap; padding: 6px 12px; }
     .tape-frame { max-width: 100%; }
     .cta-section { padding: 80px 24px; }
-    footer { padding: 32px 24px; flex-direction: column; gap: 16px; text-align: center; }
+    .f-main { flex-direction: column; gap: 24px; text-align: center; }
+    .f-nav { flex-wrap: wrap; justify-content: center; gap: 20px; }
   }
 </style>
 </head>
@@ -906,13 +880,16 @@
 
 <!-- FOOTER -->
 <footer>
-  <a href="site.html" class="footer-logo">MINT</a>
-  <span class="footer-copy">&copy; 2025 Mint Vault Inc.</span>
-  <ul class="footer-links">
-    <li><a href="security.html">Security</a></li>
-    <li><a href="#">Legal</a></li>
-    <li><a href="mailto:hello@mint.us">Contact</a></li>
-  </ul>
+  <div class="f-main">
+    <span class="f-logo">MINT</span>
+    <div class="f-nav">
+      <a href="/product.html">Product</a>
+      <a href="/careers.html">Careers</a>
+      <a href="/master-plan.html">Master Plan</a>
+    </div>
+    <span class="f-copy">© 2026 Mint Vault Inc.</span>
+  </div>
+  <div class="f-sub">Mint Vault Inc. · Infrastructure for institutional capital</div>
 </footer>
 
 <script>

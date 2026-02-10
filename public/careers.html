@@ -245,44 +245,14 @@ nav {
 }
 
 /* FOOTER */
-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 40px 48px;
-  border-top: 1px solid var(--gray-300);
-}
-
-.f-logo {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 4px;
-  color: var(--gray-400);
-  text-transform: uppercase;
-}
-
-.f-copy {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  color: var(--gray-400);
-}
-
-.f-links {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  color: var(--gray-400);
-}
-
-.f-links a {
-  color: var(--gray-400);
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.f-links a:hover {
-  color: var(--mint);
-}
+footer { padding: 64px 48px; border-top: 2px solid #000; }
+.f-main { display: flex; align-items: center; justify-content: space-between; }
+.f-logo { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 3px; color: var(--black); text-transform: uppercase; }
+.f-nav { display: flex; gap: 32px; }
+.f-nav a { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: #666; text-decoration: none; transition: color 0.3s; }
+.f-nav a:hover { color: var(--black); }
+.f-copy { font-family: 'Inter', sans-serif; font-size: 11px; color: #999; }
+.f-sub { padding-top: 48px; text-align: center; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 400; color: #bbb; }
 
 /* ANIMATIONS */
 .ao {
@@ -306,7 +276,8 @@ footer {
   .hero h1 { font-size: 32px; }
   .roles-section { padding: 0 24px 80px; }
   .cta-section { padding: 80px 24px; }
-  footer { flex-direction: column; gap: 16px; text-align: center; }
+  .f-main { flex-direction: column; gap: 24px; text-align: center; }
+  .f-nav { flex-wrap: wrap; justify-content: center; gap: 20px; }
 }
 
 @media (max-width: 600px) {
@@ -400,11 +371,16 @@ footer {
 
 <!-- FOOTER -->
 <footer>
-  <span class="f-logo">MINT</span>
-  <span class="f-copy">© 2025 Mint Vault Inc.</span>
-  <div class="f-links">
-    <a href="#">Security</a> · <a href="#">Legal</a> · <a href="#">Contact</a>
+  <div class="f-main">
+    <span class="f-logo">MINT</span>
+    <div class="f-nav">
+      <a href="/product.html">Product</a>
+      <a href="/careers.html">Careers</a>
+      <a href="/master-plan.html">Master Plan</a>
+    </div>
+    <span class="f-copy">© 2026 Mint Vault Inc.</span>
   </div>
+  <div class="f-sub">Mint Vault Inc. · Infrastructure for institutional capital</div>
 </footer>
 
 <script>
