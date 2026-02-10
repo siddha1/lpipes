@@ -198,22 +198,40 @@ body {
   margin: 0 auto;
 }
 
-.pipe-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  border-top: 1px solid #E5E5E5;
-  padding: 56px 0;
+.pipe-row-wrap {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  padding: 0 48px;
 }
 
-.pipe-row:last-child {
-  border-bottom: 1px solid #E5E5E5;
+.pipe-row-wrap:nth-child(odd) {
+  background: var(--white);
+}
+
+.pipe-row-wrap:nth-child(even) {
+  background: #f5f5f5;
+}
+
+.pipe-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 56px 0;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .pipe-left {
   display: flex;
   align-items: flex-start;
   gap: 32px;
+}
+
+.pipe-connector {
+  width: 80px;
+  height: 1px;
+  background: #e0e0e0;
+  flex-shrink: 0;
 }
 
 .pipe-number {
@@ -262,8 +280,8 @@ body {
 
 .pipe-label {
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 500;
   color: #999999;
 }
 
@@ -331,7 +349,9 @@ footer {
   .nav-link { font-size: 10px; }
   .liquidity-pipes { padding: 80px 24px; }
   .liquidity-pipes-title { font-size: 36px; }
+  .pipe-row-wrap { padding: 0 24px; }
   .pipe-row { grid-template-columns: 1fr; gap: 32px; }
+  .pipe-connector { display: none; }
   .pipe-right { text-align: left; }
   .pipe-number { font-size: clamp(48px, 10vw, 72px); }
   .pipe-title { font-size: clamp(28px, 6vw, 40px); }
@@ -376,43 +396,52 @@ footer {
       <p class="liquidity-pipes-subtitle">Transform debt into programmable value</p>
     </div>
     <div class="steps-rows ao">
-      <div class="pipe-row">
-        <div class="pipe-left">
-          <div class="pipe-number">01</div>
-          <div class="pipe-text">
-            <div class="pipe-title">Capture</div>
-            <div class="pipe-subtitle">Capture fragmented value</div>
+      <div class="pipe-row-wrap">
+        <div class="pipe-row">
+          <div class="pipe-left">
+            <div class="pipe-number">01</div>
+            <div class="pipe-text">
+              <div class="pipe-title">Capture</div>
+              <div class="pipe-subtitle">Capture fragmented value</div>
+            </div>
           </div>
-        </div>
-        <div class="pipe-right">
-          <div class="pipe-stat">33M</div>
-          <div class="pipe-label">Small Businesses</div>
+          <div class="pipe-connector"></div>
+          <div class="pipe-right">
+            <div class="pipe-stat">33M</div>
+            <div class="pipe-label">Small Businesses</div>
+          </div>
         </div>
       </div>
-      <div class="pipe-row">
-        <div class="pipe-left">
-          <div class="pipe-number">02</div>
-          <div class="pipe-text">
-            <div class="pipe-title">Rationalize</div>
-            <div class="pipe-subtitle">Rationalize into financial signals</div>
+      <div class="pipe-row-wrap">
+        <div class="pipe-row">
+          <div class="pipe-left">
+            <div class="pipe-number">02</div>
+            <div class="pipe-text">
+              <div class="pipe-title">Rationalize</div>
+              <div class="pipe-subtitle">Rationalize into financial signals</div>
+            </div>
           </div>
-        </div>
-        <div class="pipe-right">
-          <div class="pipe-stat">$22T</div>
-          <div class="pipe-label">Receivables</div>
+          <div class="pipe-connector"></div>
+          <div class="pipe-right">
+            <div class="pipe-stat">$22T</div>
+            <div class="pipe-label">Receivables</div>
+          </div>
         </div>
       </div>
-      <div class="pipe-row">
-        <div class="pipe-left">
-          <div class="pipe-number">03</div>
-          <div class="pipe-text">
-            <div class="pipe-title">Standardize</div>
-            <div class="pipe-subtitle">Deploy money at machine speed</div>
+      <div class="pipe-row-wrap">
+        <div class="pipe-row">
+          <div class="pipe-left">
+            <div class="pipe-number">03</div>
+            <div class="pipe-text">
+              <div class="pipe-title">Standardize</div>
+              <div class="pipe-subtitle">Deploy money at machine speed</div>
+            </div>
           </div>
-        </div>
-        <div class="pipe-right">
-          <div class="pipe-stat">$1.6T</div>
-          <div class="pipe-label">Private Credit</div>
+          <div class="pipe-connector"></div>
+          <div class="pipe-right">
+            <div class="pipe-stat">$1.6T</div>
+            <div class="pipe-label">Private Credit</div>
+          </div>
         </div>
       </div>
     </div>
