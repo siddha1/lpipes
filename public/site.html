@@ -163,22 +163,22 @@ body {
 /* ════════════════════════════════════
    LIQUIDITY PIPES SECTION
    ════════════════════════════════════ */
-.liquidity-pipes {
-  background: var(--white);
-  padding: 100px 48px 100px;
+.liquidity-pipes-header {
+  background: #111111;
+  padding: 80px 48px;
+  text-align: center;
 }
 
-.liquidity-pipes-inner {
+.liquidity-pipes-header-inner {
   max-width: 1200px;
   margin: 0 auto;
-  text-align: center;
 }
 
 .liquidity-pipes-title {
   font-family: 'Playfair Display', serif;
   font-size: clamp(48px, 7vw, 76px);
   font-weight: 700;
-  color: var(--black);
+  color: #ffffff;
   letter-spacing: -0.02em;
   line-height: 1.05;
   margin-bottom: 20px;
@@ -188,8 +188,11 @@ body {
   font-family: 'Inter', sans-serif;
   font-size: clamp(22px, 3vw, 32px);
   font-weight: 400;
-  color: #666666;
-  margin-bottom: 80px;
+  color: #999999;
+}
+
+.liquidity-pipes-rows {
+  overflow: hidden;
 }
 
 /* Steps + Stats Rows */
@@ -363,7 +366,7 @@ footer {
   .nav-logo { font-size: 14px; }
   .nav-links { gap: 24px; }
   .nav-link { font-size: 10px; }
-  .liquidity-pipes { padding: 80px 24px; }
+  .liquidity-pipes-header { padding: 60px 24px; }
   .liquidity-pipes-title { font-size: 36px; }
   .pipe-row-wrap { padding: 0 24px; }
   .pipe-row { grid-template-columns: 1fr; gap: 32px; }
@@ -406,14 +409,17 @@ footer {
   </div>
 </section>
 
-<!-- LIQUIDITY PIPES -->
-<section class="liquidity-pipes" id="product">
-  <div class="liquidity-pipes-inner">
-    <div class="ao">
-      <h2 class="liquidity-pipes-title">Liquidity Pipes</h2>
-      <p class="liquidity-pipes-subtitle">Transform debt into programmable value</p>
-    </div>
-    <div class="steps-rows ao">
+<!-- LIQUIDITY PIPES HEADER -->
+<div class="liquidity-pipes-header" id="product">
+  <div class="liquidity-pipes-header-inner ao">
+    <h2 class="liquidity-pipes-title">Liquidity Pipes</h2>
+    <p class="liquidity-pipes-subtitle">Transform debt into programmable value</p>
+  </div>
+</div>
+
+<!-- INFRASTRUCTURE ROWS -->
+<div class="liquidity-pipes-rows">
+  <div class="steps-rows ao">
       <div class="pipe-row-wrap">
         <div class="pipe-row">
           <div class="pipe-left">
@@ -462,9 +468,8 @@ footer {
           </div>
         </div>
       </div>
-    </div>
   </div>
-</section>
+</div>
 
 <!-- FOOTER -->
 <footer>
