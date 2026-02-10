@@ -478,43 +478,45 @@
   .tape-status.available { color: var(--mint); }
   .tape-status.pending { color: var(--amber); }
 
-  .badge { display: inline-block; font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase; padding: 3px 8px; }
-  .badge-green { background: var(--green-bg); color: var(--green); }
-  .badge-mint { background: var(--mint-light); color: var(--mint); }
-  .badge-amber { background: var(--amber-bg); color: var(--amber); }
+  /* Status text styles */
 
-  /* ORIGIN MOCKUP */
-  .origin-body { padding: 20px; }
+  /* ORIGIN MOCKUP (Swiss precision) */
+  .origin-body { padding: 16px; font-family: 'Inter', -apple-system, sans-serif; }
   .origin-pipeline { display: flex; gap: 2px; margin-bottom: 16px; }
-  .pipe-step { flex: 1; padding: 12px 6px; text-align: center; background: var(--gray-100); }
-  .pipe-step.done { background: var(--green-bg); }
-  .pipe-step.active { background: var(--mint-light); }
-  .pipe-name { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; color: var(--gray-400); }
-  .pipe-step.done .pipe-name { color: var(--green); }
+  .pipe-step { flex: 1; padding: 10px 6px; text-align: center; background: var(--gray-100); }
+  .pipe-step.done { background: var(--gray-100); }
+  .pipe-step.active { background: rgba(13,115,119,0.04); }
+  .pipe-name { font-size: 10px; font-weight: 500; letter-spacing: 0.3px; text-transform: uppercase; color: var(--gray-400); }
+  .pipe-step.done .pipe-name { color: var(--gray-600); }
   .pipe-step.active .pipe-name { color: var(--mint); }
-  .pipe-status { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--gray-400); margin-top: 3px; }
-  .pipe-step.done .pipe-status { color: var(--green); }
+  .pipe-status { font-size: 10px; font-weight: 400; color: var(--gray-400); margin-top: 3px; }
+  .pipe-step.done .pipe-status { color: var(--gray-600); }
   .pipe-step.active .pipe-status { color: var(--mint); }
 
-  .inv-row { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; padding: 12px 14px; border: 1px solid var(--gray-200); margin-bottom: 6px; }
-  .inv-name { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; color: var(--black); }
-  .inv-id { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--gray-400); margin-top: 1px; }
-  .inv-amt { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; color: var(--black); }
+  .inv-row { display: grid; grid-template-columns: 1fr auto auto; gap: 16px; align-items: center; padding: 10px 14px; border: 1px solid var(--gray-200); margin-bottom: 4px; transition: background 0.12s ease; }
+  .inv-row:hover { background: var(--gray-50); }
+  .inv-row.selected { background: rgba(13,115,119,0.04); }
+  .inv-primary { font-size: 11px; font-weight: 400; color: var(--gray-600); }
+  .inv-amt { font-size: 11px; font-weight: 400; color: var(--gray-600); }
+  .inv-status { font-size: 10px; font-weight: 400; color: var(--gray-400); }
+  .inv-status.validated { color: var(--gray-600); }
+  .inv-status.validating { color: var(--mint); }
+  .inv-status.extracting { color: var(--amber); }
 
   /* CONFIRM MOCKUP */
-  .confirm-body { padding: 20px; }
+  .confirm-body { padding: 20px; font-family: 'Inter', -apple-system, sans-serif; }
   .confirm-match { border: 1px solid var(--gray-200); padding: 16px; margin-bottom: 16px; }
   .confirm-match-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid var(--gray-200); }
-  .confirm-match-title { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; color: var(--black); }
-  .confirm-match-id { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--gray-400); }
+  .confirm-match-title { font-size: 12px; font-weight: 500; color: var(--black); }
+  .confirm-match-id { font-size: 11px; font-weight: 400; color: var(--gray-400); }
   .confirm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .cf-label { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--gray-400); margin-bottom: 2px; }
-  .cf-val { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--black); }
+  .cf-label { font-size: 10px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; color: var(--gray-400); margin-bottom: 2px; }
+  .cf-val { font-size: 11px; font-weight: 400; color: var(--gray-600); }
   .confirm-checks { display: grid; gap: 6px; margin-bottom: 16px; }
-  .cc-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--green-bg); }
-  .cc-icon svg { width: 14px; height: 14px; stroke: var(--green); fill: none; stroke-width: 2.5; }
-  .cc-text { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; color: var(--green); }
-  .confirm-cta { display: block; width: 100%; padding: 12px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; text-align: center; background: var(--mint); color: var(--white); border: none; }
+  .cc-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--gray-50); }
+  .cc-icon svg { width: 14px; height: 14px; stroke: var(--gray-400); fill: none; stroke-width: 2.5; }
+  .cc-text { font-size: 11px; font-weight: 400; color: var(--gray-600); }
+  .confirm-cta { display: block; width: 100%; padding: 12px; font-size: 11px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; text-align: center; background: var(--mint); color: var(--white); border: none; }
 
   /* ================================
      CTA
@@ -806,16 +808,16 @@
       </div>
       <div class="origin-body">
         <div class="origin-pipeline">
-          <div class="pipe-step done"><div class="pipe-name">Discover</div><div class="pipe-status">✓ 12</div></div>
-          <div class="pipe-step done"><div class="pipe-name">Extract</div><div class="pipe-status">✓ Done</div></div>
-          <div class="pipe-step active"><div class="pipe-name">Validate</div><div class="pipe-status">● 8/12</div></div>
+          <div class="pipe-step done"><div class="pipe-name">Discover</div><div class="pipe-status">12</div></div>
+          <div class="pipe-step done"><div class="pipe-name">Extract</div><div class="pipe-status">Done</div></div>
+          <div class="pipe-step active"><div class="pipe-name">Validate</div><div class="pipe-status">8/12</div></div>
           <div class="pipe-step"><div class="pipe-name">Underwrite</div><div class="pipe-status">Queued</div></div>
           <div class="pipe-step"><div class="pipe-name">Tokenize</div><div class="pipe-status">Queued</div></div>
         </div>
-        <div class="inv-row"><div><div class="inv-name">Acme Distribution LLC</div><div class="inv-id">INV-2025-4891</div></div><div class="inv-amt">$127,400</div><div><span class="badge badge-green">Validated</span></div></div>
-        <div class="inv-row"><div><div class="inv-name">Pacific Supply Co.</div><div class="inv-id">INV-2025-4892</div></div><div class="inv-amt">$84,200</div><div><span class="badge badge-green">Validated</span></div></div>
-        <div class="inv-row"><div><div class="inv-name">Summit Materials Inc.</div><div class="inv-id">INV-2025-4893</div></div><div class="inv-amt">$213,600</div><div><span class="badge badge-mint">Validating</span></div></div>
-        <div class="inv-row" style="margin-bottom:0;"><div><div class="inv-name">Central Freight Systems</div><div class="inv-id">INV-2025-4894</div></div><div class="inv-amt">$56,800</div><div><span class="badge badge-amber">Extracting</span></div></div>
+        <div class="inv-row"><div class="inv-primary">INV-2025-4891</div><div class="inv-amt">$127,400</div><div class="inv-status validated">Validated</div></div>
+        <div class="inv-row"><div class="inv-primary">INV-2025-4892</div><div class="inv-amt">$84,200</div><div class="inv-status validated">Validated</div></div>
+        <div class="inv-row selected"><div class="inv-primary">INV-2025-4893</div><div class="inv-amt">$213,600</div><div class="inv-status validating">Validating</div></div>
+        <div class="inv-row" style="margin-bottom:0;"><div class="inv-primary">INV-2025-4894</div><div class="inv-amt">$56,800</div><div class="inv-status extracting">Extracting</div></div>
       </div>
     </div>
   </div>
@@ -845,19 +847,19 @@
       </div>
       <div class="confirm-body">
         <div class="confirm-match">
-          <div class="confirm-match-top"><span class="confirm-match-title">Purchase Order Match</span><span class="confirm-match-id">PO-WMT-2025-7842</span></div>
+          <div class="confirm-match-top"><span class="confirm-match-title">Purchase Order Match</span><span class="confirm-match-id">PO-2025-7842</span></div>
           <div class="confirm-grid">
-            <div><div class="cf-label">Buyer</div><div class="cf-val">Walmart Inc.</div></div>
+            <div><div class="cf-label">Obligor</div><div class="cf-val">AA+ rated · Fortune 500</div></div>
             <div><div class="cf-label">Amount</div><div class="cf-val">$847,200.00</div></div>
             <div><div class="cf-label">Invoice</div><div class="cf-val">INV-2025-4891</div></div>
             <div><div class="cf-label">Terms</div><div class="cf-val">Net 45</div></div>
           </div>
         </div>
         <div class="confirm-checks">
-          <div class="cc-item"><div class="cc-icon"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span class="cc-text">PO matches invoice total</span></div>
-          <div class="cc-item"><div class="cc-icon"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span class="cc-text">Buyer identity verified</span></div>
-          <div class="cc-item"><div class="cc-icon"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span class="cc-text">14 of 14 line items reconciled</span></div>
-          <div class="cc-item"><div class="cc-icon"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span class="cc-text">No duplicate submissions</span></div>
+          <div class="cc-item"><div class="cc-icon neutral"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span class="cc-text">PO matches invoice total</span></div>
+          <div class="cc-item"><div class="cc-icon neutral"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span class="cc-text">Obligor identity verified</span></div>
+          <div class="cc-item"><div class="cc-icon neutral"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span class="cc-text">14 of 14 line items reconciled</span></div>
+          <div class="cc-item"><div class="cc-icon neutral"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span class="cc-text">No duplicate submissions</span></div>
         </div>
         <button class="confirm-cta">Confirm &amp; Submit to Funding</button>
       </div>
