@@ -402,8 +402,8 @@ footer {
   <a href="/site.html" class="nav-logo">MINT</a>
   <ul class="nav-links">
     <li><a href="/product.html">Product</a></li>
-    <li><a href="/careers.html">Careers</a></li>
     <li><a href="/master-plan.html">Master Plan</a></li>
+    <li><a href="/careers.html">Careers</a></li>
   </ul>
 </nav>
 
@@ -440,18 +440,7 @@ footer {
     <h2 class="apply-title">Apply for this role</h2>
 
     <form id="application-form" action="https://formspree.io/f/PLACEHOLDER" method="POST" enctype="multipart/form-data">
-      <div class="form-group">
-        <label class="form-label" for="role">Role</label>
-        <select class="form-select" id="role-select" name="role" required>
-          <option value="">Select a role</option>
-          <option value="Senior AI Engineer">Senior AI Engineer</option>
-          <option value="Securities Finance PM">Securities Finance PM</option>
-          <option value="Product Manager, User Experience">Product Manager, User Experience</option>
-          <option value="Role Title 4">Role Title 4</option>
-          <option value="Role Title 5">Role Title 5</option>
-          <option value="General Inquiry">General Inquiry</option>
-        </select>
-      </div>
+      <input type="hidden" id="role-select" name="role" value="">
 
       <div class="form-group">
         <label class="form-label" for="name">Full Name</label>
@@ -553,14 +542,8 @@ document.getElementById('role-meta').textContent = role.tag + ' · Full time · 
 document.getElementById('role-description').innerHTML = '<p>' + role.description + '</p>';
 document.title = role.title + ' · MINT';
 
-// Pre-select role in form
-const roleSelect = document.getElementById('role-select');
-for (let i = 0; i < roleSelect.options.length; i++) {
-  if (roleSelect.options[i].value === role.title) {
-    roleSelect.selectedIndex = i;
-    break;
-  }
-}
+// Set role in hidden field
+document.getElementById('role-select').value = role.title;
 
 // File upload display
 const fileInput = document.getElementById('resume');
