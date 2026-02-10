@@ -322,43 +322,161 @@
     max-width: 480px;
     background: var(--white);
     border: 1px solid var(--gray-300);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.03);
   }
 
   .app-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 16px;
+    padding: 10px 16px;
     border-bottom: 1px solid var(--gray-200);
     background: var(--gray-50);
   }
 
   .app-dots { display: flex; gap: 5px; }
-  .app-dot { width: 8px; height: 8px; border: 1px solid var(--gray-300); background: var(--white); }
-  .app-url { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--gray-400); }
-  .app-live { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--mint); }
+  .app-dot { width: 7px; height: 7px; border: 1px solid var(--gray-300); background: var(--white); }
+  .app-url { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 400; color: var(--gray-400); }
+  .app-live { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 400; color: var(--mint); }
 
-  /* TAPE TABLE */
-  .tape-toolbar { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--gray-200); }
-  .tape-toolbar-title { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: var(--black); }
-  .tape-toolbar-meta { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--gray-400); }
+  /* TAPE SPLIT PANEL (Swiss precision) */
+  .tape-frame { max-width: 560px; }
 
-  .tape-row {
+  .tape-split {
     display: grid;
-    grid-template-columns: 1.4fr 0.8fr 0.5fr 0.6fr;
-    padding: 14px 20px;
+    grid-template-columns: 160px 1fr;
+    min-height: 340px;
+    font-family: 'Inter', -apple-system, sans-serif;
+  }
+
+  .tape-sidebar {
+    border-right: 1px solid var(--gray-200);
+    padding: 14px 0;
+    background: var(--gray-50);
+  }
+
+  .tape-side-section { padding: 0 0 10px; }
+  .tape-side-section + .tape-side-section { border-top: 1px solid var(--gray-200); padding-top: 10px; }
+
+  .tape-side-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    padding: 4px 16px 6px;
+  }
+
+  .tape-side-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 16px;
+    cursor: pointer;
+    transition: background 0.12s ease;
+  }
+
+  .tape-side-item:hover { background: var(--gray-100); }
+  .tape-side-item.active { background: var(--white); }
+
+  .tape-side-dot {
+    width: 5px;
+    height: 5px;
+    background: var(--gray-300);
+    flex-shrink: 0;
+  }
+
+  .tape-side-dot.green { background: var(--green); }
+  .tape-side-dot.mint { background: var(--mint); }
+  .tape-side-dot.amber { background: var(--amber); }
+
+  .tape-side-name {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--gray-600);
+    line-height: 1.3;
+  }
+
+  .tape-side-item.active .tape-side-name { color: var(--black); font-weight: 500; }
+
+  .tape-side-meta {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--gray-400);
+    margin-top: 1px;
+  }
+
+  .tape-content { padding: 0; }
+
+  .tape-content-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .tape-content-title {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--black);
+  }
+
+  .tape-content-agg {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--gray-400);
+  }
+
+  .tape-grid-head {
+    display: grid;
+    grid-template-columns: 1.4fr 0.7fr 0.5fr 0.6fr;
+    padding: 7px 16px;
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .tape-grid-head span {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    color: var(--gray-400);
+  }
+
+  .tape-grid-row {
+    display: grid;
+    grid-template-columns: 1.4fr 0.7fr 0.5fr 0.6fr;
+    padding: 9px 16px;
     border-bottom: 1px solid var(--gray-200);
     align-items: center;
-    transition: background 0.15s ease;
+    transition: background 0.12s ease;
   }
-  .tape-row:hover { background: var(--gray-50); }
-  .tape-row.tape-head { background: var(--gray-50); padding: 8px 20px; }
-  .tape-head span { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--gray-400); }
-  .tape-obligor { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; color: var(--black); }
-  .tape-sub { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--gray-400); margin-top: 1px; }
-  .tape-amt { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: var(--black); }
-  .tape-yield { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--gray-600); }
+
+  .tape-grid-row:last-child { border-bottom: none; }
+  .tape-grid-row:hover { background: var(--gray-50); }
+  .tape-grid-row.selected { background: rgba(13,115,119,0.04); }
+
+  .tape-obl {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--gray-600);
+  }
+
+  .tape-val {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--gray-600);
+  }
+
+  .tape-status {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--gray-400);
+  }
+
+  .tape-status.funded { color: var(--green); }
+  .tape-status.available { color: var(--mint); }
+  .tape-status.pending { color: var(--amber); }
 
   .badge { display: inline-block; font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase; padding: 3px 8px; }
   .badge-green { background: var(--green-bg); color: var(--green); }
@@ -494,6 +612,12 @@
     .product-text { padding: 60px 24px; }
     .product-text h2 { font-size: 28px; }
     .product-visual { padding: 32px 24px; border-left: none !important; border-right: none !important; border-top: 1px solid var(--gray-300); }
+    .tape-split { grid-template-columns: 1fr; }
+    .tape-sidebar { border-right: none; border-bottom: 1px solid var(--gray-200); padding: 8px 0; display: flex; overflow-x: auto; gap: 0; }
+    .tape-side-section { display: flex; gap: 0; padding: 0; border: none !important; }
+    .tape-side-label { display: none; }
+    .tape-side-item { white-space: nowrap; padding: 6px 12px; }
+    .tape-frame { max-width: 100%; }
     .cta-section { padding: 80px 24px; }
     footer { padding: 32px 24px; flex-direction: column; gap: 16px; text-align: center; }
   }
@@ -562,20 +686,97 @@
     </div>
   </div>
   <div class="product-visual">
-    <div class="app-frame">
+    <div class="app-frame tape-frame">
       <div class="app-bar">
         <div class="app-dots"><div class="app-dot"></div><div class="app-dot"></div><div class="app-dot"></div></div>
-        <span class="app-url">tape.mint.us</span>
+        <span class="app-url">The Tape</span>
         <span class="app-live">● Live</span>
       </div>
-      <div>
-        <div class="tape-toolbar"><span class="tape-toolbar-title">Available Receivables</span><span class="tape-toolbar-meta">23 assets · $4.2M</span></div>
-        <div class="tape-row tape-head"><span>Obligor</span><span>Amount</span><span>Yield</span><span>Status</span></div>
-        <div class="tape-row"><div><div class="tape-obligor">Walmart Inc.</div><div class="tape-sub">WMT · Net 45</div></div><div class="tape-amt">$847,200</div><div class="tape-yield">7.8%</div><div><span class="badge badge-green">Funded</span></div></div>
-        <div class="tape-row"><div><div class="tape-obligor">Target Corp.</div><div class="tape-sub">TGT · Net 30</div></div><div class="tape-amt">$612,500</div><div class="tape-yield">8.2%</div><div><span class="badge badge-mint">Available</span></div></div>
-        <div class="tape-row"><div><div class="tape-obligor">Costco Wholesale</div><div class="tape-sub">COST · Net 28</div></div><div class="tape-amt">$1,240,000</div><div class="tape-yield">7.4%</div><div><span class="badge badge-mint">Available</span></div></div>
-        <div class="tape-row"><div><div class="tape-obligor">Home Depot Inc.</div><div class="tape-sub">HD · Net 60</div></div><div class="tape-amt">$523,800</div><div class="tape-yield">9.1%</div><div><span class="badge badge-amber">Pending</span></div></div>
-        <div class="tape-row" style="border-bottom:none;"><div><div class="tape-obligor">Kroger Co.</div><div class="tape-sub">KR · Net 38</div></div><div class="tape-amt">$938,400</div><div class="tape-yield">8.7%</div><div><span class="badge badge-green">Funded</span></div></div>
+      <div class="tape-split">
+        <!-- LEFT SIDEBAR -->
+        <div class="tape-sidebar">
+          <div class="tape-side-section">
+            <div class="tape-side-label">Pools</div>
+            <div class="tape-side-item active">
+              <div class="tape-side-dot green"></div>
+              <div>
+                <div class="tape-side-name">All Receivables</div>
+                <div class="tape-side-meta">23 assets</div>
+              </div>
+            </div>
+            <div class="tape-side-item">
+              <div class="tape-side-dot"></div>
+              <div>
+                <div class="tape-side-name">Investment Grade</div>
+                <div class="tape-side-meta">14 assets</div>
+              </div>
+            </div>
+            <div class="tape-side-item">
+              <div class="tape-side-dot"></div>
+              <div>
+                <div class="tape-side-name">Short Duration</div>
+                <div class="tape-side-meta">9 assets</div>
+              </div>
+            </div>
+          </div>
+          <div class="tape-side-section">
+            <div class="tape-side-label">Activity</div>
+            <div class="tape-side-item">
+              <div class="tape-side-dot mint"></div>
+              <div>
+                <div class="tape-side-name">New Today</div>
+                <div class="tape-side-meta">3 assets</div>
+              </div>
+            </div>
+            <div class="tape-side-item">
+              <div class="tape-side-dot amber"></div>
+              <div>
+                <div class="tape-side-name">Pending Review</div>
+                <div class="tape-side-meta">2 assets</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- RIGHT CONTENT -->
+        <div class="tape-content">
+          <div class="tape-content-head">
+            <span class="tape-content-title">All Receivables</span>
+            <span class="tape-content-agg">$4.2M · 7.9% avg</span>
+          </div>
+          <div class="tape-grid-head">
+            <span>Obligor</span><span>Amount</span><span>Yield</span><span>Status</span>
+          </div>
+          <div class="tape-grid-row">
+            <div class="tape-obl">AA+ · Net 45</div>
+            <div class="tape-val">$847K</div>
+            <div class="tape-val">7.8%</div>
+            <div class="tape-status funded">Funded</div>
+          </div>
+          <div class="tape-grid-row selected">
+            <div class="tape-obl">A · Net 30</div>
+            <div class="tape-val">$612K</div>
+            <div class="tape-val">8.2%</div>
+            <div class="tape-status available">Available</div>
+          </div>
+          <div class="tape-grid-row">
+            <div class="tape-obl">AA · Net 28</div>
+            <div class="tape-val">$1.24M</div>
+            <div class="tape-val">7.4%</div>
+            <div class="tape-status available">Available</div>
+          </div>
+          <div class="tape-grid-row">
+            <div class="tape-obl">BBB+ · Net 60</div>
+            <div class="tape-val">$524K</div>
+            <div class="tape-val">9.1%</div>
+            <div class="tape-status pending">Pending</div>
+          </div>
+          <div class="tape-grid-row">
+            <div class="tape-obl">A+ · Net 38</div>
+            <div class="tape-val">$938K</div>
+            <div class="tape-val">8.7%</div>
+            <div class="tape-status funded">Funded</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
