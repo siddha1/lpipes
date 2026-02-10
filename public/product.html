@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product · MINT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --white: #FFFFFF;
+    --black: #000000;
+    --navy: #1A1A2E;
+    --mint: #0D7377;
+    --mint-light: #E8F4F4;
+    --gray-50: #FAFAFA;
+    --gray-100: #F8F8F8;
+    --gray-200: #EDEDEB;
+    --gray-300: #E5E5E5;
+    --gray-400: #999999;
+    --gray-500: #666666;
+    --gray-600: #444444;
+    --green: #059669;
+    --green-bg: #ECFDF5;
+    --amber: #D97706;
+    --amber-bg: #FFFBEB;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--black);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ================================
+     NAV (matches careers.html exactly)
+     ================================ */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 48px;
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-300);
+    transition: all 0.3s ease;
+  }
+
+  .nav-logo {
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    color: var(--black);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .nav-links { display: flex; gap: 36px; }
+
+  .nav-links a {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gray-500);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .nav-links a:hover { color: var(--black); }
+  .nav-links a.active { color: var(--black); }
+
+  /* ================================
+     HERO
+     ================================ */
+  .hero {
+    padding: 180px 48px 48px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--mint);
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--black);
+    letter-spacing: -1px;
+  }
+
+  .hero-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--gray-500);
+    margin-top: 28px;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ================================
+     3-BOX FLOW (compact)
+     ================================ */
+  .flow-section {
+    padding: 24px 48px 72px;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .flow-section.visible { opacity: 1; transform: translateY(0); }
+
+  .flow-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .flow-card {
+    width: 180px;
+    height: 150px;
+    border: 1px solid var(--gray-300);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    background: var(--white);
+  }
+
+  .flow-card.flow-center {
+    width: 180px;
+    height: 180px;
+    background: var(--navy);
+    border-color: var(--navy);
+  }
+
+  .flow-card-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--black);
+    line-height: 1.25;
+  }
+
+  .flow-center .flow-card-title {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--white);
+    text-transform: uppercase;
+  }
+
+  .flow-card-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--gray-400);
+    margin-top: 6px;
+  }
+
+  .flow-center .flow-card-sub {
+    color: rgba(255,255,255,0.45);
+  }
+
+  .flow-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: 0 16px;
+  }
+
+  .flow-arrow-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gray-400);
+  }
+
+  .flow-arrow svg {
+    width: 20px;
+    height: 10px;
+    stroke: var(--gray-400);
+    fill: none;
+    stroke-width: 1.5;
+  }
+
+  /* ================================
+     DIVIDER
+     ================================ */
+  .divider {
+    width: 100%;
+    border: none;
+    border-top: 1px solid var(--gray-300);
+  }
+
+  /* ================================
+     PRODUCT SECTIONS
+     ================================ */
+  .product-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 680px;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .product-row.visible { opacity: 1; transform: translateY(0); }
+  .product-row.reverse .product-text { order: 2; }
+  .product-row.reverse .product-visual { order: 1; }
+
+  .product-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 64px;
+  }
+
+  .section-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--mint);
+    margin-bottom: 20px;
+  }
+
+  .product-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--black);
+    letter-spacing: -0.5px;
+    margin-bottom: 24px;
+  }
+
+  .product-text p {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.75;
+    color: var(--gray-500);
+  }
+
+  .product-features { display: grid; gap: 12px; margin-top: 28px; }
+
+  .product-feature { display: flex; align-items: center; gap: 12px; }
+
+  .pf-check {
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid var(--mint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .pf-check svg { width: 10px; height: 10px; stroke: var(--mint); fill: none; stroke-width: 2.5; }
+
+  .product-feature span {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-600);
+  }
+
+  .product-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+    background: var(--gray-50);
+    border-left: 1px solid var(--gray-300);
+    overflow: hidden;
+  }
+
+  .product-row.reverse .product-visual {
+    border-left: none;
+    border-right: 1px solid var(--gray-300);
+  }
+
+  .visual-navy {
+    background: var(--navy);
+    border-left-color: var(--navy);
+  }
+
+  /* APP FRAME */
+  .app-frame {
+    width: 100%;
+    max-width: 480px;
+    background: var(--white);
+    border: 1px solid var(--gray-300);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .app-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--gray-200);
+    background: var(--gray-50);
+  }
+
+  .app-dots { display: flex; gap: 5px; }
+  .app-dot { width: 8px; height: 8px; border: 1px solid var(--gray-300); background: var(--white); }
+  .app-url { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--gray-400); }
+  .app-live { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--mint); }
+
+  /* TAPE TABLE */
+  .tape-toolbar { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--gray-200); }
+  .tape-toolbar-title { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: var(--black); }
+  .tape-toolbar-meta { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--gray-400); }
+
+  .tape-row {
+    display: grid;
+    grid-template-columns: 1.4fr 0.8fr 0.5fr 0.6fr;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--gray-200);
+    align-items: center;
+    transition: background 0.15s ease;
+  }
+  .tape-row:hover { background: var(--gray-50); }
+  .tape-row.tape-head { background: var(--gray-50); padding: 8px 20px; }
+  .tape-head span { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--gray-400); }
+  .tape-obligor { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; color: var(--black); }
+  .tape-sub { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--gray-400); margin-top: 1px; }
+  .tape-amt { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: var(--black); }
+  .tape-yield { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--gray-600); }
+
+  .badge { display: inline-block; font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase; padding: 3px 8px; }
+  .badge-green { background: var(--green-bg); color: var(--green); }
+  .badge-mint { background: var(--mint-light); color: var(--mint); }
+  .badge-amber { background: var(--amber-bg); color: var(--amber); }
+
+  /* ORIGIN MOCKUP */
+  .origin-body { padding: 20px; }
+  .origin-pipeline { display: flex; gap: 2px; margin-bottom: 16px; }
+  .pipe-step { flex: 1; padding: 12px 6px; text-align: center; background: var(--gray-100); }
+  .pipe-step.done { background: var(--green-bg); }
+  .pipe-step.active { background: var(--mint-light); }
+  .pipe-name { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; color: var(--gray-400); }
+  .pipe-step.done .pipe-name { color: var(--green); }
+  .pipe-step.active .pipe-name { color: var(--mint); }
+  .pipe-status { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--gray-400); margin-top: 3px; }
+  .pipe-step.done .pipe-status { color: var(--green); }
+  .pipe-step.active .pipe-status { color: var(--mint); }
+
+  .inv-row { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; padding: 12px 14px; border: 1px solid var(--gray-200); margin-bottom: 6px; }
+  .inv-name { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; color: var(--black); }
+  .inv-id { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--gray-400); margin-top: 1px; }
+  .inv-amt { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500; color: var(--black); }
+
+  /* CONFIRM MOCKUP */
+  .confirm-body { padding: 20px; }
+  .confirm-match { border: 1px solid var(--gray-200); padding: 16px; margin-bottom: 16px; }
+  .confirm-match-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid var(--gray-200); }
+  .confirm-match-title { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; color: var(--black); }
+  .confirm-match-id { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--gray-400); }
+  .confirm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .cf-label { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--gray-400); margin-bottom: 2px; }
+  .cf-val { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--black); }
+  .confirm-checks { display: grid; gap: 6px; margin-bottom: 16px; }
+  .cc-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--green-bg); }
+  .cc-icon svg { width: 14px; height: 14px; stroke: var(--green); fill: none; stroke-width: 2.5; }
+  .cc-text { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; color: var(--green); }
+  .confirm-cta { display: block; width: 100%; padding: 12px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; text-align: center; background: var(--mint); color: var(--white); border: none; }
+
+  /* ================================
+     VERIFICATION STACK (Swiss Institutional)
+     ================================ */
+  .vstack-section {
+    padding: 120px 48px 100px;
+    max-width: 1080px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .vstack-section.visible { opacity: 1; transform: translateY(0); }
+
+  .vstack-header {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+
+  .vstack-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--black);
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+  }
+
+  .vstack-header p {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: var(--gray-500);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .vstack-layout {
+    display: grid;
+    grid-template-columns: 1fr 64px 1fr;
+    align-items: center;
+  }
+
+  .vstack-domains { display: grid; gap: 1px; background: var(--gray-300); border: 1px solid var(--gray-300); }
+
+  .vstack-card { background: var(--white); padding: 32px; }
+
+  .vstack-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .vstack-card-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--navy);
+  }
+
+  .vstack-count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--white);
+    background: var(--mint);
+    padding: 2px 8px;
+  }
+
+  .vstack-items { display: grid; gap: 0; }
+
+  .vstack-item {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--gray-600);
+    padding: 9px 0;
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .vstack-item:last-child { border-bottom: none; }
+
+  .vstack-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .vstack-arrow svg {
+    width: 32px;
+    height: 14px;
+    stroke: var(--mint);
+    fill: none;
+    stroke-width: 1.5;
+  }
+
+  /* Fundable Asset Output */
+  .vstack-output { border: 1px solid var(--navy); }
+
+  .vstack-output-head {
+    background: var(--navy);
+    padding: 16px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .vstack-output-batch {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .vstack-output-badge {
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--mint);
+    border: 1px solid var(--mint);
+    padding: 3px 10px;
+  }
+
+  .vstack-output-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--navy);
+    padding: 24px 28px 16px;
+  }
+
+  .vstack-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .vstack-metric {
+    padding: 20px 28px;
+    border-bottom: 1px solid var(--gray-200);
+    border-right: 1px solid var(--gray-200);
+  }
+
+  .vstack-metric:nth-child(2n) { border-right: none; }
+  .vstack-metric:nth-last-child(-n+2) { border-bottom: none; }
+
+  .vm-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-bottom: 4px;
+  }
+
+  .vm-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+  }
+
+  /* ================================
+     13-POINT GRID (Swiss Institutional)
+     Perfect squares, monospaced labels, no internal numbers feel
+     ================================ */
+  .vgrid-section {
+    padding: 0 48px 120px;
+    max-width: 1200px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .vgrid-section.visible { opacity: 1; transform: translateY(0); }
+
+  .vgrid-domain { margin-bottom: 2px; }
+
+  .vgrid-domain-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--navy);
+    padding: 14px 24px;
+  }
+
+  .vgrid-domain-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .vgrid-domain-score {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--mint);
+  }
+
+  .vgrid-cards {
+    display: grid;
+    gap: 1px;
+    background: var(--gray-300);
+  }
+
+  .vgrid-cards.cols-5 { grid-template-columns: repeat(5, 1fr); }
+  .vgrid-cards.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .vgrid-cards.cols-2 { grid-template-columns: repeat(2, 1fr); }
+
+  .vgrid-card {
+    background: var(--white);
+    padding: 24px;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .vgrid-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .vgrid-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--gray-300);
+  }
+
+  .vgrid-pass {
+    font-family: 'Inter', sans-serif;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--mint);
+    border: 1px solid var(--mint);
+    padding: 2px 8px;
+  }
+
+  .vgrid-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--black);
+    line-height: 1.3;
+  }
+
+  .vgrid-tags {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+
+  .vgrid-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px;
+    font-weight: 400;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    border: 1px solid var(--gray-200);
+    padding: 3px 7px;
+  }
+
+  /* Domain pair row */
+  .vgrid-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-bottom: 2px;
+  }
+
+  .vgrid-pair .vgrid-card { aspect-ratio: auto; min-height: 140px; }
+
+  /* Footer bar */
+  .vgrid-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 0;
+    margin-top: 8px;
+  }
+
+  .vgrid-footer-left {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--gray-400);
+  }
+
+  .vgrid-footer-right {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+  }
+
+  .vgrid-footer-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray-400);
+  }
+
+  .vgrid-footer-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 400;
+    color: var(--navy);
+    letter-spacing: -1.5px;
+  }
+
+  /* ================================
+     STATS BAR
+     ================================ */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--gray-300);
+    border-bottom: 1px solid var(--gray-300);
+  }
+
+  .stat-block {
+    text-align: center;
+    padding: 72px 32px;
+    border-right: 1px solid var(--gray-300);
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .stat-block.visible { opacity: 1; transform: translateY(0); }
+  .stat-block:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px;
+    font-weight: 400;
+    color: var(--black);
+    line-height: 1;
+    letter-spacing: -2px;
+  }
+
+  .stat-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-top: 12px;
+  }
+
+  /* ================================
+     CTA
+     ================================ */
+  .cta-section { text-align: center; padding: 120px 48px; }
+
+  .cta-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--black);
+    margin-bottom: 20px;
+  }
+
+  .cta-section p {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: var(--gray-500);
+    margin-bottom: 36px;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--black);
+    padding: 16px 40px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+
+  .cta-btn:hover { background: var(--navy); }
+
+  /* ================================
+     FOOTER (matches careers.html)
+     ================================ */
+  footer {
+    padding: 60px 48px;
+    border-top: 1px solid var(--gray-300);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    color: var(--black);
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .footer-copy {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--gray-400);
+  }
+
+  .footer-links { display: flex; gap: 24px; list-style: none; }
+
+  .footer-links a {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--gray-400);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-links a:hover { color: var(--black); }
+
+  /* ================================
+     RESPONSIVE
+     ================================ */
+  @media (max-width: 900px) {
+    nav { padding: 20px 24px; }
+    .nav-links { gap: 20px; }
+    .nav-links a { font-size: 11px; }
+    .hero { padding: 140px 24px 32px; }
+    .hero h1 { font-size: 34px; }
+    .flow-section { padding: 24px 24px 48px; }
+    .flow-row { flex-direction: column; }
+    .flow-card, .flow-card.flow-center { width: 160px; height: 120px; }
+    .flow-card.flow-center { height: 140px; }
+    .flow-arrow { padding: 10px 0; transform: rotate(90deg); }
+    .product-row { grid-template-columns: 1fr; min-height: auto; }
+    .product-row.reverse .product-text { order: 1; }
+    .product-row.reverse .product-visual { order: 2; }
+    .product-text { padding: 60px 24px; }
+    .product-text h2 { font-size: 28px; }
+    .product-visual { padding: 32px 24px; border-left: none !important; border-right: none !important; border-top: 1px solid var(--gray-300); }
+    .vstack-section { padding: 80px 24px 60px; }
+    .vstack-layout { grid-template-columns: 1fr; }
+    .vstack-arrow { padding: 24px 0; transform: rotate(90deg); }
+    .vgrid-section { padding: 0 16px 80px; }
+    .vgrid-cards.cols-5 { grid-template-columns: repeat(2, 1fr); }
+    .vgrid-card { aspect-ratio: auto; min-height: 100px; }
+    .vgrid-pair { grid-template-columns: 1fr; }
+    .vgrid-footer { flex-direction: column; gap: 16px; text-align: center; }
+    .vgrid-footer-right { flex-direction: column; align-items: center; gap: 4px; }
+    .stats-bar { grid-template-columns: 1fr; }
+    .stat-block { border-right: none; border-bottom: 1px solid var(--gray-300); padding: 48px 24px; }
+    .stat-block:last-child { border-bottom: none; }
+    .stat-num { font-size: 42px; }
+    .cta-section { padding: 80px 24px; }
+    footer { padding: 32px 24px; flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/site.html" class="nav-logo">MINT</a>
+  <div class="nav-links">
+    <a href="/product.html" class="active">Product</a>
+    <a href="/careers.html">Careers</a>
+    <a href="/master-plan.html">Master Plan</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <p class="hero-label">Infrastructure</p>
+  <h1>The Institutional Liquidity Pipe</h1>
+  <p class="hero-sub">Five AI agents extract Fortune 500 receivables from any accounting system and route them to institutional capital. 36 seconds, not 36 days.</p>
+</div>
+
+<!-- 3-BOX FLOW -->
+<div class="flow-section">
+  <div class="flow-row">
+    <div class="flow-card">
+      <div class="flow-card-title">High Quality<br>Receivables</div>
+      <div class="flow-card-sub">Raw Enterprise Invoices</div>
+    </div>
+    <div class="flow-arrow">
+      <span class="flow-arrow-label">Ingestion</span>
+      <svg viewBox="0 0 24 12"><line x1="0" y1="6" x2="20" y2="6"/><polyline points="16 2 20 6 16 10"/></svg>
+    </div>
+    <div class="flow-card flow-center">
+      <div class="flow-card-title">MINT</div>
+      <div class="flow-card-sub">Validation &amp; Structuring</div>
+    </div>
+    <div class="flow-arrow">
+      <span class="flow-arrow-label">Issuance</span>
+      <svg viewBox="0 0 24 12"><line x1="0" y1="6" x2="20" y2="6"/><polyline points="16 2 20 6 16 10"/></svg>
+    </div>
+    <div class="flow-card">
+      <div class="flow-card-title">Liquid<br>Capital</div>
+      <div class="flow-card-sub">Institutional Note</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- THE TAPE -->
+<div class="product-row" id="tape">
+  <div class="product-text">
+    <p class="section-label">The Tape</p>
+    <h2>Wall Street's Window into Receivables</h2>
+    <p>Institutional buyers browse verified, Fortune 500 backed receivables in real time. Every asset is AI extracted, on chain validated, and model priced before it hits the book.</p>
+    <div class="product-features">
+      <div class="product-feature"><div class="pf-check"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span>Real time pricing by obligor credit quality</span></div>
+      <div class="product-feature"><div class="pf-check"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span>Filter by yield, tenor, rating, and sector</span></div>
+      <div class="product-feature"><div class="pf-check"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span>On chain settlement with immutable audit trail</span></div>
+      <div class="product-feature"><div class="pf-check"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span>Agent managed portfolio construction</span></div>
+    </div>
+  </div>
+  <div class="product-visual">
+    <div class="app-frame">
+      <div class="app-bar">
+        <div class="app-dots"><div class="app-dot"></div><div class="app-dot"></div><div class="app-dot"></div></div>
+        <span class="app-url">tape.mint.us</span>
+        <span class="app-live">● Live</span>
+      </div>
+      <div>
+        <div class="tape-toolbar"><span class="tape-toolbar-title">Available Receivables</span><span class="tape-toolbar-meta">23 assets · $4.2M</span></div>
+        <div class="tape-row tape-head"><span>Obligor</span><span>Amount</span><span>Yield</span><span>Status</span></div>
+        <div class="tape-row"><div><div class="tape-obligor">Walmart Inc.</div><div class="tape-sub">WMT · Net 45</div></div><div class="tape-amt">$847,200</div><div class="tape-yield">7.8%</div><div><span class="badge badge-green">Funded</span></div></div>
+        <div class="tape-row"><div><div class="tape-obligor">Target Corp.</div><div class="tape-sub">TGT · Net 30</div></div><div class="tape-amt">$612,500</div><div class="tape-yield">8.2%</div><div><span class="badge badge-mint">Available</span></div></div>
+        <div class="tape-row"><div><div class="tape-obligor">Costco Wholesale</div><div class="tape-sub">COST · Net 28</div></div><div class="tape-amt">$1,240,000</div><div class="tape-yield">7.4%</div><div><span class="badge badge-mint">Available</span></div></div>
+        <div class="tape-row"><div><div class="tape-obligor">Home Depot Inc.</div><div class="tape-sub">HD · Net 60</div></div><div class="tape-amt">$523,800</div><div class="tape-yield">9.1%</div><div><span class="badge badge-amber">Pending</span></div></div>
+        <div class="tape-row" style="border-bottom:none;"><div><div class="tape-obligor">Kroger Co.</div><div class="tape-sub">KR · Net 38</div></div><div class="tape-amt">$938,400</div><div class="tape-yield">8.7%</div><div><span class="badge badge-green">Funded</span></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ORIGIN (reversed) -->
+<div class="product-row reverse" id="origin">
+  <div class="product-text">
+    <p class="section-label">Origin</p>
+    <h2>Autonomous Invoice Extraction</h2>
+    <p>Suppliers connect once. MINT's five agents discover, extract, validate, underwrite, and tokenize every eligible receivable. No uploads. No data entry. No waiting.</p>
+    <div class="product-features">
+      <div class="product-feature"><div class="pf-check"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span>Shadow OAuth connects any ERP in one click</span></div>
+      <div class="product-feature"><div class="pf-check"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span>Five agent pipeline: discover to tokenize</span></div>
+      <div class="product-feature"><div class="pf-check"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span>98.7% extraction success rate</span></div>
+      <div class="product-feature"><div class="pf-check"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span>Adaptive LLMs handle any invoice format</span></div>
+    </div>
+  </div>
+  <div class="product-visual">
+    <div class="app-frame">
+      <div class="app-bar">
+        <div class="app-dots"><div class="app-dot"></div><div class="app-dot"></div><div class="app-dot"></div></div>
+        <span class="app-url">origin.mint.us</span>
+        <span class="app-live" style="color:var(--green);">● Processing</span>
+      </div>
+      <div class="origin-body">
+        <div class="origin-pipeline">
+          <div class="pipe-step done"><div class="pipe-name">Discover</div><div class="pipe-status">✓ 12</div></div>
+          <div class="pipe-step done"><div class="pipe-name">Extract</div><div class="pipe-status">✓ Done</div></div>
+          <div class="pipe-step active"><div class="pipe-name">Validate</div><div class="pipe-status">● 8/12</div></div>
+          <div class="pipe-step"><div class="pipe-name">Underwrite</div><div class="pipe-status">Queued</div></div>
+          <div class="pipe-step"><div class="pipe-name">Tokenize</div><div class="pipe-status">Queued</div></div>
+        </div>
+        <div class="inv-row"><div><div class="inv-name">Acme Distribution LLC</div><div class="inv-id">INV-2025-4891</div></div><div class="inv-amt">$127,400</div><div><span class="badge badge-green">Validated</span></div></div>
+        <div class="inv-row"><div><div class="inv-name">Pacific Supply Co.</div><div class="inv-id">INV-2025-4892</div></div><div class="inv-amt">$84,200</div><div><span class="badge badge-green">Validated</span></div></div>
+        <div class="inv-row"><div><div class="inv-name">Summit Materials Inc.</div><div class="inv-id">INV-2025-4893</div></div><div class="inv-amt">$213,600</div><div><span class="badge badge-mint">Validating</span></div></div>
+        <div class="inv-row" style="margin-bottom:0;"><div><div class="inv-name">Central Freight Systems</div><div class="inv-id">INV-2025-4894</div></div><div class="inv-amt">$56,800</div><div><span class="badge badge-amber">Extracting</span></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- CONFIRM -->
+<div class="product-row" id="confirm">
+  <div class="product-text">
+    <p class="section-label">Confirm</p>
+    <h2>Supplier Verification, One Click</h2>
+    <p>When a buyer's purchase order matches a supplier's invoice, MINT sends a confirmation request. The supplier verifies once and the receivable enters the funding queue. No paperwork. No phone calls.</p>
+    <div class="product-features">
+      <div class="product-feature"><div class="pf-check"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span>Automated PO to invoice matching</span></div>
+      <div class="product-feature"><div class="pf-check"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span>Line item reconciliation with 100% coverage</span></div>
+      <div class="product-feature"><div class="pf-check"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span>Clickless CAC for supplier onboarding</span></div>
+      <div class="product-feature"><div class="pf-check"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span>Instant queue for institutional funding</span></div>
+    </div>
+  </div>
+  <div class="product-visual visual-navy">
+    <div class="app-frame">
+      <div class="app-bar">
+        <div class="app-dots"><div class="app-dot"></div><div class="app-dot"></div><div class="app-dot"></div></div>
+        <span class="app-url">confirm.mint.us</span>
+        <span class="app-live">● Ready</span>
+      </div>
+      <div class="confirm-body">
+        <div class="confirm-match">
+          <div class="confirm-match-top"><span class="confirm-match-title">Purchase Order Match</span><span class="confirm-match-id">PO-WMT-2025-7842</span></div>
+          <div class="confirm-grid">
+            <div><div class="cf-label">Buyer</div><div class="cf-val">Walmart Inc.</div></div>
+            <div><div class="cf-label">Amount</div><div class="cf-val">$847,200.00</div></div>
+            <div><div class="cf-label">Invoice</div><div class="cf-val">INV-2025-4891</div></div>
+            <div><div class="cf-label">Terms</div><div class="cf-val">Net 45</div></div>
+          </div>
+        </div>
+        <div class="confirm-checks">
+          <div class="cc-item"><div class="cc-icon"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span class="cc-text">PO matches invoice total</span></div>
+          <div class="cc-item"><div class="cc-icon"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span class="cc-text">Buyer identity verified</span></div>
+          <div class="cc-item"><div class="cc-icon"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span class="cc-text">14 of 14 line items reconciled</span></div>
+          <div class="cc-item"><div class="cc-icon"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span class="cc-text">No duplicate submissions</span></div>
+        </div>
+        <button class="confirm-cta">Confirm &amp; Submit to Funding</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- VERIFICATION STACK (Swiss Institutional) -->
+<div class="vstack-section">
+  <div class="vstack-header">
+    <p class="section-label">Verification Architecture</p>
+    <h2>The Verification Stack</h2>
+    <p>Three autonomous domains validate every receivable before it reaches institutional buyers. Each check runs in parallel across 13 verification points.</p>
+  </div>
+
+  <div class="vstack-layout">
+    <div class="vstack-domains">
+      <div class="vstack-card">
+        <div class="vstack-card-head">
+          <span class="vstack-card-title">Retailer Domain</span>
+          <span class="vstack-count">5 / 5</span>
+        </div>
+        <div class="vstack-items">
+          <div class="vstack-item">Invoice Exists</div>
+          <div class="vstack-item">PO Match</div>
+          <div class="vstack-item">Goods Receipt</div>
+          <div class="vstack-item">Price Check</div>
+          <div class="vstack-item">Intent to Pay</div>
+        </div>
+      </div>
+      <div class="vstack-card">
+        <div class="vstack-card-head">
+          <span class="vstack-card-title">Platform Intelligence</span>
+          <span class="vstack-count">3 / 3</span>
+        </div>
+        <div class="vstack-items">
+          <div class="vstack-item">Duplicate Hash</div>
+          <div class="vstack-item">Graph History</div>
+          <div class="vstack-item">External Credit</div>
+        </div>
+      </div>
+      <div class="vstack-card">
+        <div class="vstack-card-head">
+          <span class="vstack-card-title">Supplier Hygiene</span>
+          <span class="vstack-count">3 / 3</span>
+        </div>
+        <div class="vstack-items">
+          <div class="vstack-item">KYC / AML</div>
+          <div class="vstack-item">Bank Validation</div>
+          <div class="vstack-item">Entity Active</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="vstack-arrow">
+      <svg viewBox="0 0 40 16"><line x1="0" y1="8" x2="34" y2="8"/><polyline points="30 3 36 8 30 13"/></svg>
+    </div>
+
+    <div>
+      <div class="vstack-output">
+        <div class="vstack-output-head">
+          <span class="vstack-output-batch">BATCH-2026-01-28</span>
+          <span class="vstack-output-badge">Funded</span>
+        </div>
+        <div class="vstack-output-title">Fundable Asset Output</div>
+        <div class="vstack-metrics">
+          <div class="vstack-metric"><div class="vm-label">Positions</div><div class="vm-value">18</div></div>
+          <div class="vstack-metric"><div class="vm-label">Yield / Turn</div><div class="vm-value">2.0%</div></div>
+          <div class="vstack-metric"><div class="vm-label">Day Tenor</div><div class="vm-value">47</div></div>
+          <div class="vstack-metric"><div class="vm-label">Annualized</div><div class="vm-value">8.0x</div></div>
+          <div class="vstack-metric"><div class="vm-label">Wtd Avg</div><div class="vm-value">A−</div></div>
+          <div class="vstack-metric"><div class="vm-label">Net Return</div><div class="vm-value">16%</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- 13-POINT GRID (Swiss Institutional) -->
+<div class="vgrid-section">
+  <!-- Retailer Domain -->
+  <div class="vgrid-domain">
+    <div class="vgrid-domain-head">
+      <span class="vgrid-domain-title">Retailer Domain · ERP Validation</span>
+      <span class="vgrid-domain-score">5 / 5 Pass</span>
+    </div>
+    <div class="vgrid-cards cols-5">
+      <div class="vgrid-card"><div class="vgrid-card-top"><span class="vgrid-num">01</span><span class="vgrid-pass">Pass</span></div><div class="vgrid-name">Invoice Exists</div><div class="vgrid-tags"><span class="vgrid-tag">SAP·ODATA</span><span class="vgrid-tag">Fabrication</span></div></div>
+      <div class="vgrid-card"><div class="vgrid-card-top"><span class="vgrid-num">02</span><span class="vgrid-pass">Pass</span></div><div class="vgrid-name">PO Match</div><div class="vgrid-tags"><span class="vgrid-tag">3-Way</span><span class="vgrid-tag">Unauthorized</span></div></div>
+      <div class="vgrid-card"><div class="vgrid-card-top"><span class="vgrid-num">03</span><span class="vgrid-pass">Pass</span></div><div class="vgrid-name">Goods Receipt</div><div class="vgrid-tags"><span class="vgrid-tag">WMS·Pull</span><span class="vgrid-tag">Phantom</span></div></div>
+      <div class="vgrid-card"><div class="vgrid-card-top"><span class="vgrid-num">04</span><span class="vgrid-pass">Pass</span></div><div class="vgrid-name">Amount Valid</div><div class="vgrid-tags"><span class="vgrid-tag">Exact·Match</span><span class="vgrid-tag">Inflation</span></div></div>
+      <div class="vgrid-card"><div class="vgrid-card-top"><span class="vgrid-num">05</span><span class="vgrid-pass">Pass</span></div><div class="vgrid-name">History Check</div><div class="vgrid-tags"><span class="vgrid-tag">Pattern·Chk</span><span class="vgrid-tag">Anomaly</span></div></div>
+    </div>
+  </div>
+
+  <!-- Platform + Supplier pair row -->
+  <div class="vgrid-pair">
+    <div>
+      <div class="vgrid-domain">
+        <div class="vgrid-domain-head">
+          <span class="vgrid-domain-title">MINT Platform · Graph + Dedup</span>
+          <span class="vgrid-domain-score">3 / 3 Pass</span>
+        </div>
+        <div class="vgrid-cards cols-3">
+          <div class="vgrid-card"><div class="vgrid-card-top"><span class="vgrid-num">06</span><span class="vgrid-pass">Pass</span></div><div class="vgrid-name">Dup Detect</div><div class="vgrid-tags"><span class="vgrid-tag">Hash·Chk</span><span class="vgrid-tag">Dbl·Fin</span></div></div>
+          <div class="vgrid-card"><div class="vgrid-card-top"><span class="vgrid-num">07</span><span class="vgrid-pass">Pass</span></div><div class="vgrid-name">Relationship</div><div class="vgrid-tags"><span class="vgrid-tag">Graph·Qry</span><span class="vgrid-tag">Collusion</span></div></div>
+          <div class="vgrid-card"><div class="vgrid-card-top"><span class="vgrid-num">08</span><span class="vgrid-pass">Pass</span></div><div class="vgrid-name">Enrichment</div><div class="vgrid-tags"><span class="vgrid-tag">DNB·API</span><span class="vgrid-tag">Corroborate</span></div></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="vgrid-domain">
+        <div class="vgrid-domain-head">
+          <span class="vgrid-domain-title">Supplier Domain · Counterparty</span>
+          <span class="vgrid-domain-score">3 / 3 Pass</span>
+        </div>
+        <div class="vgrid-cards cols-3">
+          <div class="vgrid-card"><div class="vgrid-card-top"><span class="vgrid-num">09</span><span class="vgrid-pass">Pass</span></div><div class="vgrid-name">Identity</div><div class="vgrid-tags"><span class="vgrid-tag">OFAC·Scr</span><span class="vgrid-tag">Sanction</span></div></div>
+          <div class="vgrid-card"><div class="vgrid-card-top"><span class="vgrid-num">10</span><span class="vgrid-pass">Pass</span></div><div class="vgrid-name">Bank Acct</div><div class="vgrid-tags"><span class="vgrid-tag">Plaid·Vrf</span><span class="vgrid-tag">Redirect</span></div></div>
+          <div class="vgrid-card"><div class="vgrid-card-top"><span class="vgrid-num">11</span><span class="vgrid-pass">Pass</span></div><div class="vgrid-name">Entity</div><div class="vgrid-tags"><span class="vgrid-tag">SOS·Chk</span><span class="vgrid-tag">Shell·Co</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Decision Domain -->
+  <div class="vgrid-domain">
+    <div class="vgrid-domain-head">
+      <span class="vgrid-domain-title">Decision Domain · Underwriting</span>
+      <span class="vgrid-domain-score">2 / 2 Pass</span>
+    </div>
+    <div class="vgrid-cards cols-2">
+      <div class="vgrid-card"><div class="vgrid-card-top"><span class="vgrid-num">12</span><span class="vgrid-pass">Pass</span></div><div class="vgrid-name">Outcome Tracking</div><div class="vgrid-tags"><span class="vgrid-tag">Post·Fund</span><span class="vgrid-tag">Maturity</span></div></div>
+      <div class="vgrid-card"><div class="vgrid-card-top"><span class="vgrid-num">13</span><span class="vgrid-pass">Pass</span></div><div class="vgrid-name">Underwriting Verdict</div><div class="vgrid-tags"><span class="vgrid-tag">ML·Model</span><span class="vgrid-tag">Auto·Decision</span></div></div>
+    </div>
+  </div>
+
+  <div class="vgrid-footer">
+    <span class="vgrid-footer-left">13 verification points · 4 domains · autonomous execution</span>
+    <div class="vgrid-footer-right">
+      <span class="vgrid-footer-label">Fraud Probability</span>
+      <span class="vgrid-footer-value">0.001%</span>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-block"><div class="stat-num">36s</div><div class="stat-label">Invoice to Settlement</div></div>
+  <div class="stat-block"><div class="stat-num">0.04%</div><div class="stat-label">Take Rate</div></div>
+  <div class="stat-block"><div class="stat-num">$10B</div><div class="stat-label">Receivables Pipeline</div></div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h3>Every Platform. Every Invoice. Every SMB.</h3>
+  <p>Connect, Price, Tokenize, Fund.</p>
+  <a href="mailto:hello@mint.us" class="cta-btn">Get in Touch</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="site.html" class="footer-logo">MINT</a>
+  <span class="footer-copy">&copy; 2025 Mint Vault Inc.</span>
+  <ul class="footer-links">
+    <li><a href="security.html">Security</a></li>
+    <li><a href="#">Legal</a></li>
+    <li><a href="mailto:hello@mint.us">Contact</a></li>
+  </ul>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.product-row, .stat-block, .flow-section, .vstack-section, .vgrid-section').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
