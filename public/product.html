@@ -82,28 +82,18 @@
   .nav-links a.active { color: var(--black); }
 
   /* ================================
-     HERO
+     HERO (minimalist)
      ================================ */
   .hero {
-    padding: 180px 48px 48px;
+    padding: 200px 48px 80px;
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
   }
 
-  .hero-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--mint);
-    margin-bottom: 24px;
-  }
-
   .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 52px;
+    font-size: 56px;
     font-weight: 400;
     line-height: 1.15;
     color: var(--black);
@@ -111,68 +101,75 @@
   }
 
   .hero-sub {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
     font-weight: 400;
-    line-height: 1.7;
-    color: var(--gray-500);
-    margin-top: 28px;
-    max-width: 540px;
-    margin-left: auto;
-    margin-right: auto;
+    letter-spacing: 1px;
+    color: var(--gray-400);
+    margin-top: 20px;
   }
 
   /* ================================
-     3-BOX FLOW (compact)
+     PIPE SECTION (3-box flow)
      ================================ */
-  .flow-section {
-    padding: 24px 48px 72px;
+  .pipe-section {
+    padding: 64px 48px 72px;
+    text-align: center;
     opacity: 0;
     transform: translateY(16px);
     transition: opacity 0.6s ease, transform 0.6s ease;
   }
 
-  .flow-section.visible { opacity: 1; transform: translateY(0); }
+  .pipe-section.visible { opacity: 1; transform: translateY(0); }
+
+  .pipe-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--black);
+    letter-spacing: -0.5px;
+    margin-bottom: 48px;
+  }
 
   .flow-row {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0;
-    max-width: 700px;
+    max-width: 580px;
     margin: 0 auto;
   }
 
   .flow-card {
-    width: 180px;
-    height: 150px;
+    width: 150px;
+    height: 120px;
     border: 1px solid var(--gray-300);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 20px;
+    padding: 16px;
     background: var(--white);
   }
 
   .flow-card.flow-center {
-    width: 180px;
-    height: 180px;
+    width: 150px;
+    height: 150px;
     background: var(--navy);
     border-color: var(--navy);
   }
 
   .flow-card-title {
     font-family: 'Inter', sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
     color: var(--black);
     line-height: 1.25;
   }
 
   .flow-center .flow-card-title {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     letter-spacing: 4px;
     color: var(--white);
@@ -181,7 +178,7 @@
 
   .flow-card-sub {
     font-family: 'Inter', sans-serif;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 400;
     color: var(--gray-400);
     margin-top: 6px;
@@ -402,377 +399,6 @@
   .confirm-cta { display: block; width: 100%; padding: 12px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; text-align: center; background: var(--mint); color: var(--white); border: none; }
 
   /* ================================
-     VERIFICATION STACK (Swiss Institutional)
-     ================================ */
-  .vstack-section {
-    padding: 120px 48px 100px;
-    max-width: 1080px;
-    margin: 0 auto;
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-
-  .vstack-section.visible { opacity: 1; transform: translateY(0); }
-
-  .vstack-header {
-    text-align: center;
-    margin-bottom: 72px;
-  }
-
-  .vstack-header h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    font-weight: 400;
-    color: var(--black);
-    letter-spacing: -0.5px;
-    margin-bottom: 16px;
-  }
-
-  .vstack-header p {
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    color: var(--gray-500);
-    max-width: 480px;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
-
-  .vstack-layout {
-    display: grid;
-    grid-template-columns: 1fr 64px 1fr;
-    align-items: center;
-  }
-
-  .vstack-domains { display: grid; gap: 1px; background: var(--gray-300); border: 1px solid var(--gray-300); }
-
-  .vstack-card { background: var(--white); padding: 32px; }
-
-  .vstack-card-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-
-  .vstack-card-title {
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-    color: var(--navy);
-  }
-
-  .vstack-count {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    font-weight: 500;
-    color: var(--white);
-    background: var(--mint);
-    padding: 2px 8px;
-  }
-
-  .vstack-items { display: grid; gap: 0; }
-
-  .vstack-item {
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 400;
-    color: var(--gray-600);
-    padding: 9px 0;
-    border-bottom: 1px solid var(--gray-200);
-  }
-
-  .vstack-item:last-child { border-bottom: none; }
-
-  .vstack-arrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .vstack-arrow svg {
-    width: 32px;
-    height: 14px;
-    stroke: var(--mint);
-    fill: none;
-    stroke-width: 1.5;
-  }
-
-  /* Fundable Asset Output */
-  .vstack-output { border: 1px solid var(--navy); }
-
-  .vstack-output-head {
-    background: var(--navy);
-    padding: 16px 28px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .vstack-output-batch {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    font-weight: 500;
-    color: rgba(255,255,255,0.5);
-  }
-
-  .vstack-output-badge {
-    font-family: 'Inter', sans-serif;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--mint);
-    border: 1px solid var(--mint);
-    padding: 3px 10px;
-  }
-
-  .vstack-output-title {
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-    color: var(--navy);
-    padding: 24px 28px 16px;
-  }
-
-  .vstack-metrics {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    border-top: 1px solid var(--gray-200);
-  }
-
-  .vstack-metric {
-    padding: 20px 28px;
-    border-bottom: 1px solid var(--gray-200);
-    border-right: 1px solid var(--gray-200);
-  }
-
-  .vstack-metric:nth-child(2n) { border-right: none; }
-  .vstack-metric:nth-last-child(-n+2) { border-bottom: none; }
-
-  .vm-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    color: var(--gray-400);
-    margin-bottom: 4px;
-  }
-
-  .vm-value {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    font-weight: 400;
-    color: var(--navy);
-    letter-spacing: -0.5px;
-  }
-
-  /* ================================
-     13-POINT GRID (Swiss Institutional)
-     Perfect squares, monospaced labels, no internal numbers feel
-     ================================ */
-  .vgrid-section {
-    padding: 0 48px 120px;
-    max-width: 1200px;
-    margin: 0 auto;
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-
-  .vgrid-section.visible { opacity: 1; transform: translateY(0); }
-
-  .vgrid-domain { margin-bottom: 2px; }
-
-  .vgrid-domain-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: var(--navy);
-    padding: 14px 24px;
-  }
-
-  .vgrid-domain-title {
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.85);
-  }
-
-  .vgrid-domain-score {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    font-weight: 500;
-    color: var(--mint);
-  }
-
-  .vgrid-cards {
-    display: grid;
-    gap: 1px;
-    background: var(--gray-300);
-  }
-
-  .vgrid-cards.cols-5 { grid-template-columns: repeat(5, 1fr); }
-  .vgrid-cards.cols-3 { grid-template-columns: repeat(3, 1fr); }
-  .vgrid-cards.cols-2 { grid-template-columns: repeat(2, 1fr); }
-
-  .vgrid-card {
-    background: var(--white);
-    padding: 24px;
-    aspect-ratio: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .vgrid-card-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-  }
-
-  .vgrid-num {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    font-weight: 400;
-    color: var(--gray-300);
-  }
-
-  .vgrid-pass {
-    font-family: 'Inter', sans-serif;
-    font-size: 8px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--mint);
-    border: 1px solid var(--mint);
-    padding: 2px 8px;
-  }
-
-  .vgrid-name {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--black);
-    line-height: 1.3;
-  }
-
-  .vgrid-tags {
-    display: flex;
-    gap: 4px;
-    flex-wrap: wrap;
-  }
-
-  .vgrid-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 8px;
-    font-weight: 400;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    color: var(--gray-400);
-    border: 1px solid var(--gray-200);
-    padding: 3px 7px;
-  }
-
-  /* Domain pair row */
-  .vgrid-pair {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-    margin-bottom: 2px;
-  }
-
-  .vgrid-pair .vgrid-card { aspect-ratio: auto; min-height: 140px; }
-
-  /* Footer bar */
-  .vgrid-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 28px 0;
-    margin-top: 8px;
-  }
-
-  .vgrid-footer-left {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    font-weight: 400;
-    color: var(--gray-400);
-  }
-
-  .vgrid-footer-right {
-    display: flex;
-    align-items: baseline;
-    gap: 16px;
-  }
-
-  .vgrid-footer-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gray-400);
-  }
-
-  .vgrid-footer-value {
-    font-family: 'Playfair Display', serif;
-    font-size: 48px;
-    font-weight: 400;
-    color: var(--navy);
-    letter-spacing: -1.5px;
-  }
-
-  /* ================================
-     STATS BAR
-     ================================ */
-  .stats-bar {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid var(--gray-300);
-    border-bottom: 1px solid var(--gray-300);
-  }
-
-  .stat-block {
-    text-align: center;
-    padding: 72px 32px;
-    border-right: 1px solid var(--gray-300);
-    opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-  }
-
-  .stat-block.visible { opacity: 1; transform: translateY(0); }
-  .stat-block:last-child { border-right: none; }
-
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 56px;
-    font-weight: 400;
-    color: var(--black);
-    line-height: 1;
-    letter-spacing: -2px;
-  }
-
-  .stat-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--gray-400);
-    margin-top: 12px;
-  }
-
-  /* ================================
      CTA
      ================================ */
   .cta-section { text-align: center; padding: 120px 48px; }
@@ -854,12 +480,13 @@
     nav { padding: 20px 24px; }
     .nav-links { gap: 20px; }
     .nav-links a { font-size: 11px; }
-    .hero { padding: 140px 24px 32px; }
-    .hero h1 { font-size: 34px; }
-    .flow-section { padding: 24px 24px 48px; }
+    .hero { padding: 140px 24px 48px; }
+    .hero h1 { font-size: 36px; }
+    .pipe-section { padding: 48px 24px 56px; }
+    .pipe-title { font-size: 22px; }
     .flow-row { flex-direction: column; }
-    .flow-card, .flow-card.flow-center { width: 160px; height: 120px; }
-    .flow-card.flow-center { height: 140px; }
+    .flow-card, .flow-card.flow-center { width: 140px; height: 100px; }
+    .flow-card.flow-center { height: 120px; }
     .flow-arrow { padding: 10px 0; transform: rotate(90deg); }
     .product-row { grid-template-columns: 1fr; min-height: auto; }
     .product-row.reverse .product-text { order: 1; }
@@ -867,19 +494,6 @@
     .product-text { padding: 60px 24px; }
     .product-text h2 { font-size: 28px; }
     .product-visual { padding: 32px 24px; border-left: none !important; border-right: none !important; border-top: 1px solid var(--gray-300); }
-    .vstack-section { padding: 80px 24px 60px; }
-    .vstack-layout { grid-template-columns: 1fr; }
-    .vstack-arrow { padding: 24px 0; transform: rotate(90deg); }
-    .vgrid-section { padding: 0 16px 80px; }
-    .vgrid-cards.cols-5 { grid-template-columns: repeat(2, 1fr); }
-    .vgrid-card { aspect-ratio: auto; min-height: 100px; }
-    .vgrid-pair { grid-template-columns: 1fr; }
-    .vgrid-footer { flex-direction: column; gap: 16px; text-align: center; }
-    .vgrid-footer-right { flex-direction: column; align-items: center; gap: 4px; }
-    .stats-bar { grid-template-columns: 1fr; }
-    .stat-block { border-right: none; border-bottom: 1px solid var(--gray-300); padding: 48px 24px; }
-    .stat-block:last-child { border-bottom: none; }
-    .stat-num { font-size: 42px; }
     .cta-section { padding: 80px 24px; }
     footer { padding: 32px 24px; flex-direction: column; gap: 16px; text-align: center; }
   }
@@ -889,23 +503,25 @@
 
 <!-- NAV -->
 <nav>
-  <a href="/site.html" class="nav-logo">MINT</a>
+  <a href="site.html" class="nav-logo">MINT</a>
   <div class="nav-links">
-    <a href="/product.html" class="active">Product</a>
-    <a href="/careers.html">Careers</a>
-    <a href="/master-plan.html">Master Plan</a>
+    <a href="product.html" class="active">Product</a>
+    <a href="careers.html">Careers</a>
+    <a href="master-plan.html">Master Plan</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-  <p class="hero-label">Infrastructure</p>
-  <h1>The Institutional Liquidity Pipe</h1>
-  <p class="hero-sub">Five AI agents extract Fortune 500 receivables from any accounting system and route them to institutional capital. 36 seconds, not 36 days.</p>
+  <h1>Programmable Truth</h1>
+  <p class="hero-sub">Code → Math → Verification</p>
 </div>
 
-<!-- 3-BOX FLOW -->
-<div class="flow-section">
+<hr class="divider">
+
+<!-- THE INSTITUTIONAL LIQUIDITY PIPE -->
+<div class="pipe-section">
+  <h2 class="pipe-title">The Institutional Liquidity Pipe</h2>
   <div class="flow-row">
     <div class="flow-card">
       <div class="flow-card-title">High Quality<br>Receivables</div>
@@ -1048,156 +664,6 @@
   </div>
 </div>
 
-<hr class="divider">
-
-<!-- VERIFICATION STACK (Swiss Institutional) -->
-<div class="vstack-section">
-  <div class="vstack-header">
-    <p class="section-label">Verification Architecture</p>
-    <h2>The Verification Stack</h2>
-    <p>Three autonomous domains validate every receivable before it reaches institutional buyers. Each check runs in parallel across 13 verification points.</p>
-  </div>
-
-  <div class="vstack-layout">
-    <div class="vstack-domains">
-      <div class="vstack-card">
-        <div class="vstack-card-head">
-          <span class="vstack-card-title">Retailer Domain</span>
-          <span class="vstack-count">5 / 5</span>
-        </div>
-        <div class="vstack-items">
-          <div class="vstack-item">Invoice Exists</div>
-          <div class="vstack-item">PO Match</div>
-          <div class="vstack-item">Goods Receipt</div>
-          <div class="vstack-item">Price Check</div>
-          <div class="vstack-item">Intent to Pay</div>
-        </div>
-      </div>
-      <div class="vstack-card">
-        <div class="vstack-card-head">
-          <span class="vstack-card-title">Platform Intelligence</span>
-          <span class="vstack-count">3 / 3</span>
-        </div>
-        <div class="vstack-items">
-          <div class="vstack-item">Duplicate Hash</div>
-          <div class="vstack-item">Graph History</div>
-          <div class="vstack-item">External Credit</div>
-        </div>
-      </div>
-      <div class="vstack-card">
-        <div class="vstack-card-head">
-          <span class="vstack-card-title">Supplier Hygiene</span>
-          <span class="vstack-count">3 / 3</span>
-        </div>
-        <div class="vstack-items">
-          <div class="vstack-item">KYC / AML</div>
-          <div class="vstack-item">Bank Validation</div>
-          <div class="vstack-item">Entity Active</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="vstack-arrow">
-      <svg viewBox="0 0 40 16"><line x1="0" y1="8" x2="34" y2="8"/><polyline points="30 3 36 8 30 13"/></svg>
-    </div>
-
-    <div>
-      <div class="vstack-output">
-        <div class="vstack-output-head">
-          <span class="vstack-output-batch">BATCH-2026-01-28</span>
-          <span class="vstack-output-badge">Funded</span>
-        </div>
-        <div class="vstack-output-title">Fundable Asset Output</div>
-        <div class="vstack-metrics">
-          <div class="vstack-metric"><div class="vm-label">Positions</div><div class="vm-value">18</div></div>
-          <div class="vstack-metric"><div class="vm-label">Yield / Turn</div><div class="vm-value">2.0%</div></div>
-          <div class="vstack-metric"><div class="vm-label">Day Tenor</div><div class="vm-value">47</div></div>
-          <div class="vstack-metric"><div class="vm-label">Annualized</div><div class="vm-value">8.0x</div></div>
-          <div class="vstack-metric"><div class="vm-label">Wtd Avg</div><div class="vm-value">A−</div></div>
-          <div class="vstack-metric"><div class="vm-label">Net Return</div><div class="vm-value">16%</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<hr class="divider">
-
-<!-- 13-POINT GRID (Swiss Institutional) -->
-<div class="vgrid-section">
-  <!-- Retailer Domain -->
-  <div class="vgrid-domain">
-    <div class="vgrid-domain-head">
-      <span class="vgrid-domain-title">Retailer Domain · ERP Validation</span>
-      <span class="vgrid-domain-score">5 / 5 Pass</span>
-    </div>
-    <div class="vgrid-cards cols-5">
-      <div class="vgrid-card"><div class="vgrid-card-top"><span class="vgrid-num">01</span><span class="vgrid-pass">Pass</span></div><div class="vgrid-name">Invoice Exists</div><div class="vgrid-tags"><span class="vgrid-tag">SAP·ODATA</span><span class="vgrid-tag">Fabrication</span></div></div>
-      <div class="vgrid-card"><div class="vgrid-card-top"><span class="vgrid-num">02</span><span class="vgrid-pass">Pass</span></div><div class="vgrid-name">PO Match</div><div class="vgrid-tags"><span class="vgrid-tag">3-Way</span><span class="vgrid-tag">Unauthorized</span></div></div>
-      <div class="vgrid-card"><div class="vgrid-card-top"><span class="vgrid-num">03</span><span class="vgrid-pass">Pass</span></div><div class="vgrid-name">Goods Receipt</div><div class="vgrid-tags"><span class="vgrid-tag">WMS·Pull</span><span class="vgrid-tag">Phantom</span></div></div>
-      <div class="vgrid-card"><div class="vgrid-card-top"><span class="vgrid-num">04</span><span class="vgrid-pass">Pass</span></div><div class="vgrid-name">Amount Valid</div><div class="vgrid-tags"><span class="vgrid-tag">Exact·Match</span><span class="vgrid-tag">Inflation</span></div></div>
-      <div class="vgrid-card"><div class="vgrid-card-top"><span class="vgrid-num">05</span><span class="vgrid-pass">Pass</span></div><div class="vgrid-name">History Check</div><div class="vgrid-tags"><span class="vgrid-tag">Pattern·Chk</span><span class="vgrid-tag">Anomaly</span></div></div>
-    </div>
-  </div>
-
-  <!-- Platform + Supplier pair row -->
-  <div class="vgrid-pair">
-    <div>
-      <div class="vgrid-domain">
-        <div class="vgrid-domain-head">
-          <span class="vgrid-domain-title">MINT Platform · Graph + Dedup</span>
-          <span class="vgrid-domain-score">3 / 3 Pass</span>
-        </div>
-        <div class="vgrid-cards cols-3">
-          <div class="vgrid-card"><div class="vgrid-card-top"><span class="vgrid-num">06</span><span class="vgrid-pass">Pass</span></div><div class="vgrid-name">Dup Detect</div><div class="vgrid-tags"><span class="vgrid-tag">Hash·Chk</span><span class="vgrid-tag">Dbl·Fin</span></div></div>
-          <div class="vgrid-card"><div class="vgrid-card-top"><span class="vgrid-num">07</span><span class="vgrid-pass">Pass</span></div><div class="vgrid-name">Relationship</div><div class="vgrid-tags"><span class="vgrid-tag">Graph·Qry</span><span class="vgrid-tag">Collusion</span></div></div>
-          <div class="vgrid-card"><div class="vgrid-card-top"><span class="vgrid-num">08</span><span class="vgrid-pass">Pass</span></div><div class="vgrid-name">Enrichment</div><div class="vgrid-tags"><span class="vgrid-tag">DNB·API</span><span class="vgrid-tag">Corroborate</span></div></div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <div class="vgrid-domain">
-        <div class="vgrid-domain-head">
-          <span class="vgrid-domain-title">Supplier Domain · Counterparty</span>
-          <span class="vgrid-domain-score">3 / 3 Pass</span>
-        </div>
-        <div class="vgrid-cards cols-3">
-          <div class="vgrid-card"><div class="vgrid-card-top"><span class="vgrid-num">09</span><span class="vgrid-pass">Pass</span></div><div class="vgrid-name">Identity</div><div class="vgrid-tags"><span class="vgrid-tag">OFAC·Scr</span><span class="vgrid-tag">Sanction</span></div></div>
-          <div class="vgrid-card"><div class="vgrid-card-top"><span class="vgrid-num">10</span><span class="vgrid-pass">Pass</span></div><div class="vgrid-name">Bank Acct</div><div class="vgrid-tags"><span class="vgrid-tag">Plaid·Vrf</span><span class="vgrid-tag">Redirect</span></div></div>
-          <div class="vgrid-card"><div class="vgrid-card-top"><span class="vgrid-num">11</span><span class="vgrid-pass">Pass</span></div><div class="vgrid-name">Entity</div><div class="vgrid-tags"><span class="vgrid-tag">SOS·Chk</span><span class="vgrid-tag">Shell·Co</span></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Decision Domain -->
-  <div class="vgrid-domain">
-    <div class="vgrid-domain-head">
-      <span class="vgrid-domain-title">Decision Domain · Underwriting</span>
-      <span class="vgrid-domain-score">2 / 2 Pass</span>
-    </div>
-    <div class="vgrid-cards cols-2">
-      <div class="vgrid-card"><div class="vgrid-card-top"><span class="vgrid-num">12</span><span class="vgrid-pass">Pass</span></div><div class="vgrid-name">Outcome Tracking</div><div class="vgrid-tags"><span class="vgrid-tag">Post·Fund</span><span class="vgrid-tag">Maturity</span></div></div>
-      <div class="vgrid-card"><div class="vgrid-card-top"><span class="vgrid-num">13</span><span class="vgrid-pass">Pass</span></div><div class="vgrid-name">Underwriting Verdict</div><div class="vgrid-tags"><span class="vgrid-tag">ML·Model</span><span class="vgrid-tag">Auto·Decision</span></div></div>
-    </div>
-  </div>
-
-  <div class="vgrid-footer">
-    <span class="vgrid-footer-left">13 verification points · 4 domains · autonomous execution</span>
-    <div class="vgrid-footer-right">
-      <span class="vgrid-footer-label">Fraud Probability</span>
-      <span class="vgrid-footer-value">0.001%</span>
-    </div>
-  </div>
-</div>
-
-<!-- STATS -->
-<div class="stats-bar">
-  <div class="stat-block"><div class="stat-num">36s</div><div class="stat-label">Invoice to Settlement</div></div>
-  <div class="stat-block"><div class="stat-num">0.04%</div><div class="stat-label">Take Rate</div></div>
-  <div class="stat-block"><div class="stat-num">$10B</div><div class="stat-label">Receivables Pipeline</div></div>
-</div>
-
 <!-- CTA -->
 <div class="cta-section">
   <h3>Every Platform. Every Invoice. Every SMB.</h3>
@@ -1222,8 +688,7 @@
       if (entry.isIntersecting) entry.target.classList.add('visible');
     });
   }, { threshold: 0.1 });
-  document.querySelectorAll('.product-row, .stat-block, .flow-section, .vstack-section, .vgrid-section').forEach(el => observer.observe(el));
+  document.querySelectorAll('.product-row, .pipe-section').forEach(el => observer.observe(el));
 </script>
-
 </body>
 </html>
