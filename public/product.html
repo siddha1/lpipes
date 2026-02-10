@@ -160,12 +160,38 @@
     border-color: var(--navy);
   }
 
+  .flow-card-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-bottom: 4px;
+  }
+
+  .flow-center .flow-card-label {
+    color: rgba(255,255,255,0.5);
+  }
+
   .flow-card-title {
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 700;
     color: var(--black);
     line-height: 1.25;
+  }
+
+  .flow-card-stat {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--mint);
+    margin-top: 6px;
+  }
+
+  .flow-center .flow-card-stat {
+    color: var(--white);
   }
 
   .flow-center .flow-card-title {
@@ -650,24 +676,28 @@
   <h2 class="pipe-title">The Institutional Liquidity Pipe</h2>
   <div class="flow-row">
     <div class="flow-card">
-      <div class="flow-card-title">High Quality<br>Receivables</div>
-      <div class="flow-card-sub">Raw Enterprise Invoices</div>
+      <div class="flow-card-label">CAPTURE</div>
+      <div class="flow-card-title">Origin</div>
+      <div class="flow-card-stat">36 sec</div>
+      <div class="flow-card-sub">PER INVOICE</div>
     </div>
     <div class="flow-arrow">
-      <span class="flow-arrow-label">Ingestion</span>
       <svg viewBox="0 0 24 12"><line x1="0" y1="6" x2="20" y2="6"/><polyline points="16 2 20 6 16 10"/></svg>
     </div>
     <div class="flow-card flow-center">
-      <div class="flow-card-title">MINT</div>
-      <div class="flow-card-sub">Validation &amp; Structuring</div>
+      <div class="flow-card-label">TRANSFORM</div>
+      <div class="flow-card-title">Confirm</div>
+      <div class="flow-card-stat">100%</div>
+      <div class="flow-card-sub">LINE ITEM COVERAGE</div>
     </div>
     <div class="flow-arrow">
-      <span class="flow-arrow-label">Issuance</span>
       <svg viewBox="0 0 24 12"><line x1="0" y1="6" x2="20" y2="6"/><polyline points="16 2 20 6 16 10"/></svg>
     </div>
     <div class="flow-card">
-      <div class="flow-card-title">Liquid<br>Capital</div>
-      <div class="flow-card-sub">Institutional Note</div>
+      <div class="flow-card-label">DEPLOY</div>
+      <div class="flow-card-title">The Tape</div>
+      <div class="flow-card-stat">8 to 15%</div>
+      <div class="flow-card-sub">NET YIELD</div>
     </div>
   </div>
 </div>
