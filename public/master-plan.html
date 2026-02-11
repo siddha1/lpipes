@@ -181,28 +181,28 @@
   }
 
   .section-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-    font-weight: 400;
-    color: var(--mint);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #999999;
     flex-shrink: 0;
   }
 
   .section-title {
     font-family: 'Inter', sans-serif;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--black);
+    color: #999999;
   }
 
   .section h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', -apple-system, sans-serif;
     font-size: 36px;
-    font-weight: 400;
+    font-weight: 700;
     line-height: 1.3;
-    color: var(--black);
+    color: #000000;
     letter-spacing: -0.5px;
     margin-bottom: 32px;
   }
@@ -273,53 +273,37 @@
     margin-bottom: 0;
   }
 
-  /* NAVY SECTION */
-  .section-dark {
-    background: var(--navy);
-    max-width: 100%;
-    padding: 120px 48px;
+  /* BACKGROUND BLOCK */
+  .bg-block {
+    background: #1A1A2E;
+    padding: 64px 48px;
   }
-
-  .section-dark .section-inner {
-    max-width: 900px;
+  .bg-block-inner {
+    max-width: 800px;
     margin: 0 auto;
   }
-
-  .section-dark .section-header {
-    border-bottom-color: rgba(255,255,255,0.15);
+  .bg-block-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #777777;
+    margin-bottom: 24px;
   }
-
-  .section-dark .section-num {
-    color: var(--mint);
+  .bg-block-text {
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+    font-size: 16px;
+    font-weight: 400;
+    color: #cccccc;
+    line-height: 1.7;
   }
-
-  .section-dark .section-title {
-    color: var(--white);
-  }
-
-  .section-dark h3 {
-    color: var(--white);
-  }
-
-  .section-dark p {
-    color: rgba(255,255,255,0.7);
-  }
-
-  .section-dark .pull-quote {
-    color: var(--white);
-  }
-
-  .section-dark .key-point {
-    border-color: rgba(255,255,255,0.15);
-    background: rgba(255,255,255,0.04);
-  }
-
-  .section-dark .key-point-label {
-    color: var(--mint);
-  }
-
-  .section-dark .key-point p {
-    color: rgba(255,255,255,0.65);
+  .bg-block-byline {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #666666;
+    margin-top: 32px;
   }
 
   /* PHASE STEPS */
@@ -457,8 +441,8 @@
 
   .framework-card {
     padding: 28px 32px;
-    border: 1px solid rgba(255,255,255,0.15);
-    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--gray-300);
+    background: var(--white);
   }
 
   .framework-card-label {
@@ -476,7 +460,7 @@
     font-size: 15px;
     font-weight: 400;
     line-height: 1.7;
-    color: rgba(255,255,255,0.65);
+    color: var(--gray-600);
     margin-bottom: 0;
   }
 
@@ -487,7 +471,7 @@
     .hero { padding: 120px 24px 60px; }
     .hero h1 { font-size: 40px; }
     .section { padding: 80px 24px; }
-    .section-dark { padding: 80px 24px; }
+    .bg-block { padding: 48px 24px; }
     .section h3 { font-size: 28px; }
     .section-nav { grid-template-columns: repeat(2, 1fr); padding: 40px 24px; }
     .dist-grid { grid-template-columns: 1fr; }
@@ -514,7 +498,6 @@
 <div class="hero">
   <h1>A Positive Future</h1>
   <p class="hero-sub">Powered by the immutable laws of code and mathematics</p>
-  <p class="hero-byline">M. Murphy, Founder &amp; CEO · May 19, 2025</p>
 </div>
 
 <!-- SECTION NAV -->
@@ -554,11 +537,13 @@
 </div>
 
 <!-- BACKGROUND -->
-<div class="section" id="background">
-  <p style="font-style: italic; color: var(--gray-400); max-width: 720px;">I'm 20 years into building technology companies. Two included significant exits: one acquired by Overstock.com (Nasdaq: OSTK), one acquired by ERI, the largest cybersecurity recycler in the U.S. My final focus is MINT. My intention is to build this company with a long term vision spanning two decades, fully immersing myself in maximizing the impact we can make on humanity.</p>
+<div class="bg-block">
+  <div class="bg-block-inner">
+    <div class="bg-block-label">Background</div>
+    <p class="bg-block-text">I'm 20 years into building technology companies. Two included significant exits: one acquired by Overstock.com (Nasdaq: OSTK) and one acquired by ERI, the largest cybersecurity recycler in the U.S. My final focus is MINT. My intention is to build this company with a long term vision spanning two decades, fully immersing myself in maximizing the impact we can make on humanity.</p>
+    <p class="bg-block-byline">By: M. Murphy, Founder &amp; CEO · May 19, 2025</p>
+  </div>
 </div>
-
-<hr class="section-divider">
 
 <!-- 01 MISSION -->
 <div class="section" id="mission">
@@ -613,35 +598,33 @@
   <p>Mint is constructing the financial protocol layer of the machine economy.</p>
 </div>
 
-<!-- 04 THE SHIFT (NAVY) -->
-<div class="section-dark section" id="shift">
-  <div class="section-inner">
-    <div class="section-header">
-      <span class="section-num">04</span>
-      <span class="section-title">The Shift</span>
+<!-- 04 THE SHIFT -->
+<div class="section" id="shift">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <span class="section-title">The Shift</span>
+  </div>
+  <h3>From Static Assets to Executable Capital</h3>
+  <p>Receivables, contracts, and sovereign bills are moving from closed ledgers to machine readable objects on public and private chains.</p>
+
+  <div class="pull-quote">Capital is no longer a record. It is executable logic.</div>
+
+  <p>As artificial intelligence accelerates information flow, it is surfacing blockchains as the only substrate capable of verification at that speed.</p>
+  <p>In the coming cycle, trillions in assets will migrate from analog custody to programmable form. Markets that once depended on discretion or jurisdiction will operate through deterministic execution.</p>
+  <p>The systems that win will expose programmable liquidity. Machines, not humans, will decide when capital moves.</p>
+
+  <div class="framework-cards">
+    <div class="framework-card">
+      <div class="framework-card-label">Programmable Truth</div>
+      <p>Commitments enforced by code. Mathematics removes variance.</p>
     </div>
-    <h3>From Static Assets to Executable Capital</h3>
-    <p>Receivables, contracts, and sovereign bills are moving from closed ledgers to machine readable objects on public and private chains.</p>
-
-    <div class="pull-quote">Capital is no longer a record. It is executable logic.</div>
-
-    <p>As artificial intelligence accelerates information flow, it is surfacing blockchains as the only substrate capable of verification at that speed.</p>
-    <p>In the coming cycle, trillions in assets will migrate from analog custody to programmable form. Markets that once depended on discretion or jurisdiction will operate through deterministic execution.</p>
-    <p>The systems that win will expose programmable liquidity. Machines, not humans, will decide when capital moves.</p>
-
-    <div class="framework-cards">
-      <div class="framework-card">
-        <div class="framework-card-label">Programmable Truth</div>
-        <p>Commitments enforced by code. Mathematics removes variance.</p>
-      </div>
-      <div class="framework-card">
-        <div class="framework-card-label">Modern Capital</div>
-        <p>Money after AI is crypto. On chain assets are the medium of transfer and settlement.</p>
-      </div>
-      <div class="framework-card">
-        <div class="framework-card-label">Exponential Growth</div>
-        <p>The backends of the future are blockchains. Nothing else scales.</p>
-      </div>
+    <div class="framework-card">
+      <div class="framework-card-label">Modern Capital</div>
+      <p>Money after AI is crypto. On chain assets are the medium of transfer and settlement.</p>
+    </div>
+    <div class="framework-card">
+      <div class="framework-card-label">Exponential Growth</div>
+      <p>The backends of the future are blockchains. Nothing else scales.</p>
     </div>
   </div>
 </div>
