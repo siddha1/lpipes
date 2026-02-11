@@ -257,10 +257,10 @@ body {
 
 /* Column D: Big Number + Label */
 .infra-stat {
-  text-align: right;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
 }
 .infra-big-num {
@@ -271,11 +271,12 @@ body {
   font-variant-numeric: tabular-nums;
 }
 .infra-label {
-  font-size: 17px;
-  font-weight: 600;
-  color: #444444;
-  margin-top: 10px;
+  font-size: 24px;
+  font-weight: 400;
+  color: #333333;
+  margin-top: 8px;
   letter-spacing: 0.3px;
+  line-height: 1.2;
 }
 
 /* ════════════════════════════════════
@@ -361,11 +362,11 @@ footer {
   .infra-grid { grid-template-columns: 1fr; gap: 16px; padding: 0 24px; }
   .infra-bridge { display: none; }
   .infra-num { font-size: 48px; padding-right: 0; }
-  .infra-stat { text-align: left; align-items: flex-start; }
+  .infra-stat { text-align: center; align-items: center; }
   .infra-action { font-size: 28px; }
   .infra-subtitle { font-size: 20px; }
   .infra-big-num { font-size: 56px; }
-  .infra-label { font-size: 16px; }
+  .infra-label { font-size: 18px; }
   .f-main { flex-direction: column; gap: 24px; text-align: center; }
   .f-nav { flex-wrap: wrap; justify-content: center; gap: 20px; }
 }
