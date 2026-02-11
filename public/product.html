@@ -591,6 +591,63 @@
   .f-sub { padding-top: 48px; text-align: center; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 400; color: #bbb; }
 
   /* ================================
+     ORIGIN INTERACTIVE
+     ================================ */
+  .origin-container {
+    max-width: 620px;
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .origin-titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    border-bottom: 1px solid #e8e8e8;
+    background: #fafafa;
+  }
+  .origin-dots { display: flex; gap: 6px; }
+  .origin-dots span { width: 10px; height: 10px; border-radius: 50%; border: 1px solid #ccc; background: transparent; }
+  .origin-titlebar-text { font-size: 13px; font-weight: 500; color: #888; letter-spacing: 0.3px; }
+  .origin-status { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: #0D7377; letter-spacing: 0.3px; }
+  .origin-status-dot { width: 7px; height: 7px; border-radius: 50%; background: #0D7377; animation: originPulse 2s ease-in-out infinite; }
+  @keyframes originPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  .origin-pipeline { display: grid; grid-template-columns: repeat(5, 1fr); border-bottom: 1px solid #e8e8e8; }
+  .origin-stage { text-align: center; padding: 16px 8px; cursor: pointer; transition: background 0.15s ease; border-right: 1px solid #e8e8e8; position: relative; }
+  .origin-stage:last-child { border-right: none; }
+  .origin-stage:hover { background: #f5f5f5; }
+  .origin-stage.active { background: #f0f0f0; }
+  .origin-stage.active::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: #0D7377; }
+  .origin-stage.completed .origin-stage-name { color: #333; }
+  .origin-stage.completed .origin-stage-count { color: #666; }
+  .origin-stage.queued .origin-stage-name { color: #bbb; }
+  .origin-stage.queued .origin-stage-count { color: #ccc; }
+  .origin-stage-name { font-size: 10px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: #333; margin-bottom: 4px; }
+  .origin-stage-count { font-size: 13px; font-weight: 500; color: #666; }
+  .origin-stage.active .origin-stage-name { color: #0D7377; }
+  .origin-stage.active .origin-stage-count { color: #0D7377; font-weight: 600; }
+  .origin-table { width: 100%; border-collapse: collapse; }
+  .origin-table tbody tr { border-bottom: 1px solid #f0f0f0; transition: background 0.12s ease; cursor: pointer; }
+  .origin-table tbody tr:hover { background: #f7f7f7; }
+  .origin-table tbody tr:last-child { border-bottom: none; }
+  .origin-table tbody td { padding: 16px 20px; font-size: 13px; color: #333; }
+  .origin-table tbody td:nth-child(1) { font-weight: 500; }
+  .origin-table tbody td:nth-child(2) { text-align: right; font-variant-numeric: tabular-nums; font-weight: 500; }
+  .origin-table tbody td:nth-child(3) { text-align: right; padding-right: 20px; }
+  .inv-status { font-size: 12px; font-weight: 500; letter-spacing: 0.2px; }
+  .inv-validated { color: #333; }
+  .inv-validating { color: #0D7377; }
+  .inv-extracting { color: #999; }
+  .inv-queued { color: #ccc; }
+  .inv-underwriting { color: #0D7377; }
+  .inv-tokenized { color: #0D7377; }
+  .inv-complete { color: #333; }
+
+  /* ================================
      TAPE INTERACTIVE
      ================================ */
   .tape-container {
@@ -807,25 +864,38 @@
     </div>
   </div>
   <div class="product-visual">
-    <div class="app-frame">
-      <div class="app-bar">
-        <div class="app-dots"><div class="app-dot"></div><div class="app-dot"></div><div class="app-dot"></div></div>
-        <span class="app-url">origin.mint.us</span>
-        <span class="app-live" style="color:var(--green);">● Processing</span>
+    <div class="origin-container" id="originApp">
+      <div class="origin-titlebar">
+        <div class="origin-dots"><span></span><span></span><span></span></div>
+        <div class="origin-titlebar-text">origin.mint.us</div>
+        <div class="origin-status"><div class="origin-status-dot"></div>Processing</div>
       </div>
-      <div class="origin-body">
-        <div class="origin-pipeline">
-          <div class="pipe-step done"><div class="pipe-name">Discover</div><div class="pipe-status">12</div></div>
-          <div class="pipe-step done"><div class="pipe-name">Extract</div><div class="pipe-status">Done</div></div>
-          <div class="pipe-step active"><div class="pipe-name">Validate</div><div class="pipe-status">8/12</div></div>
-          <div class="pipe-step"><div class="pipe-name">Underwrite</div><div class="pipe-status">Queued</div></div>
-          <div class="pipe-step"><div class="pipe-name">Tokenize</div><div class="pipe-status">Queued</div></div>
+      <div class="origin-pipeline" id="pipelineStages">
+        <div class="origin-stage completed" data-stage="discover" onclick="switchStage('discover')">
+          <div class="origin-stage-name">Discover</div>
+          <div class="origin-stage-count">12</div>
         </div>
-        <div class="inv-row"><div class="inv-primary">INV-2025-4891</div><div class="inv-amt">$127,400</div><div class="inv-status validated">Validated</div></div>
-        <div class="inv-row"><div class="inv-primary">INV-2025-4892</div><div class="inv-amt">$84,200</div><div class="inv-status validated">Validated</div></div>
-        <div class="inv-row selected"><div class="inv-primary">INV-2025-4893</div><div class="inv-amt">$213,600</div><div class="inv-status validating">Validating</div></div>
-        <div class="inv-row" style="margin-bottom:0;"><div class="inv-primary">INV-2025-4894</div><div class="inv-amt">$56,800</div><div class="inv-status extracting">Extracting</div></div>
+        <div class="origin-stage completed" data-stage="extract" onclick="switchStage('extract')">
+          <div class="origin-stage-name">Extract</div>
+          <div class="origin-stage-count">Done</div>
+        </div>
+        <div class="origin-stage active" data-stage="validate" onclick="switchStage('validate')">
+          <div class="origin-stage-name">Validate</div>
+          <div class="origin-stage-count">8/12</div>
+        </div>
+        <div class="origin-stage queued" data-stage="underwrite" onclick="switchStage('underwrite')">
+          <div class="origin-stage-name">Underwrite</div>
+          <div class="origin-stage-count">Queued</div>
+        </div>
+        <div class="origin-stage queued" data-stage="tokenize" onclick="switchStage('tokenize')">
+          <div class="origin-stage-name">Tokenize</div>
+          <div class="origin-stage-count">Queued</div>
+        </div>
       </div>
+      <table class="origin-table">
+        <tbody id="invoiceBody">
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
@@ -937,6 +1007,74 @@
     ).join('');
   }
   switchPool('all');
+
+  // Origin interactive
+  const stageData = {
+    discover: {
+      stages: { discover: { state: 'active', count: '12' }, extract: { state: 'queued', count: 'Queued' }, validate: { state: 'queued', count: 'Queued' }, underwrite: { state: 'queued', count: 'Queued' }, tokenize: { state: 'queued', count: 'Queued' } },
+      statusLabel: 'Discovering',
+      invoices: [
+        { id: 'INV-2025-4891', amount: '$127,400', status: 'Discovered', statusClass: 'inv-complete' },
+        { id: 'INV-2025-4892', amount: '$84,200', status: 'Discovered', statusClass: 'inv-complete' },
+        { id: 'INV-2025-4893', amount: '$213,600', status: 'Discovering', statusClass: 'inv-validating' },
+        { id: 'INV-2025-4894', amount: '$56,800', status: 'Scanning', statusClass: 'inv-extracting' }
+      ]
+    },
+    extract: {
+      stages: { discover: { state: 'completed', count: '12' }, extract: { state: 'active', count: '10/12' }, validate: { state: 'queued', count: 'Queued' }, underwrite: { state: 'queued', count: 'Queued' }, tokenize: { state: 'queued', count: 'Queued' } },
+      statusLabel: 'Extracting',
+      invoices: [
+        { id: 'INV-2025-4891', amount: '$127,400', status: 'Extracted', statusClass: 'inv-complete' },
+        { id: 'INV-2025-4892', amount: '$84,200', status: 'Extracted', statusClass: 'inv-complete' },
+        { id: 'INV-2025-4893', amount: '$213,600', status: 'Extracting', statusClass: 'inv-validating' },
+        { id: 'INV-2025-4894', amount: '$56,800', status: 'Extracting', statusClass: 'inv-validating' }
+      ]
+    },
+    validate: {
+      stages: { discover: { state: 'completed', count: '12' }, extract: { state: 'completed', count: 'Done' }, validate: { state: 'active', count: '8/12' }, underwrite: { state: 'queued', count: 'Queued' }, tokenize: { state: 'queued', count: 'Queued' } },
+      statusLabel: 'Processing',
+      invoices: [
+        { id: 'INV-2025-4891', amount: '$127,400', status: 'Validated', statusClass: 'inv-validated' },
+        { id: 'INV-2025-4892', amount: '$84,200', status: 'Validated', statusClass: 'inv-validated' },
+        { id: 'INV-2025-4893', amount: '$213,600', status: 'Validating', statusClass: 'inv-validating' },
+        { id: 'INV-2025-4894', amount: '$56,800', status: 'Extracting', statusClass: 'inv-extracting' }
+      ]
+    },
+    underwrite: {
+      stages: { discover: { state: 'completed', count: '12' }, extract: { state: 'completed', count: 'Done' }, validate: { state: 'completed', count: 'Done' }, underwrite: { state: 'active', count: '6/12' }, tokenize: { state: 'queued', count: 'Queued' } },
+      statusLabel: 'Underwriting',
+      invoices: [
+        { id: 'INV-2025-4891', amount: '$127,400', status: 'Approved', statusClass: 'inv-complete' },
+        { id: 'INV-2025-4892', amount: '$84,200', status: 'Approved', statusClass: 'inv-complete' },
+        { id: 'INV-2025-4893', amount: '$213,600', status: 'Underwriting', statusClass: 'inv-underwriting' },
+        { id: 'INV-2025-4894', amount: '$56,800', status: 'Underwriting', statusClass: 'inv-underwriting' }
+      ]
+    },
+    tokenize: {
+      stages: { discover: { state: 'completed', count: '12' }, extract: { state: 'completed', count: 'Done' }, validate: { state: 'completed', count: 'Done' }, underwrite: { state: 'completed', count: 'Done' }, tokenize: { state: 'active', count: '4/12' } },
+      statusLabel: 'Tokenizing',
+      invoices: [
+        { id: 'INV-2025-4891', amount: '$127,400', status: 'Tokenized', statusClass: 'inv-tokenized' },
+        { id: 'INV-2025-4892', amount: '$84,200', status: 'Tokenized', statusClass: 'inv-tokenized' },
+        { id: 'INV-2025-4893', amount: '$213,600', status: 'Tokenizing', statusClass: 'inv-underwriting' },
+        { id: 'INV-2025-4894', amount: '$56,800', status: 'Queued', statusClass: 'inv-queued' }
+      ]
+    }
+  };
+  function switchStage(key) {
+    var data = stageData[key];
+    document.querySelectorAll('.origin-stage').forEach(function(el) {
+      var stageKey = el.dataset.stage;
+      var stageInfo = data.stages[stageKey];
+      el.className = 'origin-stage ' + stageInfo.state;
+      el.querySelector('.origin-stage-count').textContent = stageInfo.count;
+    });
+    document.querySelector('.origin-status').innerHTML = '<div class="origin-status-dot"></div>' + data.statusLabel;
+    document.getElementById('invoiceBody').innerHTML = data.invoices.map(function(inv) {
+      return '<tr><td>'+inv.id+'</td><td>'+inv.amount+'</td><td><span class="inv-status '+inv.statusClass+'">'+inv.status+'</span></td></tr>';
+    }).join('');
+  }
+  switchStage('validate');
 </script>
 </body>
 </html>
