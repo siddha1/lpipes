@@ -1,0 +1,785 @@
+/* ================================================================
+   MINT DESIGN SYSTEM — styles.css
+   Shared stylesheet for all pages.
+   Target: Blue Owl Capital × Stripe Docs × Virgil Abloh minimalism
+   ================================================================ */
+
+/* ----------------------------------------------------------------
+   FONTS
+   ---------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ----------------------------------------------------------------
+   CSS CUSTOM PROPERTIES
+   ---------------------------------------------------------------- */
+:root {
+  /* Backgrounds */
+  --bg-primary: #FFFFFF;
+  --bg-alt: #FAFAF8;
+  --bg-dark: #0B0D11;
+
+  /* Text */
+  --text-primary: #0B0D11;
+  --text-secondary: #3B4046;
+  --text-tertiary: #6B7280;
+
+  /* Accent */
+  --mint: #0D7377;
+
+  /* Borders */
+  --border: #E5E7EB;
+
+  /* Fonts */
+  --font-sans: 'Inter', -apple-system, system-ui, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+
+  /* Layout */
+  --max-width: 1200px;
+  --padding-desktop: 80px;
+  --padding-mobile: 24px;
+  --section-gap: 120px;
+
+  /* Fibonacci spacing */
+  --space-1: 8px;
+  --space-2: 13px;
+  --space-3: 21px;
+  --space-4: 34px;
+  --space-5: 55px;
+  --space-6: 89px;
+}
+
+/* ----------------------------------------------------------------
+   RESET
+   ---------------------------------------------------------------- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-variant-numeric: tabular-nums;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Force zero border-radius globally */
+*,
+*::before,
+*::after {
+  border-radius: 0 !important;
+}
+
+/* ----------------------------------------------------------------
+   TYPOGRAPHY SCALE
+   ---------------------------------------------------------------- */
+
+/* Hero headline — 56px+ desktop */
+.t-hero {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5.6vw, 72px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+/* Section title — 32px */
+.t-section {
+  font-family: var(--font-sans);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+/* Body — 16px */
+.t-body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+/* Caption — 13px */
+.t-caption {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-tertiary);
+}
+
+/* Overline / label */
+.t-overline {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+/* Mono — data / code */
+.t-mono {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ----------------------------------------------------------------
+   LAYOUT
+   ---------------------------------------------------------------- */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-left: var(--padding-desktop);
+  padding-right: var(--padding-desktop);
+}
+
+/* 12-column grid */
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-3);
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+}
+
+/* Section vertical spacing */
+.section-spacing {
+  padding-top: var(--section-gap);
+  padding-bottom: var(--section-gap);
+}
+
+/* Alternating section backgrounds */
+.bg-white {
+  background: var(--bg-primary);
+}
+
+.bg-alt {
+  background: var(--bg-alt);
+}
+
+/* ----------------------------------------------------------------
+   NAV (.site-nav)
+   ---------------------------------------------------------------- */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--padding-desktop);
+  background: var(--bg-primary);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.site-nav.scrolled {
+  border-bottom-color: var(--border);
+}
+
+.site-nav-wordmark {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.site-nav-links {
+  display: flex;
+  gap: var(--space-4);
+  list-style: none;
+}
+
+.site-nav-links a {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-tertiary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.site-nav-links a:hover {
+  color: var(--text-primary);
+}
+
+.site-nav-links a.active {
+  color: var(--text-primary);
+}
+
+.site-nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--mint);
+}
+
+/* Hamburger (hidden on desktop) */
+.site-nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-1);
+}
+
+.site-nav-toggle span {
+  display: block;
+  width: 20px;
+  height: 1px;
+  background: var(--text-primary);
+  margin: 5px 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* ----------------------------------------------------------------
+   SECTION HEADER (.section-header)
+   ---------------------------------------------------------------- */
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.section-header-num {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--mint);
+}
+
+.section-header-title {
+  font-family: var(--font-sans);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-primary);
+}
+
+/* ----------------------------------------------------------------
+   METRIC CARD (.metric-card)
+   ---------------------------------------------------------------- */
+.metric-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  padding: var(--space-4) var(--space-4);
+}
+
+.metric-card-value {
+  font-family: var(--font-sans);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: var(--space-1);
+}
+
+.metric-card-label {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+/* Grid layouts for metric cards */
+.metric-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.metric-grid-3 .metric-card {
+  border: none;
+}
+
+.metric-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.metric-grid-4 .metric-card {
+  border: none;
+}
+
+/* ----------------------------------------------------------------
+   DATA TABLE (.data-table)
+   ---------------------------------------------------------------- */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-sans);
+}
+
+.data-table thead th {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  text-align: left;
+  padding: 12px;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.data-table thead th[data-align="right"] {
+  text-align: right;
+}
+
+.data-table tbody tr {
+  border-bottom: 0.5px solid var(--border);
+  transition: background 0.15s ease;
+}
+
+.data-table tbody tr:nth-child(even) {
+  background: var(--bg-alt);
+}
+
+.data-table tbody tr:nth-child(odd) {
+  background: var(--bg-primary);
+}
+
+.data-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.data-table tbody td {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  padding: 12px;
+}
+
+.data-table tbody td[data-align="right"] {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.data-table tbody tr:hover {
+  background: var(--bg-alt);
+}
+
+/* ----------------------------------------------------------------
+   PROCESS FLOW (.process-flow)
+   ---------------------------------------------------------------- */
+.process-flow {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.process-flow-node {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border);
+  background: var(--bg-primary);
+}
+
+.process-flow-node-label {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.process-flow-connector {
+  width: 48px;
+  height: 1px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+/* ----------------------------------------------------------------
+   PULL QUOTE (.pull-quote)
+   ---------------------------------------------------------------- */
+.pull-quote {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--text-primary);
+  text-align: center;
+  padding: var(--space-4) 0;
+  margin: var(--space-3) 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  letter-spacing: -0.01em;
+}
+
+/* ----------------------------------------------------------------
+   CTAs (.cta-link, .cta-primary)
+   ---------------------------------------------------------------- */
+
+/* Text link CTA */
+.cta-link {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.cta-link:hover {
+  color: var(--mint);
+  border-bottom-color: var(--mint);
+}
+
+/* Primary CTA button — max 1 per page */
+.cta-primary {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--bg-primary);
+  background: var(--text-primary);
+  padding: 16px 40px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.cta-primary:hover {
+  background: var(--bg-dark);
+}
+
+/* ----------------------------------------------------------------
+   DARK SECTION (.section-dark)
+   Max once per page.
+   ---------------------------------------------------------------- */
+.section-dark {
+  background: var(--bg-dark);
+  color: var(--bg-primary);
+}
+
+.section-dark .t-hero,
+.section-dark .t-section,
+.section-dark .section-header-title {
+  color: var(--bg-primary);
+}
+
+.section-dark .t-body {
+  color: #A1A1AA;
+}
+
+.section-dark .t-caption,
+.section-dark .t-overline,
+.section-dark .section-header-num {
+  color: #6B7280;
+}
+
+.section-dark .metric-card {
+  background: var(--bg-dark);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.section-dark .metric-card-value {
+  color: var(--bg-primary);
+}
+
+.section-dark .metric-card-label {
+  color: #6B7280;
+}
+
+.section-dark .pull-quote {
+  color: var(--bg-primary);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.section-dark .data-table thead th {
+  color: #6B7280;
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.section-dark .data-table tbody tr {
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+.section-dark .data-table tbody td {
+  color: #A1A1AA;
+}
+
+.section-dark .data-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.section-dark .data-table tbody tr:nth-child(odd) {
+  background: transparent;
+}
+
+/* ----------------------------------------------------------------
+   FOOTER (.site-footer)
+   ---------------------------------------------------------------- */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: var(--space-5) var(--padding-desktop);
+}
+
+.site-footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-footer-wordmark {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.site-footer-links {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.site-footer-links a {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: var(--text-tertiary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.site-footer-links a:hover {
+  color: var(--text-primary);
+}
+
+.site-footer-copy {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-tertiary);
+}
+
+.site-footer-sub {
+  text-align: center;
+  padding-top: var(--space-4);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-tertiary);
+  letter-spacing: 0.03em;
+}
+
+/* ----------------------------------------------------------------
+   SCROLL ANIMATIONS (.ao)
+   Fade-in on scroll via Intersection Observer.
+   JS adds .vis class when element enters viewport.
+   ---------------------------------------------------------------- */
+.ao {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.ao.vis {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ----------------------------------------------------------------
+   UTILITY CLASSES
+   ---------------------------------------------------------------- */
+.text-mint {
+  color: var(--mint);
+}
+
+.border-bottom {
+  border-bottom: 1px solid var(--border);
+}
+
+.border-top {
+  border-top: 1px solid var(--border);
+}
+
+.max-w-narrow {
+  max-width: 720px;
+}
+
+.max-w-content {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ----------------------------------------------------------------
+   RESPONSIVE — Tablet (768px)
+   ---------------------------------------------------------------- */
+@media (max-width: 768px) {
+  :root {
+    --padding-desktop: 24px;
+    --section-gap: 80px;
+  }
+
+  /* Nav: collapse to hamburger */
+  .site-nav {
+    padding: var(--space-2) var(--padding-mobile);
+  }
+
+  .site-nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border);
+    padding: var(--space-3) var(--padding-mobile);
+    gap: var(--space-3);
+  }
+
+  .site-nav-links.open {
+    display: flex;
+  }
+
+  .site-nav-toggle {
+    display: block;
+  }
+
+  /* Typography scale down */
+  .t-hero {
+    font-size: clamp(32px, 8vw, 48px);
+  }
+
+  .t-section,
+  .section-header-title {
+    font-size: 24px;
+  }
+
+  .pull-quote {
+    font-size: 22px;
+  }
+
+  /* Grids: 4-col -> 2-col */
+  .metric-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer responsive */
+  .site-footer-inner {
+    flex-direction: column;
+    gap: var(--space-3);
+    text-align: center;
+  }
+
+  .site-footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3);
+  }
+}
+
+/* ----------------------------------------------------------------
+   RESPONSIVE — Mobile (375px)
+   ---------------------------------------------------------------- */
+@media (max-width: 375px) {
+  /* Card grids: 2-col -> 1-col */
+  .metric-grid-4,
+  .metric-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-4,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .metric-card-value {
+    font-size: 28px;
+  }
+
+  .cta-primary {
+    width: 100%;
+    text-align: center;
+  }
+}

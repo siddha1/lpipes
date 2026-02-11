@@ -8,98 +8,51 @@
 <meta name="description" content="Deploy Capital at Machine Speed. Liquidity infrastructure for receivables finance.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
 <style>
-:root {
-  --mint: #0D7377;
-  --navy: #1A1A2E;
-  --warm-gray: #E8E8E6;
-  --white: #FFFFFF;
-  --black: #000000;
-}
+/* ================================================================
+   PAGE-SPECIFIC: site.html (hero with background image)
+   ================================================================ */
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Inter', system-ui, sans-serif;
-  color: var(--black);
-  background: var(--white);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* ════════════════════════════════════
-   NAV
-   ════════════════════════════════════ */
-.nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 24px 48px;
+/* Nav over hero: transparent start, white on scroll */
+.site-nav--hero {
   background: transparent;
-  transition: background 0.3s, box-shadow 0.3s;
+  border-bottom-color: transparent;
 }
 
-.nav.scrolled {
-  background: var(--white);
-  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
-}
-
-.nav-logo {
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  font-size: 15px;
-  letter-spacing: 2px;
+.site-nav--hero .site-nav-wordmark,
+.site-nav--hero .site-nav-links a {
   color: #FFFFFF;
-  text-transform: uppercase;
-  transition: color 0.3s;
 }
 
-.nav.scrolled .nav-logo {
-  color: var(--black);
+.site-nav--hero.scrolled {
+  background: var(--bg-primary);
+  border-bottom-color: var(--border);
 }
 
-.nav-links {
-  display: flex;
-  gap: 40px;
+.site-nav--hero.scrolled .site-nav-wordmark {
+  color: var(--text-primary);
 }
 
-.nav-link {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  text-decoration: none;
-  transition: color 0.3s, opacity 0.3s;
+.site-nav--hero.scrolled .site-nav-links a {
+  color: var(--text-tertiary);
 }
 
-.nav-link:hover {
-  opacity: 0.7;
+.site-nav--hero.scrolled .site-nav-links a:hover,
+.site-nav--hero.scrolled .site-nav-links a.active {
+  color: var(--text-primary);
 }
 
-.nav.scrolled .nav-link {
-  color: var(--black);
-}
-
-/* ════════════════════════════════════
-   HERO
-   ════════════════════════════════════ */
+/* Hero */
 .hero {
   position: relative;
   width: 100%;
   height: 100vh;
   min-height: 600px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  padding-top: 18vh;
   overflow: hidden;
 }
 
@@ -120,16 +73,6 @@ body {
   opacity: 0.85;
 }
 
-.hero-image::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  opacity: 0.05;
-  pointer-events: none;
-  mix-blend-mode: overlay;
-}
-
 @keyframes kenBurns {
   0% { transform: scale(1.0); }
   100% { transform: scale(1.08); }
@@ -139,255 +82,210 @@ body {
   position: absolute;
   inset: 0;
   z-index: 2;
-  background: rgba(0,0,0,0.35);
+  background: rgba(11, 13, 17, 0.45);
 }
 
 .hero-content {
   position: relative;
   z-index: 10;
   text-align: center;
-  padding: 0 6%;
-  max-width: 100%;
+  padding: 0 var(--padding-desktop);
+  max-width: var(--max-width);
 }
 
 .hero-title {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-display);
   font-size: clamp(40px, 7vw, 76px);
   font-weight: 700;
   color: #FFFFFF;
   letter-spacing: -0.02em;
   line-height: 1.05;
-  text-shadow: 0 2px 40px rgba(0,0,0,0.3);
-  word-wrap: break-word;
 }
 
-/* ════════════════════════════════════
-   LIQUIDITY PIPES SECTION
-   ════════════════════════════════════ */
-.liquidity-pipes-header {
-  background: #1A1A2E;
-  padding: 80px 48px;
+/* Liquidity Pipes dark section */
+.pipes-header {
+  padding: var(--section-gap) var(--padding-desktop);
   text-align: center;
 }
 
-.liquidity-pipes-header-inner {
-  max-width: 1200px;
+.pipes-header-inner {
+  max-width: var(--max-width);
   margin: 0 auto;
 }
 
-.liquidity-pipes-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(48px, 7vw, 76px);
+.pipes-title {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6vw, 64px);
   font-weight: 700;
-  color: #ffffff;
+  color: #FFFFFF;
   letter-spacing: -0.02em;
   line-height: 1.05;
-  margin-bottom: 20px;
+  margin-bottom: var(--space-3);
 }
 
-.liquidity-pipes-subtitle {
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(22px, 3vw, 32px);
-  font-weight: 400;
-  color: #7A7A8E;
+.pipes-subtitle {
+  font-family: var(--font-sans);
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 300;
+  color: #6B7280;
 }
 
-/* === INFRASTRUCTURE SECTION === */
-.infra-section { width: 100%; }
+/* Infrastructure rows */
+.infra-section {
+  width: 100%;
+}
 
 .infra-row {
   width: 100%;
-  padding: 56px 0;
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid var(--border);
 }
-.infra-row:nth-child(odd) { background: #ffffff; }
-.infra-row:nth-child(even) { background: #f5f5f5; }
+
+.infra-row:last-child {
+  border-bottom: none;
+}
+
+.infra-row:nth-child(odd) {
+  background: var(--bg-primary);
+}
+
+.infra-row:nth-child(even) {
+  background: var(--bg-alt);
+}
 
 .infra-grid {
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 48px;
+  padding: 0 var(--padding-desktop);
   display: grid;
   grid-template-columns: auto 1fr auto auto;
   align-items: center;
   gap: 0;
 }
 
-/* Column A: Row Number */
 .infra-num {
-  font-size: 88px;
-  font-weight: 800;
-  color: #000000;
-  line-height: 1;
-  padding-right: 28px;
-  font-variant-numeric: tabular-nums;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--mint);
+  padding-right: var(--space-4);
 }
 
-/* Column B: Action + Subtitle */
 .infra-text {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
 .infra-action {
-  font-size: 38px;
+  font-family: var(--font-sans);
+  font-size: 32px;
   font-weight: 700;
-  color: #000000;
+  color: var(--text-primary);
   line-height: 1.15;
 }
+
 .infra-subtitle {
-  font-size: 26px;
+  font-family: var(--font-sans);
+  font-size: 16px;
   font-weight: 400;
-  color: #333333;
-  line-height: 1.2;
-  margin-top: 6px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-top: 4px;
 }
 
-/* Column C: Bridge */
-.infra-bridge {
+.infra-connector {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 40px;
+  padding: 0 var(--space-5);
 }
-.infra-bridge-line {
+
+.infra-connector-line {
   width: 72px;
   height: 1px;
-  background: #c0c0c0;
+  background: var(--border);
 }
 
-/* Column D: Big Number + Label */
-.infra-stat {
-  text-align: center;
+.infra-metric {
+  text-align: right;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
 }
-.infra-big-num {
-  font-size: 88px;
-  font-weight: 800;
-  color: #000000;
+
+.infra-metric-value {
+  font-family: var(--font-sans);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--text-primary);
   line-height: 1;
   font-variant-numeric: tabular-nums;
 }
-.infra-label {
-  font-size: 24px;
+
+.infra-metric-label {
+  font-family: var(--font-sans);
+  font-size: 13px;
   font-weight: 400;
-  color: #333333;
-  margin-top: 8px;
-  letter-spacing: 0.3px;
-  line-height: 1.2;
-}
-
-/* ════════════════════════════════════
-   FOOTER
-   ════════════════════════════════════ */
-footer {
-  padding: 64px 48px;
-  border-top: 2px solid #000;
-}
-
-.f-main {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.f-logo {
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  color: var(--black);
+  letter-spacing: 0.05em;
   text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-top: var(--space-1);
 }
 
-.f-nav {
-  display: flex;
-  gap: 32px;
-}
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 0 var(--padding-mobile);
+  }
 
-.f-nav a {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #666666;
-  text-decoration: none;
-  transition: color 0.3s;
-}
+  .pipes-header {
+    padding: 80px var(--padding-mobile);
+  }
 
-.f-nav a:hover { color: var(--black); }
+  .pipes-title {
+    font-size: 36px;
+  }
 
-.f-copy {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  color: #999999;
-}
+  .infra-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+    padding: 0 var(--padding-mobile);
+  }
 
-.f-sub {
-  padding-top: 48px;
-  text-align: center;
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  color: #bbbbbb;
-}
+  .infra-connector {
+    display: none;
+  }
 
-/* ════════════════════════════════════
-   ANIMATIONS
-   ════════════════════════════════════ */
-.ao {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
+  .infra-num {
+    padding-right: 0;
+  }
 
-.ao.vis {
-  opacity: 1;
-  transform: translateY(0);
-}
+  .infra-metric {
+    align-items: flex-start;
+    text-align: left;
+  }
 
-/* ════════════════════════════════════
-   RESPONSIVE
-   ════════════════════════════════════ */
-@media (max-width: 900px) {
-  .nav { padding: 20px 24px; }
-  .nav-logo { font-size: 14px; }
-  .nav-links { gap: 24px; }
-  .nav-link { font-size: 10px; }
-  .liquidity-pipes-header { padding: 60px 24px; }
-  .liquidity-pipes-title { font-size: 36px; }
-  .infra-grid { grid-template-columns: 1fr; gap: 16px; padding: 0 24px; }
-  .infra-bridge { display: none; }
-  .infra-num { font-size: 48px; padding-right: 0; }
-  .infra-stat { text-align: center; align-items: center; }
-  .infra-action { font-size: 28px; }
-  .infra-subtitle { font-size: 20px; }
-  .infra-big-num { font-size: 56px; }
-  .infra-label { font-size: 18px; }
-  .f-main { flex-direction: column; gap: 24px; text-align: center; }
-  .f-nav { flex-wrap: wrap; justify-content: center; gap: 20px; }
-}
+  .infra-metric-value {
+    font-size: 36px;
+  }
 
-@media (max-width: 600px) {
-  .hero-title { font-size: clamp(36px, 10vw, 52px); }
-  .infra-row { padding: 32px 0; }
-  .infra-num { font-size: 36px; }
-  .infra-big-num { font-size: 44px; }
+  .infra-action {
+    font-size: 24px;
+  }
 }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav class="nav" id="nav">
-  <div class="nav-logo">MINT</div>
-  <div class="nav-links">
-    <a href="/product.html" class="nav-link">Product</a>
-    <a href="/master-plan.html" class="nav-link">Master Plan</a>
-    <a href="/careers.html" class="nav-link">Careers</a>
+<nav class="site-nav site-nav--hero" id="nav">
+  <a href="/site.html" class="site-nav-wordmark">MINT</a>
+  <div class="site-nav-links">
+    <a href="/product.html">Product</a>
+    <a href="/master-plan.html">Master Plan</a>
+    <a href="/careers.html">Careers</a>
   </div>
 </nav>
 
@@ -402,61 +300,61 @@ footer {
   </div>
 </section>
 
-<!-- LIQUIDITY PIPES HEADER -->
-<div class="liquidity-pipes-header" id="product">
-  <div class="liquidity-pipes-header-inner ao">
-    <h2 class="liquidity-pipes-title">Liquidity Pipes</h2>
-    <p class="liquidity-pipes-subtitle">Transform debt into programmable value</p>
+<!-- LIQUIDITY PIPES -->
+<section class="section-dark pipes-header" id="product">
+  <div class="pipes-header-inner ao">
+    <h2 class="pipes-title">Liquidity Pipes</h2>
+    <p class="pipes-subtitle">Transform debt into programmable value</p>
   </div>
-</div>
+</section>
 
 <!-- INFRASTRUCTURE ROWS -->
-<section class="infra-section ao">
+<section class="infra-section">
 
   <!-- ROW 01 -->
-  <div class="infra-row">
+  <div class="infra-row ao">
     <div class="infra-grid">
       <div class="infra-num">01</div>
       <div class="infra-text">
         <div class="infra-action">Capture</div>
         <div class="infra-subtitle">Fragmented Value</div>
       </div>
-      <div class="infra-bridge"><div class="infra-bridge-line"></div></div>
-      <div class="infra-stat">
-        <div class="infra-big-num">33M</div>
-        <div class="infra-label">Small Businesses</div>
+      <div class="infra-connector"><div class="infra-connector-line"></div></div>
+      <div class="infra-metric">
+        <div class="infra-metric-value">33M</div>
+        <div class="infra-metric-label">Small Businesses</div>
       </div>
     </div>
   </div>
 
   <!-- ROW 02 -->
-  <div class="infra-row">
+  <div class="infra-row ao">
     <div class="infra-grid">
       <div class="infra-num">02</div>
       <div class="infra-text">
         <div class="infra-action">Rationalize</div>
         <div class="infra-subtitle">Into Financial Signals</div>
       </div>
-      <div class="infra-bridge"><div class="infra-bridge-line"></div></div>
-      <div class="infra-stat">
-        <div class="infra-big-num">$22T</div>
-        <div class="infra-label">Receivables</div>
+      <div class="infra-connector"><div class="infra-connector-line"></div></div>
+      <div class="infra-metric">
+        <div class="infra-metric-value">$22T</div>
+        <div class="infra-metric-label">Receivables</div>
       </div>
     </div>
   </div>
 
   <!-- ROW 03 -->
-  <div class="infra-row">
+  <div class="infra-row ao">
     <div class="infra-grid">
       <div class="infra-num">03</div>
       <div class="infra-text">
         <div class="infra-action">Standardize</div>
         <div class="infra-subtitle">At Machine Speed</div>
       </div>
-      <div class="infra-bridge"><div class="infra-bridge-line"></div></div>
-      <div class="infra-stat">
-        <div class="infra-big-num">$1.6T</div>
-        <div class="infra-label">Private Credit</div>
+      <div class="infra-connector"><div class="infra-connector-line"></div></div>
+      <div class="infra-metric">
+        <div class="infra-metric-value">$1.6T</div>
+        <div class="infra-metric-label">Private Credit</div>
       </div>
     </div>
   </div>
@@ -464,23 +362,17 @@ footer {
 </section>
 
 <!-- FOOTER -->
-<footer style="border-top: 1px solid #e0e0e0; padding: 48px 64px 40px 64px; background: #ffffff;">
-  <div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; max-width: 1200px; margin: 0 auto;">
-    <div style="justify-self: start;">
-      <a href="/" style="font-family: 'Inter', system-ui, sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 2px; color: #000000; text-decoration: none;">MINT</a>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <a href="/site.html" class="site-footer-wordmark">MINT</a>
+    <div class="site-footer-links">
+      <a href="/product.html">PRODUCT</a>
+      <a href="/careers.html">CAREERS</a>
+      <a href="/master-plan.html">MASTER PLAN</a>
     </div>
-    <div style="display: flex; gap: 40px;">
-      <a href="/product.html" style="font-family: 'Inter', system-ui, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 2px; color: #555555; text-decoration: none;">PRODUCT</a>
-      <a href="/careers.html" style="font-family: 'Inter', system-ui, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 2px; color: #555555; text-decoration: none;">CAREERS</a>
-      <a href="/master-plan.html" style="font-family: 'Inter', system-ui, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 2px; color: #555555; text-decoration: none;">MASTER PLAN</a>
-    </div>
-    <div style="justify-self: end; font-family: 'Inter', system-ui, sans-serif; font-size: 12px; font-weight: 400; color: #999999;">
-      &copy; 2026 Mint Vault Inc.
-    </div>
+    <span class="site-footer-copy">&copy; 2026 Mint Vault Inc.</span>
   </div>
-  <div style="text-align: center; margin-top: 20px; font-family: 'Inter', system-ui, sans-serif; font-size: 12px; font-weight: 400; color: #bbbbbb; letter-spacing: 1px;">
-    Infrastructure for institutional capital
-  </div>
+  <div class="site-footer-sub">Infrastructure for institutional capital</div>
 </footer>
 
 <script>
@@ -500,7 +392,6 @@ document.querySelectorAll('.ao').forEach(el => obs.observe(el));
 window.addEventListener('scroll', () => {
   document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 80);
 }, { passive: true });
-
 </script>
 </body>
 </html>
