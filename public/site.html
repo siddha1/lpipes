@@ -208,11 +208,17 @@
 }
 
 .infra-metric {
-  text-align: right;
+  text-align: left;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: center;
+  border-left: 1px solid var(--border);
+  padding-left: var(--space-4);
+  align-self: stretch;
+  margin: calc(-1 * var(--space-5)) 0;
+  padding-top: var(--space-5);
+  padding-bottom: var(--space-5);
 }
 
 .infra-metric-value {
@@ -265,6 +271,11 @@
   .infra-metric {
     align-items: flex-start;
     text-align: left;
+    border-left: none;
+    padding-left: 0;
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   .infra-metric-value {
@@ -322,7 +333,7 @@
       <div class="infra-connector"><div class="infra-connector-line"></div></div>
       <div class="infra-metric">
         <div class="infra-metric-value">33M</div>
-        <div class="infra-metric-label">Small Businesses</div>
+        <div class="infra-metric-label">U.S. Businesses</div>
       </div>
     </div>
   </div>
@@ -338,7 +349,7 @@
       <div class="infra-connector"><div class="infra-connector-line"></div></div>
       <div class="infra-metric">
         <div class="infra-metric-value">$22T</div>
-        <div class="infra-metric-label">Receivables</div>
+        <div class="infra-metric-label">B2B Receivables</div>
       </div>
     </div>
   </div>
@@ -354,7 +365,7 @@
       <div class="infra-connector"><div class="infra-connector-line"></div></div>
       <div class="infra-metric">
         <div class="infra-metric-value">$1.6T</div>
-        <div class="infra-metric-label">Private Credit</div>
+        <div class="infra-metric-label">Trapped Capital</div>
       </div>
     </div>
   </div>
