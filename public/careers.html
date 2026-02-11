@@ -8,109 +8,32 @@
 <meta name="description" content="Join MINT. Build the capital infrastructure for machines.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
 <style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+/* ================================================================
+   PAGE-SPECIFIC: careers.html
+   ================================================================ */
 
-:root {
-  --white: #FFFFFF;
-  --black: #000000;
-  --navy: #1A1A2E;
-  --mint: #0D7377;
-  --gray-100: #F8F8F8;
-  --gray-300: #E5E5E5;
-  --gray-400: #999999;
-  --gray-500: #666666;
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Inter', -apple-system, sans-serif;
-  color: var(--black);
-  background: var(--white);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* NAV */
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 24px 48px;
-  background: var(--white);
-  border-bottom: 1px solid var(--gray-300);
-}
-
-.nav-logo {
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: var(--black);
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.nav-links {
-  display: flex;
-  gap: 40px;
-  list-style: none;
-}
-
-.nav-links a {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--black);
-  text-decoration: none;
-  transition: opacity 0.2s ease;
-}
-
-.nav-links a:hover {
-  opacity: 0.6;
-}
-
-.nav-links a.active {
-  font-weight: 600;
-}
-
-/* HERO */
+/* Hero */
 .hero {
-  padding: 120px 48px 80px;
+  padding: var(--section-gap) var(--padding-desktop) 80px;
   text-align: center;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--border);
 }
 
 .hero h1 {
-  font-family: 'Inter', -apple-system, sans-serif;
-  font-size: 64px;
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5.6vw, 64px);
   font-weight: 700;
-  color: #000000;
+  color: var(--text-primary);
   line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
-.hero-sub {
-  font-family: 'Inter', -apple-system, sans-serif;
-  font-size: 22px;
-  font-weight: 400;
-  color: #555555;
-  max-width: 680px;
-  margin: 16px auto 0;
-  line-height: 1.5;
-}
-
-/* ROLES SECTION */
+/* Roles section */
 .roles-section {
-  padding: 0 48px 120px;
+  padding: 0 var(--padding-desktop) var(--section-gap);
   max-width: 900px;
   margin: 0 auto;
 }
@@ -119,34 +42,34 @@ nav {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--gray-300);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--border);
 }
 
 .roles-header h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-display);
   font-size: 28px;
-  font-weight: 400;
-  color: var(--black);
+  font-weight: 700;
+  color: var(--text-primary);
 }
 
 .roles-count {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 400;
-  color: var(--gray-400);
+  color: var(--text-tertiary);
 }
 
-/* JOB CARDS */
+/* Job cards */
 .job-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 32px 0;
-  border-bottom: 1px solid var(--gray-300);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--border);
   text-decoration: none;
   color: inherit;
-  transition: padding-left 0.3s ease;
+  transition: padding-left 0.2s ease;
 }
 
 .job-card:hover {
@@ -166,10 +89,10 @@ nav {
 }
 
 .job-tag {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 500;
-  letter-spacing: 1.5px;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--mint);
   background: rgba(13, 115, 119, 0.06);
@@ -179,125 +102,73 @@ nav {
 }
 
 .job-title {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-sans);
   font-size: 18px;
   font-weight: 500;
-  color: var(--black);
-  transition: color 0.3s ease;
-  margin-bottom: 8px;
+  color: var(--text-primary);
+  transition: color 0.2s ease;
+  margin-bottom: var(--space-1);
 }
 
 .job-meta {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-sans);
   font-size: 13px;
   font-weight: 400;
-  color: var(--gray-400);
+  color: var(--text-tertiary);
 }
 
 .job-arrow {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 500;
-  color: var(--black);
-  transition: color 0.3s ease;
-  margin-left: 32px;
+  color: var(--text-primary);
+  transition: color 0.2s ease;
+  margin-left: var(--space-4);
   white-space: nowrap;
 }
 
-/* CTA SECTION */
-.cta-section {
-  background: var(--gray-100);
-  padding: 100px 48px;
-  text-align: center;
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    padding: var(--section-gap) var(--padding-mobile) 60px;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .roles-section {
+    padding: 0 var(--padding-mobile) 80px;
+  }
 }
 
-.cta-section h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
-  font-weight: 400;
-  color: var(--black);
-  margin-bottom: 16px;
-}
+@media (max-width: 375px) {
+  .hero h1 {
+    font-size: 32px;
+  }
 
-.cta-section p {
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  font-weight: 400;
-  color: var(--gray-500);
-  margin-bottom: 32px;
-}
+  .job-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
 
-.cta-btn {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--white);
-  background: var(--black);
-  padding: 16px 48px;
-  text-decoration: none;
-  display: inline-block;
-  transition: background 0.3s ease;
-}
-
-.cta-btn:hover {
-  background: var(--mint);
-}
-
-/* FOOTER */
-footer { padding: 64px 48px; border-top: 2px solid #000; }
-.f-main { display: flex; align-items: center; justify-content: space-between; }
-.f-logo { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 3px; color: var(--black); text-transform: uppercase; }
-.f-nav { display: flex; gap: 32px; }
-.f-nav a { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: #666; text-decoration: none; transition: color 0.3s; }
-.f-nav a:hover { color: var(--black); }
-.f-copy { font-family: 'Inter', sans-serif; font-size: 11px; color: #999; }
-.f-sub { padding-top: 48px; text-align: center; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 400; color: #bbb; }
-
-/* ANIMATIONS */
-.ao {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.ao.vis {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  nav { padding: 20px 24px; }
-  .nav-logo { font-size: 20px; }
-  .nav-links { gap: 24px; }
-  .nav-links a { font-size: 10px; }
-  .hero { padding: 120px 24px 60px; }
-  .hero h1 { font-size: 40px; }
-  .roles-section { padding: 0 24px 80px; }
-  .cta-section { padding: 80px 24px; }
-  .f-main { flex-direction: column; gap: 24px; text-align: center; }
-  .f-nav { flex-wrap: wrap; justify-content: center; gap: 20px; }
-}
-
-@media (max-width: 600px) {
-  .hero h1 { font-size: 32px; }
-  .job-card { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .job-arrow { margin-left: 0; }
+  .job-arrow {
+    margin-left: 0;
+  }
 }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav>
-  <a href="/site.html" class="nav-logo">MINT</a>
-  <ul class="nav-links">
-    <li><a href="/product.html">Product</a></li>
-    <li><a href="/master-plan.html">Master Plan</a></li>
-    <li><a href="/careers.html" class="active">Careers</a></li>
-  </ul>
+<nav class="site-nav" id="nav">
+  <a href="/site.html" class="site-nav-wordmark">MINT</a>
+  <div class="site-nav-links">
+    <a href="/product.html">Product</a>
+    <a href="/master-plan.html">Master Plan</a>
+    <a href="/careers.html" class="active">Careers</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -361,26 +232,21 @@ footer { padding: 64px 48px; border-top: 2px solid #000; }
 </section>
 
 <!-- FOOTER -->
-<footer style="border-top: 1px solid #e0e0e0; padding: 48px 64px 40px 64px; background: #ffffff;">
-  <div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; max-width: 1200px; margin: 0 auto;">
-    <div style="justify-self: start;">
-      <a href="/" style="font-family: 'Inter', system-ui, sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 2px; color: #000000; text-decoration: none;">MINT</a>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <a href="/site.html" class="site-footer-wordmark">MINT</a>
+    <div class="site-footer-links">
+      <a href="/product.html">PRODUCT</a>
+      <a href="/careers.html">CAREERS</a>
+      <a href="/master-plan.html">MASTER PLAN</a>
     </div>
-    <div style="display: flex; gap: 40px;">
-      <a href="/product.html" style="font-family: 'Inter', system-ui, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 2px; color: #555555; text-decoration: none;">PRODUCT</a>
-      <a href="/careers.html" style="font-family: 'Inter', system-ui, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 2px; color: #555555; text-decoration: none;">CAREERS</a>
-      <a href="/master-plan.html" style="font-family: 'Inter', system-ui, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 2px; color: #555555; text-decoration: none;">MASTER PLAN</a>
-    </div>
-    <div style="justify-self: end; font-family: 'Inter', system-ui, sans-serif; font-size: 12px; font-weight: 400; color: #999999;">
-      &copy; 2026 Mint Vault Inc.
-    </div>
+    <span class="site-footer-copy">&copy; 2026 Mint Vault Inc.</span>
   </div>
-  <div style="text-align: center; margin-top: 20px; font-family: 'Inter', system-ui, sans-serif; font-size: 12px; font-weight: 400; color: #bbbbbb; letter-spacing: 1px;">
-    Infrastructure for institutional capital
-  </div>
+  <div class="site-footer-sub">Infrastructure for institutional capital</div>
 </footer>
 
 <script>
+// Scroll animations
 const obs = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
