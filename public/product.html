@@ -591,6 +591,73 @@
   .f-sub { padding-top: 48px; text-align: center; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 400; color: #bbb; }
 
   /* ================================
+     TAPE INTERACTIVE
+     ================================ */
+  .tape-container {
+    max-width: 680px;
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .tape-titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    border-bottom: 1px solid #e8e8e8;
+    background: #fafafa;
+  }
+  .tape-dots { display: flex; gap: 6px; }
+  .tape-dots span {
+    width: 10px; height: 10px; border-radius: 50%;
+    border: 1px solid #ccc; background: transparent;
+  }
+  .tape-titlebar-text { font-size: 13px; font-weight: 500; color: #888; letter-spacing: 0.3px; }
+  .tape-live { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: #0D7377; letter-spacing: 0.3px; }
+  .tape-live-dot { width: 7px; height: 7px; border-radius: 50%; background: #0D7377; animation: tapePulse 2s ease-in-out infinite; }
+  @keyframes tapePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  .tape-body { display: grid; grid-template-columns: 200px 1fr; min-height: 380px; }
+  .tape-sidebar { border-right: 1px solid #e8e8e8; padding: 20px 0; }
+  .tape-sidebar-label { font-size: 10px; font-weight: 600; color: #999; letter-spacing: 1.5px; text-transform: uppercase; padding: 0 16px; margin-bottom: 12px; }
+  .tape-pool { display: flex; align-items: center; gap: 10px; padding: 10px 16px; cursor: pointer; transition: background 0.15s ease; border-left: 3px solid transparent; }
+  .tape-pool:hover { background: #f5f5f5; }
+  .tape-pool.active { background: #f0f0f0; border-left-color: #0D7377; }
+  .tape-pool-dot { width: 6px; height: 6px; border-radius: 50%; background: #ccc; flex-shrink: 0; }
+  .tape-pool.active .tape-pool-dot { background: #0D7377; }
+  .tape-pool-info { display: flex; flex-direction: column; }
+  .tape-pool-name { font-size: 13px; font-weight: 500; color: #222; line-height: 1.3; }
+  .tape-pool-count { font-size: 11px; color: #999; line-height: 1.3; }
+  .tape-activity-label { font-size: 10px; font-weight: 600; color: #999; letter-spacing: 1.5px; text-transform: uppercase; padding: 0 16px; margin-top: 24px; margin-bottom: 12px; }
+  .tape-activity-item { display: flex; align-items: center; gap: 10px; padding: 8px 16px; }
+  .tape-activity-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  .tape-activity-dot.green { background: #0D7377; }
+  .tape-activity-dot.orange { background: #b08030; }
+  .tape-activity-info { display: flex; flex-direction: column; }
+  .tape-activity-name { font-size: 13px; font-weight: 500; color: #222; line-height: 1.3; }
+  .tape-activity-count { font-size: 11px; color: #999; line-height: 1.3; }
+  .tape-main { padding: 0; display: flex; flex-direction: column; }
+  .tape-table-header { display: flex; align-items: baseline; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid #e8e8e8; }
+  .tape-pool-title { font-size: 16px; font-weight: 600; color: #111; }
+  .tape-pool-stats { font-size: 13px; font-weight: 400; color: #888; }
+  .tape-table { width: 100%; border-collapse: collapse; }
+  .tape-table thead th { font-size: 10px; font-weight: 600; color: #999; letter-spacing: 1px; text-transform: uppercase; text-align: left; padding: 12px 16px; border-bottom: 1px solid #e8e8e8; }
+  .tape-table thead th:nth-child(2), .tape-table thead th:nth-child(3) { text-align: right; }
+  .tape-table thead th:nth-child(4) { text-align: right; padding-right: 20px; }
+  .tape-table tbody tr { cursor: pointer; transition: background 0.12s ease; border-bottom: 1px solid #f0f0f0; }
+  .tape-table tbody tr:hover { background: #f7f7f7; }
+  .tape-table tbody tr:last-child { border-bottom: none; }
+  .tape-table tbody td { font-size: 13px; font-weight: 400; color: #333; padding: 14px 16px; }
+  .tape-table tbody td:nth-child(2), .tape-table tbody td:nth-child(3) { text-align: right; font-variant-numeric: tabular-nums; }
+  .tape-table tbody td:nth-child(4) { text-align: right; padding-right: 20px; }
+  .status { font-size: 12px; font-weight: 500; letter-spacing: 0.2px; }
+  .status-funded { color: #0D7377; }
+  .status-available { color: #555; }
+  .status-pending { color: #999; }
+
+  /* ================================
      RESPONSIVE
      ================================ */
   @media (max-width: 900px) {
@@ -655,96 +722,69 @@
     </div>
   </div>
   <div class="product-visual">
-    <div class="app-frame tape-frame">
-      <div class="app-bar">
-        <div class="app-dots"><div class="app-dot"></div><div class="app-dot"></div><div class="app-dot"></div></div>
-        <span class="app-url">The Tape</span>
-        <span class="app-live">● Live</span>
+    <div class="tape-container" id="tapeApp">
+      <div class="tape-titlebar">
+        <div class="tape-dots"><span></span><span></span><span></span></div>
+        <div class="tape-titlebar-text">The Tape</div>
+        <div class="tape-live"><div class="tape-live-dot"></div>Live</div>
       </div>
-      <div class="tape-split">
-        <!-- LEFT SIDEBAR -->
+      <div class="tape-body">
         <div class="tape-sidebar">
-          <div class="tape-side-section">
-            <div class="tape-side-label">Pools</div>
-            <div class="tape-side-item active">
-              <div class="tape-side-dot green"></div>
-              <div>
-                <div class="tape-side-name">All Receivables</div>
-                <div class="tape-side-meta">23 assets</div>
-              </div>
-            </div>
-            <div class="tape-side-item">
-              <div class="tape-side-dot"></div>
-              <div>
-                <div class="tape-side-name">Investment Grade</div>
-                <div class="tape-side-meta">14 assets</div>
-              </div>
-            </div>
-            <div class="tape-side-item">
-              <div class="tape-side-dot"></div>
-              <div>
-                <div class="tape-side-name">Short Duration</div>
-                <div class="tape-side-meta">9 assets</div>
-              </div>
+          <div class="tape-sidebar-label">Pools</div>
+          <div class="tape-pool active" data-pool="all" onclick="switchPool('all')">
+            <div class="tape-pool-dot"></div>
+            <div class="tape-pool-info">
+              <div class="tape-pool-name">All Receivables</div>
+              <div class="tape-pool-count">23 assets</div>
             </div>
           </div>
-          <div class="tape-side-section">
-            <div class="tape-side-label">Activity</div>
-            <div class="tape-side-item">
-              <div class="tape-side-dot mint"></div>
-              <div>
-                <div class="tape-side-name">New Today</div>
-                <div class="tape-side-meta">3 assets</div>
-              </div>
+          <div class="tape-pool" data-pool="ig" onclick="switchPool('ig')">
+            <div class="tape-pool-dot"></div>
+            <div class="tape-pool-info">
+              <div class="tape-pool-name">Investment Grade</div>
+              <div class="tape-pool-count">14 assets</div>
             </div>
-            <div class="tape-side-item">
-              <div class="tape-side-dot amber"></div>
-              <div>
-                <div class="tape-side-name">Pending Review</div>
-                <div class="tape-side-meta">2 assets</div>
-              </div>
+          </div>
+          <div class="tape-pool" data-pool="short" onclick="switchPool('short')">
+            <div class="tape-pool-dot"></div>
+            <div class="tape-pool-info">
+              <div class="tape-pool-name">Short Duration</div>
+              <div class="tape-pool-count">9 assets</div>
+            </div>
+          </div>
+          <div class="tape-activity-label">Activity</div>
+          <div class="tape-activity-item">
+            <div class="tape-activity-dot green"></div>
+            <div class="tape-activity-info">
+              <div class="tape-activity-name">New Today</div>
+              <div class="tape-activity-count">3 assets</div>
+            </div>
+          </div>
+          <div class="tape-activity-item">
+            <div class="tape-activity-dot orange"></div>
+            <div class="tape-activity-info">
+              <div class="tape-activity-name">Pending Review</div>
+              <div class="tape-activity-count">2 assets</div>
             </div>
           </div>
         </div>
-        <!-- RIGHT CONTENT -->
-        <div class="tape-content">
-          <div class="tape-content-head">
-            <span class="tape-content-title">All Receivables</span>
-            <span class="tape-content-agg">$4.2M · 7.9% avg</span>
+        <div class="tape-main">
+          <div class="tape-table-header">
+            <div class="tape-pool-title" id="poolTitle">All Receivables</div>
+            <div class="tape-pool-stats" id="poolStats">$4.2M · 7.9% avg</div>
           </div>
-          <div class="tape-grid-head">
-            <span>Obligor</span><span>Amount</span><span>Yield</span><span>Status</span>
-          </div>
-          <div class="tape-grid-row">
-            <div class="tape-obl">AA+ · Net 45</div>
-            <div class="tape-val">$847K</div>
-            <div class="tape-val">7.8%</div>
-            <div class="tape-status funded">Funded</div>
-          </div>
-          <div class="tape-grid-row selected">
-            <div class="tape-obl">A · Net 30</div>
-            <div class="tape-val">$612K</div>
-            <div class="tape-val">8.2%</div>
-            <div class="tape-status available">Available</div>
-          </div>
-          <div class="tape-grid-row">
-            <div class="tape-obl">AA · Net 28</div>
-            <div class="tape-val">$1.24M</div>
-            <div class="tape-val">7.4%</div>
-            <div class="tape-status available">Available</div>
-          </div>
-          <div class="tape-grid-row">
-            <div class="tape-obl">BBB+ · Net 60</div>
-            <div class="tape-val">$524K</div>
-            <div class="tape-val">9.1%</div>
-            <div class="tape-status pending">Pending</div>
-          </div>
-          <div class="tape-grid-row">
-            <div class="tape-obl">A+ · Net 38</div>
-            <div class="tape-val">$938K</div>
-            <div class="tape-val">8.7%</div>
-            <div class="tape-status funded">Funded</div>
-          </div>
+          <table class="tape-table">
+            <thead>
+              <tr>
+                <th>Obligor</th>
+                <th>Amount</th>
+                <th>Yield</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -855,6 +895,48 @@
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.product-row, .pipe-section').forEach(el => observer.observe(el));
+
+  // Tape interactive
+  const poolData = {
+    all: {
+      title: 'All Receivables', stats: '$4.2M · 7.9% avg',
+      rows: [
+        { obligor: 'AA+ · Net 45', amount: '$847K', yield: '7.8%', status: 'Funded', statusClass: 'status-funded' },
+        { obligor: 'A · Net 30', amount: '$612K', yield: '8.2%', status: 'Available', statusClass: 'status-available' },
+        { obligor: 'AA · Net 28', amount: '$1.24M', yield: '7.4%', status: 'Available', statusClass: 'status-available' },
+        { obligor: 'BBB+ · Net 60', amount: '$524K', yield: '9.1%', status: 'Pending', statusClass: 'status-pending' },
+        { obligor: 'A+ · Net 38', amount: '$938K', yield: '8.7%', status: 'Funded', statusClass: 'status-funded' }
+      ]
+    },
+    ig: {
+      title: 'Investment Grade', stats: '$3.6M · 7.6% avg',
+      rows: [
+        { obligor: 'AA+ · Net 45', amount: '$847K', yield: '7.8%', status: 'Funded', statusClass: 'status-funded' },
+        { obligor: 'AA · Net 28', amount: '$1.24M', yield: '7.4%', status: 'Available', statusClass: 'status-available' },
+        { obligor: 'A+ · Net 38', amount: '$938K', yield: '8.7%', status: 'Funded', statusClass: 'status-funded' },
+        { obligor: 'A · Net 30', amount: '$612K', yield: '8.2%', status: 'Available', statusClass: 'status-available' }
+      ]
+    },
+    short: {
+      title: 'Short Duration', stats: '$2.7M · 8.1% avg',
+      rows: [
+        { obligor: 'A · Net 30', amount: '$612K', yield: '8.2%', status: 'Available', statusClass: 'status-available' },
+        { obligor: 'AA · Net 28', amount: '$1.24M', yield: '7.4%', status: 'Available', statusClass: 'status-available' },
+        { obligor: 'A+ · Net 38', amount: '$938K', yield: '8.7%', status: 'Funded', statusClass: 'status-funded' }
+      ]
+    }
+  };
+  function switchPool(key) {
+    document.querySelectorAll('.tape-pool').forEach(el => el.classList.remove('active'));
+    document.querySelector('.tape-pool[data-pool="'+key+'"]').classList.add('active');
+    const pool = poolData[key];
+    document.getElementById('poolTitle').textContent = pool.title;
+    document.getElementById('poolStats').textContent = pool.stats;
+    document.getElementById('tableBody').innerHTML = pool.rows.map(r =>
+      '<tr><td>'+r.obligor+'</td><td>'+r.amount+'</td><td>'+r.yield+'</td><td><span class="status '+r.statusClass+'">'+r.status+'</span></td></tr>'
+    ).join('');
+  }
+  switchPool('all');
 </script>
 </body>
 </html>
