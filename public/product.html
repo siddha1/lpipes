@@ -7,768 +7,345 @@
 <title>Product · MINT</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
 <style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-  :root {
-    --white: #FFFFFF;
-    --black: #000000;
-    --navy: #1A1A2E;
-    --mint: #0D7377;
-    --mint-light: #E8F4F4;
-    --gray-50: #FAFAFA;
-    --gray-100: #F8F8F8;
-    --gray-200: #EDEDEB;
-    --gray-300: #E5E5E5;
-    --gray-400: #999999;
-    --gray-500: #666666;
-    --gray-600: #444444;
-    --green: #059669;
-    --green-bg: #ECFDF5;
-    --amber: #D97706;
-    --amber-bg: #FFFBEB;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    color: var(--black);
-    background: var(--white);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  /* ================================
-     NAV (matches careers.html exactly)
-     ================================ */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 28px 48px;
-    background: var(--white);
-    border-bottom: 1px solid var(--gray-300);
-    transition: all 0.3s ease;
-  }
-
-  .nav-logo {
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: var(--black);
-    text-decoration: none;
-    text-transform: uppercase;
-  }
-
-  .nav-links { display: flex; gap: 36px; }
-
-  .nav-links a {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--gray-500);
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-
-  .nav-links a:hover { color: var(--black); }
-  .nav-links a.active { color: var(--black); }
-
-  /* ================================
-     HERO
-     ================================ */
-  .hero {
-    padding: 120px 48px 80px;
-    text-align: center;
-  }
-
-  .hero h1 {
-    font-family: 'Inter', -apple-system, sans-serif;
-    font-size: 64px;
-    font-weight: 700;
-    color: #000000;
-    line-height: 1.15;
-  }
-
-  .hero-sub {
-    font-family: 'Inter', -apple-system, sans-serif;
-    font-size: 22px;
-    font-weight: 400;
-    color: #555555;
-    max-width: 680px;
-    margin: 16px auto 0;
-    line-height: 1.5;
-  }
-
-  .hero { border-bottom: 1px solid #e0e0e0; }
-
-  /* Section backgrounds */
-  #tape { background: #ffffff; }
-  #tape .product-visual { background: #ffffff; border-left-color: #e0e0e0; }
-  #origin { background: #f5f5f5; }
-  #origin .product-visual { background: #f5f5f5; }
-  #confirm { background: #1A1A2E; }
-  #confirm .product-text { color: #ffffff; }
-  #confirm h2 { color: #ffffff; }
-  #confirm .product-text > p { color: #aaaaaa; }
-  #confirm .section-label { color: #777777; }
-  #confirm .product-feature span { color: #cccccc; }
-  #confirm .product-visual { background: #1A1A2E; border-left-color: rgba(255,255,255,0.1); }
-
-  /* ================================
-     PIPE SECTION (3-box flow)
-     ================================ */
-  .pipe-section {
-    padding: 64px 48px 72px;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-
-  .pipe-section.visible { opacity: 1; transform: translateY(0); }
-
-  .pipe-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    font-weight: 400;
-    color: var(--black);
-    letter-spacing: -0.5px;
-    margin-bottom: 48px;
-  }
-
-  .flow-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0;
-    max-width: 580px;
-    margin: 0 auto;
-  }
-
-  .flow-card {
-    width: 150px;
-    height: 120px;
-    border: 1px solid var(--gray-300);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 16px;
-    background: var(--white);
-  }
-
-  .flow-card.flow-center {
-    width: 150px;
-    height: 150px;
-    background: var(--navy);
-    border-color: var(--navy);
-  }
-
-  .flow-card-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--gray-400);
-    margin-bottom: 4px;
-  }
-
-  .flow-center .flow-card-label {
-    color: rgba(255,255,255,0.5);
-  }
-
-  .flow-card-title {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--black);
-    line-height: 1.25;
-  }
-
-  .flow-card-stat {
-    font-family: 'Inter', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--mint);
-    margin-top: 6px;
-  }
-
-  .flow-center .flow-card-stat {
-    color: var(--white);
-  }
-
-  .flow-center .flow-card-title {
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    color: var(--white);
-    text-transform: uppercase;
-  }
-
-  .flow-card-sub {
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
-    font-weight: 400;
-    color: var(--gray-400);
-    margin-top: 6px;
-  }
-
-  .flow-center .flow-card-sub {
-    color: rgba(255,255,255,0.45);
-  }
-
-  .flow-arrow {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3px;
-    padding: 0 16px;
-  }
-
-  .flow-arrow-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 8px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--gray-400);
-  }
-
-  .flow-arrow svg {
-    width: 20px;
-    height: 10px;
-    stroke: var(--gray-400);
-    fill: none;
-    stroke-width: 1.5;
-  }
-
-  /* ================================
-     DIVIDER
-     ================================ */
-  .divider {
-    width: 100%;
-    border: none;
-    border-top: 1px solid var(--gray-300);
-  }
-
-  /* ================================
-     PRODUCT SECTIONS
-     ================================ */
-  .product-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 680px;
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-
-  .product-row.visible { opacity: 1; transform: translateY(0); }
-  .product-row.reverse .product-text { order: 2; }
-  .product-row.reverse .product-visual { order: 1; }
-
-  .product-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 80px 64px;
-  }
-
-  .section-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--mint);
-    margin-bottom: 20px;
-  }
-
-  .product-text h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    font-weight: 400;
-    line-height: 1.25;
-    color: var(--black);
-    letter-spacing: -0.5px;
-    margin-bottom: 24px;
-  }
-
-  .product-text p {
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 1.75;
-    color: var(--gray-500);
-  }
-
-  .product-features { display: grid; gap: 12px; margin-top: 28px; }
-
-  .product-feature { display: flex; align-items: center; gap: 12px; }
-
-  .pf-check {
-    width: 18px;
-    height: 18px;
-    border: 1.5px solid var(--mint);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .pf-check svg { width: 10px; height: 10px; stroke: var(--mint); fill: none; stroke-width: 2.5; }
-
-  .product-feature span {
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--gray-600);
-  }
-
-  .product-visual {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 48px;
-    background: var(--gray-50);
-    border-left: 1px solid var(--gray-300);
-    overflow: hidden;
-  }
-
-  .product-row.reverse .product-visual {
-    border-left: none;
-    border-right: 1px solid var(--gray-300);
-  }
-
-  .visual-navy {
-    background: var(--navy);
-    border-left-color: var(--navy);
-  }
-
-  /* APP FRAME */
-  .app-frame {
-    width: 100%;
-    max-width: 480px;
-    background: var(--white);
-    border: 1px solid var(--gray-300);
-    box-shadow: 0 8px 40px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.03);
-  }
-
-  .app-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 16px;
-    border-bottom: 1px solid var(--gray-200);
-    background: var(--gray-50);
-  }
-
-  .app-dots { display: flex; gap: 5px; }
-  .app-dot { width: 7px; height: 7px; border: 1px solid var(--gray-300); background: var(--white); }
-  .app-url { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 400; color: var(--gray-400); }
-  .app-live { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 400; color: var(--mint); }
-
-  /* TAPE SPLIT PANEL (Swiss precision) */
-  .tape-frame { max-width: 560px; }
-
-  .tape-split {
-    display: grid;
-    grid-template-columns: 160px 1fr;
-    min-height: 340px;
-    font-family: 'Inter', -apple-system, sans-serif;
-  }
-
-  .tape-sidebar {
-    border-right: 1px solid var(--gray-200);
-    padding: 14px 0;
-    background: var(--gray-50);
-  }
-
-  .tape-side-section { padding: 0 0 10px; }
-  .tape-side-section + .tape-side-section { border-top: 1px solid var(--gray-200); padding-top: 10px; }
-
-  .tape-side-label {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    color: var(--gray-400);
-    padding: 4px 16px 6px;
-  }
-
-  .tape-side-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 7px 16px;
-    cursor: pointer;
-    transition: background 0.12s ease;
-  }
-
-  .tape-side-item:hover { background: var(--gray-100); }
-  .tape-side-item.active { background: var(--white); }
-
-  .tape-side-dot {
-    width: 5px;
-    height: 5px;
-    background: var(--gray-300);
-    flex-shrink: 0;
-  }
-
-  .tape-side-dot.green { background: var(--green); }
-  .tape-side-dot.mint { background: var(--mint); }
-  .tape-side-dot.amber { background: var(--amber); }
-
-  .tape-side-name {
-    font-size: 11px;
-    font-weight: 400;
-    color: var(--gray-600);
-    line-height: 1.3;
-  }
-
-  .tape-side-item.active .tape-side-name { color: var(--black); font-weight: 500; }
-
-  .tape-side-meta {
-    font-size: 11px;
-    font-weight: 400;
-    color: var(--gray-400);
-    margin-top: 1px;
-  }
-
-  .tape-content { padding: 0; }
-
-  .tape-content-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--gray-200);
-  }
-
-  .tape-content-title {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--black);
-  }
-
-  .tape-content-agg {
-    font-size: 11px;
-    font-weight: 400;
-    color: var(--gray-400);
-  }
-
-  .tape-grid-head {
-    display: grid;
-    grid-template-columns: 1.4fr 0.7fr 0.5fr 0.6fr;
-    padding: 7px 16px;
-    border-bottom: 1px solid var(--gray-200);
-  }
-
-  .tape-grid-head span {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.3px;
-    text-transform: uppercase;
-    color: var(--gray-400);
-  }
-
-  .tape-grid-row {
-    display: grid;
-    grid-template-columns: 1.4fr 0.7fr 0.5fr 0.6fr;
-    padding: 9px 16px;
-    border-bottom: 1px solid var(--gray-200);
-    align-items: center;
-    transition: background 0.12s ease;
-  }
-
-  .tape-grid-row:last-child { border-bottom: none; }
-  .tape-grid-row:hover { background: var(--gray-50); }
-  .tape-grid-row.selected { background: rgba(13,115,119,0.04); }
-
-  .tape-obl {
-    font-size: 11px;
-    font-weight: 400;
-    color: var(--gray-600);
-  }
-
-  .tape-val {
-    font-size: 11px;
-    font-weight: 400;
-    color: var(--gray-600);
-  }
-
-  .tape-status {
-    font-size: 10px;
-    font-weight: 400;
-    color: var(--gray-400);
-  }
-
-  .tape-status.funded { color: var(--green); }
-  .tape-status.available { color: var(--mint); }
-  .tape-status.pending { color: var(--amber); }
-
-  /* Status text styles */
-
-  /* ORIGIN MOCKUP (Swiss precision) */
-  .origin-body { padding: 16px; font-family: 'Inter', -apple-system, sans-serif; }
-  .origin-pipeline { display: flex; gap: 2px; margin-bottom: 16px; }
-  .pipe-step { flex: 1; padding: 10px 6px; text-align: center; background: var(--gray-100); }
-  .pipe-step.done { background: var(--gray-100); }
-  .pipe-step.active { background: rgba(13,115,119,0.04); }
-  .pipe-name { font-size: 10px; font-weight: 500; letter-spacing: 0.3px; text-transform: uppercase; color: var(--gray-400); }
-  .pipe-step.done .pipe-name { color: var(--gray-600); }
-  .pipe-step.active .pipe-name { color: var(--mint); }
-  .pipe-status { font-size: 10px; font-weight: 400; color: var(--gray-400); margin-top: 3px; }
-  .pipe-step.done .pipe-status { color: var(--gray-600); }
-  .pipe-step.active .pipe-status { color: var(--mint); }
-
-  .inv-row { display: grid; grid-template-columns: 1fr auto auto; gap: 16px; align-items: center; padding: 10px 14px; border: 1px solid var(--gray-200); margin-bottom: 4px; transition: background 0.12s ease; }
-  .inv-row:hover { background: var(--gray-50); }
-  .inv-row.selected { background: rgba(13,115,119,0.04); }
-  .inv-primary { font-size: 11px; font-weight: 400; color: var(--gray-600); }
-  .inv-amt { font-size: 11px; font-weight: 400; color: var(--gray-600); }
-  .inv-status { font-size: 10px; font-weight: 400; color: var(--gray-400); }
-  .inv-status.validated { color: var(--gray-600); }
-  .inv-status.validating { color: var(--mint); }
-  .inv-status.extracting { color: var(--amber); }
-
-  /* CONFIRM MOCKUP */
-  .confirm-body { padding: 20px; font-family: 'Inter', -apple-system, sans-serif; }
-  .confirm-match { border: 1px solid var(--gray-200); padding: 16px; margin-bottom: 16px; }
-  .confirm-match-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid var(--gray-200); }
-  .confirm-match-title { font-size: 12px; font-weight: 500; color: var(--black); }
-  .confirm-match-id { font-size: 11px; font-weight: 400; color: var(--gray-400); }
-  .confirm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .cf-label { font-size: 10px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; color: var(--gray-400); margin-bottom: 2px; }
-  .cf-val { font-size: 11px; font-weight: 400; color: var(--gray-600); }
-  .confirm-checks { display: grid; gap: 6px; margin-bottom: 16px; }
-  .cc-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--gray-50); }
-  .cc-icon svg { width: 14px; height: 14px; stroke: var(--gray-400); fill: none; stroke-width: 2.5; }
-  .cc-text { font-size: 11px; font-weight: 400; color: var(--gray-600); }
-  .confirm-cta { display: block; width: 100%; padding: 12px; font-size: 11px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; text-align: center; background: var(--mint); color: var(--white); border: none; }
-
-  /* ================================
-     CTA
-     ================================ */
-  .cta-section { text-align: center; padding: 120px 48px; }
-
-  .cta-section h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    font-weight: 400;
-    color: var(--black);
-    margin-bottom: 20px;
-  }
-
-  .cta-section p {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    color: var(--gray-500);
-    margin-bottom: 36px;
-  }
-
-  .cta-btn {
-    display: inline-block;
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--white);
-    background: var(--black);
-    padding: 16px 40px;
-    text-decoration: none;
-    transition: background 0.2s ease;
-  }
-
-  .cta-btn:hover { background: var(--navy); }
-
-  /* ================================
-     FOOTER (matches careers.html)
-     ================================ */
-  footer { padding: 64px 48px; border-top: 2px solid #000; }
-  .f-main { display: flex; align-items: center; justify-content: space-between; }
-  .f-logo { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 3px; color: var(--black); text-transform: uppercase; }
-  .f-nav { display: flex; gap: 32px; }
-  .f-nav a { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: #666; text-decoration: none; transition: color 0.3s; }
-  .f-nav a:hover { color: var(--black); }
-  .f-copy { font-family: 'Inter', sans-serif; font-size: 11px; color: #999; }
-  .f-sub { padding-top: 48px; text-align: center; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 400; color: #bbb; }
-
-  /* ================================
-     ORIGIN INTERACTIVE
-     ================================ */
-  .origin-container {
-    max-width: 620px;
-    width: 100%;
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-  }
-  .origin-titlebar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 20px;
-    border-bottom: 1px solid #e8e8e8;
-    background: #fafafa;
-  }
-  .origin-dots { display: flex; gap: 6px; }
-  .origin-dots span { width: 10px; height: 10px; border-radius: 50%; border: 1px solid #ccc; background: transparent; }
-  .origin-titlebar-text { font-size: 13px; font-weight: 500; color: #888; letter-spacing: 0.3px; }
-  .origin-status { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: #0D7377; letter-spacing: 0.3px; }
-  .origin-status-dot { width: 7px; height: 7px; border-radius: 50%; background: #0D7377; animation: originPulse 2s ease-in-out infinite; }
-  @keyframes originPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-  .origin-pipeline { display: grid; grid-template-columns: repeat(5, 1fr); border-bottom: 1px solid #e8e8e8; }
-  .origin-stage { text-align: center; padding: 16px 8px; cursor: pointer; transition: background 0.15s ease; border-right: 1px solid #e8e8e8; position: relative; }
-  .origin-stage:last-child { border-right: none; }
-  .origin-stage:hover { background: #f5f5f5; }
-  .origin-stage.active { background: #f0f0f0; }
-  .origin-stage.active::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: #0D7377; }
-  .origin-stage.completed .origin-stage-name { color: #333; }
-  .origin-stage.completed .origin-stage-count { color: #666; }
-  .origin-stage.queued .origin-stage-name { color: #bbb; }
-  .origin-stage.queued .origin-stage-count { color: #ccc; }
-  .origin-stage-name { font-size: 10px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: #333; margin-bottom: 4px; }
-  .origin-stage-count { font-size: 13px; font-weight: 500; color: #666; }
-  .origin-stage.active .origin-stage-name { color: #0D7377; }
-  .origin-stage.active .origin-stage-count { color: #0D7377; font-weight: 600; }
-  .origin-table { width: 100%; border-collapse: collapse; }
-  .origin-table tbody tr { border-bottom: 1px solid #f0f0f0; transition: background 0.12s ease; cursor: pointer; }
-  .origin-table tbody tr:hover { background: #f7f7f7; }
-  .origin-table tbody tr:last-child { border-bottom: none; }
-  .origin-table tbody td { padding: 16px 20px; font-size: 13px; color: #333; }
-  .origin-table tbody td:nth-child(1) { font-weight: 500; }
-  .origin-table tbody td:nth-child(2) { text-align: right; font-variant-numeric: tabular-nums; font-weight: 500; }
-  .origin-table tbody td:nth-child(3) { text-align: right; padding-right: 20px; }
-  .inv-status { font-size: 12px; font-weight: 500; letter-spacing: 0.2px; }
-  .inv-validated { color: #333; }
-  .inv-validating { color: #0D7377; }
-  .inv-extracting { color: #999; }
-  .inv-queued { color: #ccc; }
-  .inv-underwriting { color: #0D7377; }
-  .inv-tokenized { color: #0D7377; }
-  .inv-complete { color: #333; }
-
-  /* ================================
-     TAPE INTERACTIVE
-     ================================ */
-  .tape-container {
-    max-width: 680px;
-    width: 100%;
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-  }
-  .tape-titlebar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 20px;
-    border-bottom: 1px solid #e8e8e8;
-    background: #fafafa;
-  }
-  .tape-dots { display: flex; gap: 6px; }
-  .tape-dots span {
-    width: 10px; height: 10px; border-radius: 50%;
-    border: 1px solid #ccc; background: transparent;
-  }
-  .tape-titlebar-text { font-size: 13px; font-weight: 500; color: #888; letter-spacing: 0.3px; }
-  .tape-live { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: #0D7377; letter-spacing: 0.3px; }
-  .tape-live-dot { width: 7px; height: 7px; border-radius: 50%; background: #0D7377; animation: tapePulse 2s ease-in-out infinite; }
-  @keyframes tapePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-  .tape-body { display: grid; grid-template-columns: 200px 1fr; min-height: 380px; }
-  .tape-sidebar { border-right: 1px solid #e8e8e8; padding: 20px 0; }
-  .tape-sidebar-label { font-size: 10px; font-weight: 600; color: #999; letter-spacing: 1.5px; text-transform: uppercase; padding: 0 16px; margin-bottom: 12px; }
-  .tape-pool { display: flex; align-items: center; gap: 10px; padding: 10px 16px; cursor: pointer; transition: background 0.15s ease; border-left: 3px solid transparent; }
-  .tape-pool:hover { background: #f5f5f5; }
-  .tape-pool.active { background: #f0f0f0; border-left-color: #0D7377; }
-  .tape-pool-dot { width: 6px; height: 6px; border-radius: 50%; background: #ccc; flex-shrink: 0; }
-  .tape-pool.active .tape-pool-dot { background: #0D7377; }
-  .tape-pool-info { display: flex; flex-direction: column; }
-  .tape-pool-name { font-size: 13px; font-weight: 500; color: #222; line-height: 1.3; }
-  .tape-pool-count { font-size: 11px; color: #999; line-height: 1.3; }
-  .tape-activity-label { font-size: 10px; font-weight: 600; color: #999; letter-spacing: 1.5px; text-transform: uppercase; padding: 0 16px; margin-top: 24px; margin-bottom: 12px; }
-  .tape-activity-item { display: flex; align-items: center; gap: 10px; padding: 8px 16px; }
-  .tape-activity-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-  .tape-activity-dot.green { background: #0D7377; }
-  .tape-activity-dot.orange { background: #b08030; }
-  .tape-activity-info { display: flex; flex-direction: column; }
-  .tape-activity-name { font-size: 13px; font-weight: 500; color: #222; line-height: 1.3; }
-  .tape-activity-count { font-size: 11px; color: #999; line-height: 1.3; }
-  .tape-main { padding: 0; display: flex; flex-direction: column; }
-  .tape-table-header { display: flex; align-items: baseline; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid #e8e8e8; }
-  .tape-pool-title { font-size: 16px; font-weight: 600; color: #111; }
-  .tape-pool-stats { font-size: 13px; font-weight: 400; color: #888; }
-  .tape-table { width: 100%; border-collapse: collapse; }
-  .tape-table thead th { font-size: 10px; font-weight: 600; color: #999; letter-spacing: 1px; text-transform: uppercase; text-align: left; padding: 12px 16px; border-bottom: 1px solid #e8e8e8; }
-  .tape-table thead th:nth-child(2), .tape-table thead th:nth-child(3) { text-align: right; }
-  .tape-table thead th:nth-child(4) { text-align: right; padding-right: 20px; }
-  .tape-table tbody tr { cursor: pointer; transition: background 0.12s ease; border-bottom: 1px solid #f0f0f0; }
-  .tape-table tbody tr:hover { background: #f7f7f7; }
-  .tape-table tbody tr:last-child { border-bottom: none; }
-  .tape-table tbody td { font-size: 13px; font-weight: 400; color: #333; padding: 14px 16px; }
-  .tape-table tbody td:nth-child(2), .tape-table tbody td:nth-child(3) { text-align: right; font-variant-numeric: tabular-nums; }
-  .tape-table tbody td:nth-child(4) { text-align: right; padding-right: 20px; }
-  .status { font-size: 12px; font-weight: 500; letter-spacing: 0.2px; }
-  .status-funded { color: #0D7377; }
-  .status-available { color: #555; }
-  .status-pending { color: #999; }
-
-  /* ================================
-     RESPONSIVE
-     ================================ */
-  @media (max-width: 900px) {
-    nav { padding: 20px 24px; }
-    .nav-links { gap: 20px; }
-    .nav-links a { font-size: 11px; }
-    .hero { padding: 120px 24px 60px; }
-    .hero h1 { font-size: 40px; }
-    .pipe-section { padding: 48px 24px 56px; }
-    .pipe-title { font-size: 22px; }
-    .flow-row { flex-direction: column; }
-    .flow-card, .flow-card.flow-center { width: 140px; height: 100px; }
-    .flow-card.flow-center { height: 120px; }
-    .flow-arrow { padding: 10px 0; transform: rotate(90deg); }
-    .product-row { grid-template-columns: 1fr; min-height: auto; }
-    .product-row.reverse .product-text { order: 1; }
-    .product-row.reverse .product-visual { order: 2; }
-    .product-text { padding: 60px 24px; }
-    .product-text h2 { font-size: 28px; }
-    .product-visual { padding: 32px 24px; border-left: none !important; border-right: none !important; border-top: 1px solid var(--gray-300); }
-    .tape-split { grid-template-columns: 1fr; }
-    .tape-sidebar { border-right: none; border-bottom: 1px solid var(--gray-200); padding: 8px 0; display: flex; overflow-x: auto; gap: 0; }
-    .tape-side-section { display: flex; gap: 0; padding: 0; border: none !important; }
-    .tape-side-label { display: none; }
-    .tape-side-item { white-space: nowrap; padding: 6px 12px; }
-    .tape-frame { max-width: 100%; }
-    .cta-section { padding: 80px 24px; }
-    .f-main { flex-direction: column; gap: 24px; text-align: center; }
-    .f-nav { flex-wrap: wrap; justify-content: center; gap: 20px; }
-  }
+/* ================================================================
+   PAGE-SPECIFIC: product.html
+   ================================================================ */
+
+/* Hero */
+.hero {
+  padding: var(--section-gap) var(--padding-desktop) 80px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5.6vw, 64px);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.hero-sub {
+  font-family: var(--font-sans);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  max-width: 680px;
+  margin: var(--space-2) auto 0;
+  line-height: 1.5;
+}
+
+/* Divider */
+.divider {
+  width: 100%;
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+/* Product sections (split layout) */
+.product-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 680px;
+}
+
+.product-row.reverse .product-text { order: 2; }
+.product-row.reverse .product-visual { order: 1; }
+
+/* Section backgrounds */
+#tape { background: var(--bg-primary); }
+#tape .product-visual { background: var(--bg-primary); border-left-color: var(--border); }
+#origin { background: var(--bg-alt); }
+#origin .product-visual { background: var(--bg-alt); }
+
+/* Confirm dark section */
+#confirm { background: var(--bg-dark); }
+#confirm .product-text { color: #FFFFFF; }
+#confirm h2 { color: #FFFFFF; }
+#confirm .product-text > p { color: #A1A1AA; }
+#confirm .section-label { color: #6B7280; }
+#confirm .product-feature span { color: #A1A1AA; }
+#confirm .pf-check { border-color: rgba(255,255,255,0.2); }
+#confirm .pf-check svg { stroke: rgba(255,255,255,0.4); }
+#confirm .product-visual { background: var(--bg-dark); border-left-color: rgba(255,255,255,0.06); }
+
+.product-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px var(--padding-desktop);
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--mint);
+  margin-bottom: var(--space-3);
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.section-label-num {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--mint);
+}
+
+.product-text h2 {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-3);
+}
+
+.product-text > p {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+.product-features { display: grid; gap: 12px; margin-top: var(--space-4); }
+.product-feature { display: flex; align-items: center; gap: 12px; }
+
+.pf-check {
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--mint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pf-check svg { width: 10px; height: 10px; stroke: var(--mint); fill: none; stroke-width: 2.5; }
+
+.product-feature span {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.product-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  background: var(--bg-alt);
+  border-left: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.product-row.reverse .product-visual {
+  border-left: none;
+  border-right: 1px solid var(--border);
+}
+
+/* ================================
+   TAPE INTERACTIVE
+   ================================ */
+.tape-container {
+  max-width: 680px;
+  width: 100%;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.tape-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-alt);
+}
+
+.tape-dots { display: flex; gap: 6px; }
+.tape-dots span { width: 10px; height: 10px; border: 1px solid var(--border); background: transparent; }
+.tape-titlebar-text { font-family: var(--font-sans); font-size: 13px; font-weight: 500; color: var(--text-tertiary); letter-spacing: 0.3px; }
+.tape-live { display: flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--mint); letter-spacing: 0.3px; }
+.tape-live-dot { width: 7px; height: 7px; background: var(--mint); animation: tapePulse 2s ease-in-out infinite; }
+@keyframes tapePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+.tape-body { display: grid; grid-template-columns: 200px 1fr; min-height: 380px; }
+.tape-sidebar { border-right: 1px solid var(--border); padding: 20px 0; }
+.tape-sidebar-label { font-family: var(--font-sans); font-size: 10px; font-weight: 600; color: var(--text-tertiary); letter-spacing: 1.5px; text-transform: uppercase; padding: 0 16px; margin-bottom: 12px; }
+.tape-pool { display: flex; align-items: center; gap: 10px; padding: 10px 16px; cursor: pointer; transition: background 0.15s ease; border-left: 3px solid transparent; }
+.tape-pool:hover { background: var(--bg-alt); }
+.tape-pool.active { background: var(--bg-alt); border-left-color: var(--mint); }
+.tape-pool-dot { width: 6px; height: 6px; background: var(--border); flex-shrink: 0; }
+.tape-pool.active .tape-pool-dot { background: var(--mint); }
+.tape-pool-info { display: flex; flex-direction: column; }
+.tape-pool-name { font-family: var(--font-sans); font-size: 13px; font-weight: 500; color: var(--text-primary); line-height: 1.3; }
+.tape-pool-count { font-family: var(--font-sans); font-size: 11px; color: var(--text-tertiary); line-height: 1.3; }
+.tape-activity-label { font-family: var(--font-sans); font-size: 10px; font-weight: 600; color: var(--text-tertiary); letter-spacing: 1.5px; text-transform: uppercase; padding: 0 16px; margin-top: 24px; margin-bottom: 12px; }
+.tape-activity-item { display: flex; align-items: center; gap: 10px; padding: 8px 16px; }
+.tape-activity-dot { width: 6px; height: 6px; flex-shrink: 0; }
+.tape-activity-dot.green { background: var(--mint); }
+.tape-activity-dot.orange { background: #b08030; }
+.tape-activity-info { display: flex; flex-direction: column; }
+.tape-activity-name { font-family: var(--font-sans); font-size: 13px; font-weight: 500; color: var(--text-primary); line-height: 1.3; }
+.tape-activity-count { font-family: var(--font-sans); font-size: 11px; color: var(--text-tertiary); line-height: 1.3; }
+.tape-main { padding: 0; display: flex; flex-direction: column; }
+.tape-table-header { display: flex; align-items: baseline; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--border); }
+.tape-pool-title { font-family: var(--font-sans); font-size: 16px; font-weight: 600; color: var(--text-primary); }
+.tape-pool-stats { font-family: var(--font-sans); font-size: 13px; font-weight: 400; color: var(--text-tertiary); }
+.tape-table { width: 100%; border-collapse: collapse; }
+.tape-table thead th { font-family: var(--font-sans); font-size: 10px; font-weight: 600; color: var(--text-tertiary); letter-spacing: 1px; text-transform: uppercase; text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--border); }
+.tape-table thead th:nth-child(2), .tape-table thead th:nth-child(3) { text-align: right; }
+.tape-table thead th:nth-child(4) { text-align: right; padding-right: 20px; }
+.tape-table tbody tr { cursor: pointer; transition: background 0.12s ease; border-bottom: 1px solid var(--border); }
+.tape-table tbody tr:hover { background: var(--bg-alt); }
+.tape-table tbody tr:last-child { border-bottom: none; }
+.tape-table tbody td { font-family: var(--font-sans); font-size: 13px; font-weight: 400; color: var(--text-secondary); padding: 14px 16px; }
+.tape-table tbody td:nth-child(2), .tape-table tbody td:nth-child(3) { text-align: right; font-variant-numeric: tabular-nums; }
+.tape-table tbody td:nth-child(4) { text-align: right; padding-right: 20px; }
+.status { font-family: var(--font-sans); font-size: 12px; font-weight: 500; letter-spacing: 0.2px; }
+.status-funded { color: var(--mint); }
+.status-available { color: var(--text-secondary); }
+.status-pending { color: var(--text-tertiary); }
+
+/* ================================
+   ORIGIN INTERACTIVE
+   ================================ */
+.origin-container {
+  max-width: 620px;
+  width: 100%;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.origin-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-alt);
+}
+
+.origin-dots { display: flex; gap: 6px; }
+.origin-dots span { width: 10px; height: 10px; border: 1px solid var(--border); background: transparent; }
+.origin-titlebar-text { font-family: var(--font-sans); font-size: 13px; font-weight: 500; color: var(--text-tertiary); letter-spacing: 0.3px; }
+.origin-status { display: flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 12px; font-weight: 500; color: var(--mint); letter-spacing: 0.3px; }
+.origin-status-dot { width: 7px; height: 7px; background: var(--mint); animation: originPulse 2s ease-in-out infinite; }
+@keyframes originPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+.origin-pipeline { display: grid; grid-template-columns: repeat(5, 1fr); border-bottom: 1px solid var(--border); }
+.origin-stage { text-align: center; padding: 16px 8px; cursor: pointer; transition: background 0.15s ease; border-right: 1px solid var(--border); position: relative; }
+.origin-stage:last-child { border-right: none; }
+.origin-stage:hover { background: var(--bg-alt); }
+.origin-stage.active { background: var(--bg-alt); }
+.origin-stage.active::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--mint); }
+.origin-stage.completed .origin-stage-name { color: var(--text-secondary); }
+.origin-stage.completed .origin-stage-count { color: var(--text-tertiary); }
+.origin-stage.queued .origin-stage-name { color: #C4C4C4; }
+.origin-stage.queued .origin-stage-count { color: #D4D4D4; }
+.origin-stage-name { font-family: var(--font-sans); font-size: 10px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 4px; }
+.origin-stage-count { font-family: var(--font-sans); font-size: 13px; font-weight: 500; color: var(--text-tertiary); }
+.origin-stage.active .origin-stage-name { color: var(--mint); }
+.origin-stage.active .origin-stage-count { color: var(--mint); font-weight: 600; }
+
+.origin-table { width: 100%; border-collapse: collapse; }
+.origin-table tbody tr { border-bottom: 1px solid var(--border); transition: background 0.12s ease; cursor: pointer; }
+.origin-table tbody tr:hover { background: var(--bg-alt); }
+.origin-table tbody tr:last-child { border-bottom: none; }
+.origin-table tbody td { font-family: var(--font-sans); padding: 16px 20px; font-size: 13px; color: var(--text-secondary); }
+.origin-table tbody td:nth-child(1) { font-weight: 500; }
+.origin-table tbody td:nth-child(2) { text-align: right; font-variant-numeric: tabular-nums; font-weight: 500; }
+.origin-table tbody td:nth-child(3) { text-align: right; padding-right: 20px; }
+.inv-status { font-family: var(--font-sans); font-size: 12px; font-weight: 500; letter-spacing: 0.2px; }
+.inv-validated { color: var(--text-secondary); }
+.inv-validating { color: var(--mint); }
+.inv-extracting { color: var(--text-tertiary); }
+.inv-queued { color: #D4D4D4; }
+.inv-underwriting { color: var(--mint); }
+.inv-tokenized { color: var(--mint); }
+.inv-complete { color: var(--text-secondary); }
+
+/* ================================
+   CONFIRM MOCKUP
+   ================================ */
+.app-frame {
+  width: 100%;
+  max-width: 480px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+}
+
+.app-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-alt);
+}
+
+.app-dots { display: flex; gap: 5px; }
+.app-dot { width: 7px; height: 7px; border: 1px solid var(--border); background: var(--bg-primary); }
+.app-url { font-family: var(--font-sans); font-size: 11px; font-weight: 400; color: var(--text-tertiary); }
+.app-live { font-family: var(--font-mono); font-size: 11px; font-weight: 400; color: var(--mint); }
+
+.confirm-body { padding: 20px; font-family: var(--font-sans); }
+.confirm-match { border: 1px solid var(--border); padding: 16px; margin-bottom: 16px; }
+.confirm-match-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid var(--border); }
+.confirm-match-title { font-size: 12px; font-weight: 500; color: var(--text-primary); }
+.confirm-match-id { font-family: var(--font-mono); font-size: 11px; font-weight: 400; color: var(--text-tertiary); }
+.confirm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.cf-label { font-size: 10px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 2px; }
+.cf-val { font-size: 11px; font-weight: 400; color: var(--text-secondary); }
+.confirm-checks { display: grid; gap: 6px; margin-bottom: 16px; }
+.cc-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--bg-alt); }
+.cc-icon svg { width: 14px; height: 14px; stroke: var(--text-tertiary); fill: none; stroke-width: 2.5; }
+.cc-text { font-size: 11px; font-weight: 400; color: var(--text-secondary); }
+.confirm-cta { display: block; width: 100%; padding: 12px; font-family: var(--font-sans); font-size: 11px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; text-align: center; background: var(--mint); color: var(--bg-primary); border: none; cursor: pointer; }
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+@media (max-width: 768px) {
+  .hero { padding: var(--section-gap) var(--padding-mobile) 60px; }
+  .hero h1 { font-size: 40px; }
+
+  .product-row { grid-template-columns: 1fr; min-height: auto; }
+  .product-row.reverse .product-text { order: 1; }
+  .product-row.reverse .product-visual { order: 2; }
+  .product-text { padding: 60px var(--padding-mobile); }
+  .product-text h2 { font-size: 28px; }
+  .product-visual { padding: 32px var(--padding-mobile); border-left: none; border-right: none; border-top: 1px solid var(--border); }
+
+  .tape-body { grid-template-columns: 1fr; }
+  .tape-sidebar { border-right: none; border-bottom: 1px solid var(--border); padding: 8px 0; display: flex; overflow-x: auto; gap: 0; }
+  .tape-sidebar-label { display: none; }
+  .tape-activity-label { display: none; }
+  .tape-activity-item { display: none; }
+  .tape-pool { white-space: nowrap; padding: 6px 12px; border-left: none; border-bottom: 3px solid transparent; }
+  .tape-pool.active { border-left-color: transparent; border-bottom-color: var(--mint); }
+}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav>
-  <a href="/site.html" class="nav-logo">MINT</a>
-  <div class="nav-links">
+<nav class="site-nav" id="nav">
+  <a href="/site.html" class="site-nav-wordmark">MINT</a>
+  <div class="site-nav-links">
     <a href="/product.html" class="active">Product</a>
     <a href="/master-plan.html">Master Plan</a>
     <a href="/careers.html">Careers</a>
@@ -781,10 +358,10 @@
   <p class="hero-sub">Transform debt into fast moving programmable value</p>
 </div>
 
-<!-- THE TAPE -->
-<div class="product-row" id="tape">
+<!-- 01 THE TAPE -->
+<div class="product-row ao" id="tape">
   <div class="product-text">
-    <p class="section-label">The Tape</p>
+    <p class="section-label"><span class="section-label-num">01</span> The Tape</p>
     <h2>Live receivables tape</h2>
     <p>Verified receivables for institutional buyers. Price and allocate in real time with a clear audit record.</p>
     <div class="product-features">
@@ -866,10 +443,10 @@
 
 <hr class="divider">
 
-<!-- ORIGIN (reversed) -->
-<div class="product-row reverse" id="origin">
+<!-- 02 ORIGIN (reversed) -->
+<div class="product-row reverse ao" id="origin">
   <div class="product-text">
-    <p class="section-label">Origin</p>
+    <p class="section-label"><span class="section-label-num">02</span> Origin</p>
     <h2>Autonomous invoice intake</h2>
     <p>Connect an ERP once. Origin discovers invoices, extracts fields, validates against the ledger, and generates an underwriting record for each eligible receivable.</p>
     <div class="product-features">
@@ -916,10 +493,10 @@
   </div>
 </div>
 
-<!-- CONFIRM -->
-<div class="product-row" id="confirm">
+<!-- 03 CONFIRM (dark section) -->
+<div class="product-row section-dark ao" id="confirm">
   <div class="product-text">
-    <p class="section-label">Confirm</p>
+    <p class="section-label"><span class="section-label-num">03</span> Confirm</p>
     <h2>Supplier confirmation, one click</h2>
     <p>When purchase order matches invoice, Confirm requests approval. One approval clears the receivable for funding.</p>
     <div class="product-features">
@@ -929,7 +506,7 @@
       <div class="product-feature"><div class="pf-check"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span>Confirmed receivable enters funding queue</span></div>
     </div>
   </div>
-  <div class="product-visual visual-navy">
+  <div class="product-visual">
     <div class="app-frame">
       <div class="app-bar">
         <div class="app-dots"><div class="app-dot"></div><div class="app-dot"></div><div class="app-dot"></div></div>
@@ -959,142 +536,141 @@
 </div>
 
 <!-- FOOTER -->
-<footer style="border-top: 1px solid #e0e0e0; padding: 48px 64px 40px 64px; background: #ffffff;">
-  <div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; max-width: 1200px; margin: 0 auto;">
-    <div style="justify-self: start;">
-      <a href="/" style="font-family: 'Inter', system-ui, sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 2px; color: #000000; text-decoration: none;">MINT</a>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <a href="/site.html" class="site-footer-wordmark">MINT</a>
+    <div class="site-footer-links">
+      <a href="/product.html">PRODUCT</a>
+      <a href="/careers.html">CAREERS</a>
+      <a href="/master-plan.html">MASTER PLAN</a>
     </div>
-    <div style="display: flex; gap: 40px;">
-      <a href="/product.html" style="font-family: 'Inter', system-ui, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 2px; color: #555555; text-decoration: none;">PRODUCT</a>
-      <a href="/careers.html" style="font-family: 'Inter', system-ui, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 2px; color: #555555; text-decoration: none;">CAREERS</a>
-      <a href="/master-plan.html" style="font-family: 'Inter', system-ui, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 2px; color: #555555; text-decoration: none;">MASTER PLAN</a>
-    </div>
-    <div style="justify-self: end; font-family: 'Inter', system-ui, sans-serif; font-size: 12px; font-weight: 400; color: #999999;">
-      &copy; 2026 Mint Vault Inc.
-    </div>
+    <span class="site-footer-copy">&copy; 2026 Mint Vault Inc.</span>
   </div>
-  <div style="text-align: center; margin-top: 20px; font-family: 'Inter', system-ui, sans-serif; font-size: 12px; font-weight: 400; color: #bbbbbb; letter-spacing: 1px;">
-    Infrastructure for institutional capital
-  </div>
+  <div class="site-footer-sub">Infrastructure for institutional capital</div>
 </footer>
 
 <script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.product-row, .pipe-section').forEach(el => observer.observe(el));
-
-  // Tape interactive
-  const poolData = {
-    all: {
-      title: 'All Receivables', stats: '$4.2M · 7.9% avg',
-      rows: [
-        { obligor: 'AA+ · Net 45', amount: '$847K', yield: '7.8%', status: 'Funded', statusClass: 'status-funded' },
-        { obligor: 'A · Net 30', amount: '$612K', yield: '8.2%', status: 'Available', statusClass: 'status-available' },
-        { obligor: 'AA · Net 28', amount: '$1.24M', yield: '7.4%', status: 'Available', statusClass: 'status-available' },
-        { obligor: 'BBB+ · Net 60', amount: '$524K', yield: '9.1%', status: 'Pending', statusClass: 'status-pending' },
-        { obligor: 'A+ · Net 38', amount: '$938K', yield: '8.7%', status: 'Funded', statusClass: 'status-funded' }
-      ]
-    },
-    ig: {
-      title: 'Investment Grade', stats: '$3.6M · 7.6% avg',
-      rows: [
-        { obligor: 'AA+ · Net 45', amount: '$847K', yield: '7.8%', status: 'Funded', statusClass: 'status-funded' },
-        { obligor: 'AA · Net 28', amount: '$1.24M', yield: '7.4%', status: 'Available', statusClass: 'status-available' },
-        { obligor: 'A+ · Net 38', amount: '$938K', yield: '8.7%', status: 'Funded', statusClass: 'status-funded' },
-        { obligor: 'A · Net 30', amount: '$612K', yield: '8.2%', status: 'Available', statusClass: 'status-available' }
-      ]
-    },
-    short: {
-      title: 'Short Duration', stats: '$2.7M · 8.1% avg',
-      rows: [
-        { obligor: 'A · Net 30', amount: '$612K', yield: '8.2%', status: 'Available', statusClass: 'status-available' },
-        { obligor: 'AA · Net 28', amount: '$1.24M', yield: '7.4%', status: 'Available', statusClass: 'status-available' },
-        { obligor: 'A+ · Net 38', amount: '$938K', yield: '8.7%', status: 'Funded', statusClass: 'status-funded' }
-      ]
+// Scroll animations
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('vis');
+      obs.unobserve(entry.target);
     }
-  };
-  function switchPool(key) {
-    document.querySelectorAll('.tape-pool').forEach(el => el.classList.remove('active'));
-    document.querySelector('.tape-pool[data-pool="'+key+'"]').classList.add('active');
-    const pool = poolData[key];
-    document.getElementById('poolTitle').textContent = pool.title;
-    document.getElementById('poolStats').textContent = pool.stats;
-    document.getElementById('tableBody').innerHTML = pool.rows.map(r =>
-      '<tr><td>'+r.obligor+'</td><td>'+r.amount+'</td><td>'+r.yield+'</td><td><span class="status '+r.statusClass+'">'+r.status+'</span></td></tr>'
-    ).join('');
-  }
-  switchPool('all');
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-  // Origin interactive
-  const stageData = {
-    discover: {
-      stages: { discover: { state: 'active', count: '12' }, extract: { state: 'queued', count: 'Queued' }, validate: { state: 'queued', count: 'Queued' }, underwrite: { state: 'queued', count: 'Queued' }, tokenize: { state: 'queued', count: 'Queued' } },
-      statusLabel: 'Discovering',
-      invoices: [
-        { id: 'INV-2025-4891', amount: '$127,400', status: 'Discovered', statusClass: 'inv-complete' },
-        { id: 'INV-2025-4892', amount: '$84,200', status: 'Discovered', statusClass: 'inv-complete' },
-        { id: 'INV-2025-4893', amount: '$213,600', status: 'Discovering', statusClass: 'inv-validating' },
-        { id: 'INV-2025-4894', amount: '$56,800', status: 'Scanning', statusClass: 'inv-extracting' }
-      ]
-    },
-    extract: {
-      stages: { discover: { state: 'completed', count: '12' }, extract: { state: 'active', count: '10/12' }, validate: { state: 'queued', count: 'Queued' }, underwrite: { state: 'queued', count: 'Queued' }, tokenize: { state: 'queued', count: 'Queued' } },
-      statusLabel: 'Extracting',
-      invoices: [
-        { id: 'INV-2025-4891', amount: '$127,400', status: 'Extracted', statusClass: 'inv-complete' },
-        { id: 'INV-2025-4892', amount: '$84,200', status: 'Extracted', statusClass: 'inv-complete' },
-        { id: 'INV-2025-4893', amount: '$213,600', status: 'Extracting', statusClass: 'inv-validating' },
-        { id: 'INV-2025-4894', amount: '$56,800', status: 'Extracting', statusClass: 'inv-validating' }
-      ]
-    },
-    validate: {
-      stages: { discover: { state: 'completed', count: '12' }, extract: { state: 'completed', count: 'Done' }, validate: { state: 'active', count: '8/12' }, underwrite: { state: 'queued', count: 'Queued' }, tokenize: { state: 'queued', count: 'Queued' } },
-      statusLabel: 'Processing',
-      invoices: [
-        { id: 'INV-2025-4891', amount: '$127,400', status: 'Validated', statusClass: 'inv-validated' },
-        { id: 'INV-2025-4892', amount: '$84,200', status: 'Validated', statusClass: 'inv-validated' },
-        { id: 'INV-2025-4893', amount: '$213,600', status: 'Validating', statusClass: 'inv-validating' },
-        { id: 'INV-2025-4894', amount: '$56,800', status: 'Extracting', statusClass: 'inv-extracting' }
-      ]
-    },
-    underwrite: {
-      stages: { discover: { state: 'completed', count: '12' }, extract: { state: 'completed', count: 'Done' }, validate: { state: 'completed', count: 'Done' }, underwrite: { state: 'active', count: '6/12' }, tokenize: { state: 'queued', count: 'Queued' } },
-      statusLabel: 'Underwriting',
-      invoices: [
-        { id: 'INV-2025-4891', amount: '$127,400', status: 'Approved', statusClass: 'inv-complete' },
-        { id: 'INV-2025-4892', amount: '$84,200', status: 'Approved', statusClass: 'inv-complete' },
-        { id: 'INV-2025-4893', amount: '$213,600', status: 'Underwriting', statusClass: 'inv-underwriting' },
-        { id: 'INV-2025-4894', amount: '$56,800', status: 'Underwriting', statusClass: 'inv-underwriting' }
-      ]
-    },
-    tokenize: {
-      stages: { discover: { state: 'completed', count: '12' }, extract: { state: 'completed', count: 'Done' }, validate: { state: 'completed', count: 'Done' }, underwrite: { state: 'completed', count: 'Done' }, tokenize: { state: 'active', count: '4/12' } },
-      statusLabel: 'Tokenizing',
-      invoices: [
-        { id: 'INV-2025-4891', amount: '$127,400', status: 'Tokenized', statusClass: 'inv-tokenized' },
-        { id: 'INV-2025-4892', amount: '$84,200', status: 'Tokenized', statusClass: 'inv-tokenized' },
-        { id: 'INV-2025-4893', amount: '$213,600', status: 'Tokenizing', statusClass: 'inv-underwriting' },
-        { id: 'INV-2025-4894', amount: '$56,800', status: 'Queued', statusClass: 'inv-queued' }
-      ]
-    }
-  };
-  function switchStage(key) {
-    var data = stageData[key];
-    document.querySelectorAll('.origin-stage').forEach(function(el) {
-      var stageKey = el.dataset.stage;
-      var stageInfo = data.stages[stageKey];
-      el.className = 'origin-stage ' + stageInfo.state;
-      el.querySelector('.origin-stage-count').textContent = stageInfo.count;
-    });
-    document.querySelector('.origin-status').innerHTML = '<div class="origin-status-dot"></div>' + data.statusLabel;
-    document.getElementById('invoiceBody').innerHTML = data.invoices.map(function(inv) {
-      return '<tr><td>'+inv.id+'</td><td>'+inv.amount+'</td><td><span class="inv-status '+inv.statusClass+'">'+inv.status+'</span></td></tr>';
-    }).join('');
+document.querySelectorAll('.ao').forEach(el => obs.observe(el));
+
+// Tape interactive
+const poolData = {
+  all: {
+    title: 'All Receivables', stats: '$4.2M · 7.9% avg',
+    rows: [
+      { obligor: 'AA+ · Net 45', amount: '$847K', yield: '7.8%', status: 'Funded', statusClass: 'status-funded' },
+      { obligor: 'A · Net 30', amount: '$612K', yield: '8.2%', status: 'Available', statusClass: 'status-available' },
+      { obligor: 'AA · Net 28', amount: '$1.24M', yield: '7.4%', status: 'Available', statusClass: 'status-available' },
+      { obligor: 'BBB+ · Net 60', amount: '$524K', yield: '9.1%', status: 'Pending', statusClass: 'status-pending' },
+      { obligor: 'A+ · Net 38', amount: '$938K', yield: '8.7%', status: 'Funded', statusClass: 'status-funded' }
+    ]
+  },
+  ig: {
+    title: 'Investment Grade', stats: '$3.6M · 7.6% avg',
+    rows: [
+      { obligor: 'AA+ · Net 45', amount: '$847K', yield: '7.8%', status: 'Funded', statusClass: 'status-funded' },
+      { obligor: 'AA · Net 28', amount: '$1.24M', yield: '7.4%', status: 'Available', statusClass: 'status-available' },
+      { obligor: 'A+ · Net 38', amount: '$938K', yield: '8.7%', status: 'Funded', statusClass: 'status-funded' },
+      { obligor: 'A · Net 30', amount: '$612K', yield: '8.2%', status: 'Available', statusClass: 'status-available' }
+    ]
+  },
+  short: {
+    title: 'Short Duration', stats: '$2.7M · 8.1% avg',
+    rows: [
+      { obligor: 'A · Net 30', amount: '$612K', yield: '8.2%', status: 'Available', statusClass: 'status-available' },
+      { obligor: 'AA · Net 28', amount: '$1.24M', yield: '7.4%', status: 'Available', statusClass: 'status-available' },
+      { obligor: 'A+ · Net 38', amount: '$938K', yield: '8.7%', status: 'Funded', statusClass: 'status-funded' }
+    ]
   }
-  switchStage('validate');
+};
+function switchPool(key) {
+  document.querySelectorAll('.tape-pool').forEach(el => el.classList.remove('active'));
+  document.querySelector('.tape-pool[data-pool="'+key+'"]').classList.add('active');
+  const pool = poolData[key];
+  document.getElementById('poolTitle').textContent = pool.title;
+  document.getElementById('poolStats').textContent = pool.stats;
+  document.getElementById('tableBody').innerHTML = pool.rows.map(r =>
+    '<tr><td>'+r.obligor+'</td><td>'+r.amount+'</td><td>'+r.yield+'</td><td><span class="status '+r.statusClass+'">'+r.status+'</span></td></tr>'
+  ).join('');
+}
+switchPool('all');
+
+// Origin interactive
+const stageData = {
+  discover: {
+    stages: { discover: { state: 'active', count: '12' }, extract: { state: 'queued', count: 'Queued' }, validate: { state: 'queued', count: 'Queued' }, underwrite: { state: 'queued', count: 'Queued' }, tokenize: { state: 'queued', count: 'Queued' } },
+    statusLabel: 'Discovering',
+    invoices: [
+      { id: 'INV-2025-4891', amount: '$127,400', status: 'Discovered', statusClass: 'inv-complete' },
+      { id: 'INV-2025-4892', amount: '$84,200', status: 'Discovered', statusClass: 'inv-complete' },
+      { id: 'INV-2025-4893', amount: '$213,600', status: 'Discovering', statusClass: 'inv-validating' },
+      { id: 'INV-2025-4894', amount: '$56,800', status: 'Scanning', statusClass: 'inv-extracting' }
+    ]
+  },
+  extract: {
+    stages: { discover: { state: 'completed', count: '12' }, extract: { state: 'active', count: '10/12' }, validate: { state: 'queued', count: 'Queued' }, underwrite: { state: 'queued', count: 'Queued' }, tokenize: { state: 'queued', count: 'Queued' } },
+    statusLabel: 'Extracting',
+    invoices: [
+      { id: 'INV-2025-4891', amount: '$127,400', status: 'Extracted', statusClass: 'inv-complete' },
+      { id: 'INV-2025-4892', amount: '$84,200', status: 'Extracted', statusClass: 'inv-complete' },
+      { id: 'INV-2025-4893', amount: '$213,600', status: 'Extracting', statusClass: 'inv-validating' },
+      { id: 'INV-2025-4894', amount: '$56,800', status: 'Extracting', statusClass: 'inv-validating' }
+    ]
+  },
+  validate: {
+    stages: { discover: { state: 'completed', count: '12' }, extract: { state: 'completed', count: 'Done' }, validate: { state: 'active', count: '8/12' }, underwrite: { state: 'queued', count: 'Queued' }, tokenize: { state: 'queued', count: 'Queued' } },
+    statusLabel: 'Processing',
+    invoices: [
+      { id: 'INV-2025-4891', amount: '$127,400', status: 'Validated', statusClass: 'inv-validated' },
+      { id: 'INV-2025-4892', amount: '$84,200', status: 'Validated', statusClass: 'inv-validated' },
+      { id: 'INV-2025-4893', amount: '$213,600', status: 'Validating', statusClass: 'inv-validating' },
+      { id: 'INV-2025-4894', amount: '$56,800', status: 'Extracting', statusClass: 'inv-extracting' }
+    ]
+  },
+  underwrite: {
+    stages: { discover: { state: 'completed', count: '12' }, extract: { state: 'completed', count: 'Done' }, validate: { state: 'completed', count: 'Done' }, underwrite: { state: 'active', count: '6/12' }, tokenize: { state: 'queued', count: 'Queued' } },
+    statusLabel: 'Underwriting',
+    invoices: [
+      { id: 'INV-2025-4891', amount: '$127,400', status: 'Approved', statusClass: 'inv-complete' },
+      { id: 'INV-2025-4892', amount: '$84,200', status: 'Approved', statusClass: 'inv-complete' },
+      { id: 'INV-2025-4893', amount: '$213,600', status: 'Underwriting', statusClass: 'inv-underwriting' },
+      { id: 'INV-2025-4894', amount: '$56,800', status: 'Underwriting', statusClass: 'inv-underwriting' }
+    ]
+  },
+  tokenize: {
+    stages: { discover: { state: 'completed', count: '12' }, extract: { state: 'completed', count: 'Done' }, validate: { state: 'completed', count: 'Done' }, underwrite: { state: 'completed', count: 'Done' }, tokenize: { state: 'active', count: '4/12' } },
+    statusLabel: 'Tokenizing',
+    invoices: [
+      { id: 'INV-2025-4891', amount: '$127,400', status: 'Tokenized', statusClass: 'inv-tokenized' },
+      { id: 'INV-2025-4892', amount: '$84,200', status: 'Tokenized', statusClass: 'inv-tokenized' },
+      { id: 'INV-2025-4893', amount: '$213,600', status: 'Tokenizing', statusClass: 'inv-underwriting' },
+      { id: 'INV-2025-4894', amount: '$56,800', status: 'Queued', statusClass: 'inv-queued' }
+    ]
+  }
+};
+function switchStage(key) {
+  var data = stageData[key];
+  document.querySelectorAll('.origin-stage').forEach(function(el) {
+    var stageKey = el.dataset.stage;
+    var stageInfo = data.stages[stageKey];
+    el.className = 'origin-stage ' + stageInfo.state;
+    el.querySelector('.origin-stage-count').textContent = stageInfo.count;
+  });
+  document.querySelector('.origin-status').innerHTML = '<div class="origin-status-dot"></div>' + data.statusLabel;
+  document.getElementById('invoiceBody').innerHTML = data.invoices.map(function(inv) {
+    return '<tr><td>'+inv.id+'</td><td>'+inv.amount+'</td><td><span class="inv-status '+inv.statusClass+'">'+inv.status+'</span></td></tr>';
+  }).join('');
+}
+switchStage('validate');
 </script>
 </body>
 </html>
