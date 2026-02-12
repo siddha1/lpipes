@@ -70,6 +70,7 @@
 #confirm .product-text > p { color: #A1A1AA; }
 #confirm .section-label { color: #6B7280; }
 #confirm .product-feature span { color: #A1A1AA; }
+#confirm .product-specs span { color: #A1A1AA; }
 #confirm .pf-check { border-color: rgba(255,255,255,0.2); }
 #confirm .pf-check svg { stroke: rgba(255,255,255,0.4); }
 #confirm .product-visual { background: var(--bg-dark); border-left-color: rgba(255,255,255,0.06); }
@@ -137,6 +138,20 @@
   font-size: 13px;
   font-weight: 500;
   color: var(--text-secondary);
+}
+
+.product-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: var(--space-4);
+}
+
+.product-specs span {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  color: #6B7280;
 }
 
 .product-visual {
@@ -362,13 +377,12 @@
 <div class="product-row ao" id="tape">
   <div class="product-text">
     <p class="section-label"><span class="section-label-num">01</span> The Tape</p>
-    <h2>Live receivables tape</h2>
-    <p>Verified receivables for institutional buyers. Price and allocate in real time with a clear audit record.</p>
-    <div class="product-features">
-      <div class="product-feature"><div class="pf-check"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span>Real time pricing by obligor quality</span></div>
-      <div class="product-feature"><div class="pf-check"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span>Filters for yield, term, rating, sector</span></div>
-      <div class="product-feature"><div class="pf-check"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span>Onchain settlement with immutable audit trail</span></div>
-      <div class="product-feature"><div class="pf-check"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span>Portfolio rules and automated allocation</span></div>
+    <h2>Live Tape</h2>
+    <p>Verified receivables for institutional buyers.</p>
+    <div class="product-specs">
+      <span>Real time pricing by obligor quality</span>
+      <span>Yield, term, rating, sector filters</span>
+      <span>Onchain settlement, immutable audit</span>
     </div>
   </div>
   <div class="product-visual">
@@ -447,13 +461,12 @@
 <div class="product-row reverse ao" id="origin">
   <div class="product-text">
     <p class="section-label"><span class="section-label-num">02</span> Origin</p>
-    <h2>Autonomous invoice intake</h2>
-    <p>Connect an ERP once. Origin discovers invoices, extracts fields, validates against the ledger, and generates an underwriting record for each eligible receivable.</p>
-    <div class="product-features">
-      <div class="product-feature"><div class="pf-check"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span>One click ERP connection</span></div>
-      <div class="product-feature"><div class="pf-check"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span>Continuous discovery and extraction</span></div>
-      <div class="product-feature"><div class="pf-check"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span>Validation plus exception routing</span></div>
-      <div class="product-feature"><div class="pf-check"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span>Underwriting record generated automatically</span></div>
+    <h2>Autonomous Extraction</h2>
+    <p>Connect an ERP once. Invoices flow automatically.</p>
+    <div class="product-specs">
+      <span>One click ERP connection</span>
+      <span>Continuous discovery and extraction</span>
+      <span>Validation plus exception routing</span>
     </div>
   </div>
   <div class="product-visual">
@@ -497,13 +510,12 @@
 <div class="product-row section-dark ao" id="confirm">
   <div class="product-text">
     <p class="section-label"><span class="section-label-num">03</span> Confirm</p>
-    <h2>Supplier confirmation, one click</h2>
-    <p>When purchase order matches invoice, Confirm requests approval. One approval clears the receivable for funding.</p>
-    <div class="product-features">
-      <div class="product-feature"><div class="pf-check"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span>Purchase order and invoice matching</span></div>
-      <div class="product-feature"><div class="pf-check"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span>Line item reconciliation</span></div>
-      <div class="product-feature"><div class="pf-check"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span>Identity and duplicate checks</span></div>
-      <div class="product-feature"><div class="pf-check"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></div><span>Confirmed receivable enters funding queue</span></div>
+    <h2>One Click Clear</h2>
+    <p>PO matches invoice. One approval clears funding.</p>
+    <div class="product-specs">
+      <span>Purchase order and invoice matching</span>
+      <span>Line item reconciliation</span>
+      <span>Identity and duplicate checks</span>
     </div>
   </div>
   <div class="product-visual">
