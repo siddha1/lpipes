@@ -882,5 +882,19 @@
   <div class="site-footer-sub">Infrastructure for institutional capital</div>
 </footer>
 
+<script>
+// Scroll animations
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('vis');
+      obs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.ao').forEach(el => obs.observe(el));
+</script>
+
 </body>
 </html>
